@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CliniciMedicale.Properties
+namespace Project.Properties
 {
 
 
