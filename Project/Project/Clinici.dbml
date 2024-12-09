@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CliniciMedicale" Class="CliniciDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-7BHTDP6\SQLEXPRESS;Initial Catalog=CliniciMedicale;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Project.Properties.Settings" SettingsPropertyName="CliniciMedicaleConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Analize" Member="Analizes">
+    <Type Name="Analize">
+      <Column Name="id_analiza" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="denumire_analiza" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="valori_referinta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Analize_Apartenenta_Formular" Member="Apartenenta_Formulars" ThisKey="id_analiza" OtherKey="id_analiza" Type="Apartenenta_Formular" />
+      <Association Name="Analize_Rezultat_Analize" Member="Rezultat_Analizes" ThisKey="id_analiza" OtherKey="id_analiza" Type="Rezultat_Analize" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Analize_Factura" Member="Analize_Facturas">
+    <Type Name="Analize_Factura">
+      <Column Name="id_serviciu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_factura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_analize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Buletin_Analize_Analize_Factura" Member="Buletin_Analize" ThisKey="id_analize" OtherKey="id_buletin" Type="Buletin_Analize" IsForeignKey="true" />
+      <Association Name="Factura_Analize_Factura" Member="Factura" ThisKey="id_factura" OtherKey="id_factura" Type="Factura" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Apartenenta_Formular" Member="Apartenenta_Formulars">
+    <Type Name="Apartenenta_Formular">
+      <Column Name="id_formular" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_analiza" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Analize_Apartenenta_Formular" Member="Analize" ThisKey="id_analiza" OtherKey="id_analiza" Type="Analize" IsForeignKey="true" />
+      <Association Name="Formular_Analize_Apartenenta_Formular" Member="Formular_Analize" ThisKey="id_formular" OtherKey="id_formular" Type="Formular_Analize" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Asigurare" Member="Asigurares">
+    <Type Name="Asigurare">
+      <Column Name="id_asigurare" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_asigurator" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_pacient" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="data_asigurare" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="data_expirare" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Asigurari_Asigurare" Member="Asigurari" ThisKey="id_asigurator" OtherKey="id_asigurator" Type="Asigurari" IsForeignKey="true" />
+      <Association Name="Pacient_Asigurare" Member="Pacient" ThisKey="id_pacient" OtherKey="id_pacient" Type="Pacient" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Asigurari" Member="Asiguraris">
+    <Type Name="Asigurari">
+      <Column Name="id_asigurator" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nume_asigurator" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="nume_asigurare" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Asigurari_Asigurare" Member="Asigurares" ThisKey="id_asigurator" OtherKey="id_asigurator" Type="Asigurare" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Buletin_Analize" Member="Buletin_Analizes">
+    <Type Name="Buletin_Analize">
+      <Column Name="id_buletin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_formular_analize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_pacient" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="data_recoltare" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="pret" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Association Name="Buletin_Analize_Analize_Factura" Member="Analize_Facturas" ThisKey="id_buletin" OtherKey="id_analize" Type="Analize_Factura" />
+      <Association Name="Buletin_Analize_Rezultat_Analize" Member="Rezultat_Analizes" ThisKey="id_buletin" OtherKey="id_buletin_analize" Type="Rezultat_Analize" />
+      <Association Name="Formular_Analize_Buletin_Analize" Member="Formular_Analize" ThisKey="id_formular_analize" OtherKey="id_formular" Type="Formular_Analize" IsForeignKey="true" />
+      <Association Name="Pacient_Buletin_Analize" Member="Pacient" ThisKey="id_pacient" OtherKey="id_pacient" Type="Pacient" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Consultatie" Member="Consultaties">
+    <Type Name="Consultatie">
+      <Column Name="id_consultatie" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_doctor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_asistent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_pacient" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="data_consultatie" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ora" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="pret" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Association Name="Consultatie_Consultatii_Factura" Member="Consultatii_Facturas" ThisKey="id_consultatie" OtherKey="id_consultatie" Type="Consultatii_Factura" />
+      <Association Name="Consultatie_Diagnostic" Member="Diagnostics" ThisKey="id_consultatie" OtherKey="id_consultatie" Type="Diagnostic" />
+      <Association Name="Pacient_Consultatie" Member="Pacient" ThisKey="id_pacient" OtherKey="id_pacient" Type="Pacient" IsForeignKey="true" />
+      <Association Name="Angajat_Consultatie" Member="Angajat" ThisKey="id_asistent" OtherKey="id_angajat" Type="Angajat" IsForeignKey="true" />
+      <Association Name="Angajat_Consultatie1" Member="Angajat1" ThisKey="id_doctor" OtherKey="id_angajat" Type="Angajat" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Consultatii_Factura" Member="Consultatii_Facturas">
+    <Type Name="Consultatii_Factura">
+      <Column Name="id_serviciu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_factura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_consultatie" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Consultatie_Consultatii_Factura" Member="Consultatie" ThisKey="id_consultatie" OtherKey="id_consultatie" Type="Consultatie" IsForeignKey="true" />
+      <Association Name="Factura_Consultatii_Factura" Member="Factura" ThisKey="id_factura" OtherKey="id_factura" Type="Factura" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Departament" Member="Departaments">
+    <Type Name="Departament">
+      <Column Name="id_departament" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_clinica" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="denumire" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="Departament_Incadrare_Departament" Member="Incadrare_Departaments" ThisKey="id_departament" OtherKey="id_departament" Type="Incadrare_Departament" />
+      <Association Name="Clinica_Departament" Member="Clinica" ThisKey="id_clinica" OtherKey="id_clinica" Type="Clinica" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Diagnostic" Member="Diagnostics">
+    <Type Name="Diagnostic">
+      <Column Name="id_diagnostic" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_consultatie" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="diagnostic" Member="diagnostic1" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="observatii" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="tratament" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Association Name="Consultatie_Diagnostic" Member="Consultatie" ThisKey="id_consultatie" OtherKey="id_consultatie" Type="Consultatie" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Formular_Analize" Member="Formular_Analizes">
+    <Type Name="Formular_Analize">
+      <Column Name="id_formular" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tip_analize" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="decontabile" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Formular_Analize_Apartenenta_Formular" Member="Apartenenta_Formulars" ThisKey="id_formular" OtherKey="id_formular" Type="Apartenenta_Formular" />
+      <Association Name="Formular_Analize_Buletin_Analize" Member="Buletin_Analizes" ThisKey="id_formular" OtherKey="id_formular_analize" Type="Buletin_Analize" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Factura" Member="Facturas">
+    <Type Name="Factura">
+      <Column Name="id_factura" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_pacient" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_clinica" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="modalitate_plata" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Factura_Analize_Factura" Member="Analize_Facturas" ThisKey="id_factura" OtherKey="id_factura" Type="Analize_Factura" />
+      <Association Name="Factura_Consultatii_Factura" Member="Consultatii_Facturas" ThisKey="id_factura" OtherKey="id_factura" Type="Consultatii_Factura" />
+      <Association Name="Pacient_Factura" Member="Pacient" ThisKey="id_pacient" OtherKey="id_pacient" Type="Pacient" IsForeignKey="true" />
+      <Association Name="Clinica_Factura" Member="Clinica" ThisKey="id_clinica" OtherKey="id_clinica" Type="Clinica" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Functie" Member="Functies">
+    <Type Name="Functie">
+      <Column Name="id_functie" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_angajat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_clinica" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nume_functie" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="data_incadrare" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="data_expirare_contract" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Clinica_Functie" Member="Clinica" ThisKey="id_clinica" OtherKey="id_clinica" Type="Clinica" IsForeignKey="true" />
+      <Association Name="Angajat_Functie" Member="Angajat" ThisKey="id_angajat" OtherKey="id_angajat" Type="Angajat" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Incadrare_Departament" Member="Incadrare_Departaments">
+    <Type Name="Incadrare_Departament">
+      <Column Name="id_incadrare" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_departament" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_angajat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="intrare_tura" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="iesire_tura" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Association Name="Departament_Incadrare_Departament" Member="Departament" ThisKey="id_departament" OtherKey="id_departament" Type="Departament" IsForeignKey="true" />
+      <Association Name="Angajat_Incadrare_Departament" Member="Angajat" ThisKey="id_angajat" OtherKey="id_angajat" Type="Angajat" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pacient" Member="Pacients">
+    <Type Name="Pacient">
+      <Column Name="id_pacient" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nume" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="prenume" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="judet" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="adresa" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Pacient_Asigurare" Member="Asigurares" ThisKey="id_pacient" OtherKey="id_pacient" Type="Asigurare" />
+      <Association Name="Pacient_Buletin_Analize" Member="Buletin_Analizes" ThisKey="id_pacient" OtherKey="id_pacient" Type="Buletin_Analize" />
+      <Association Name="Pacient_Consultatie" Member="Consultaties" ThisKey="id_pacient" OtherKey="id_pacient" Type="Consultatie" />
+      <Association Name="Pacient_Factura" Member="Facturas" ThisKey="id_pacient" OtherKey="id_pacient" Type="Factura" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rezultat_Analize" Member="Rezultat_Analizes">
+    <Type Name="Rezultat_Analize">
+      <Column Name="id_rezultat" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_buletin_analize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_analiza" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valori_rezultate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Analize_Rezultat_Analize" Member="Analize" ThisKey="id_analiza" OtherKey="id_analiza" Type="Analize" IsForeignKey="true" />
+      <Association Name="Buletin_Analize_Rezultat_Analize" Member="Buletin_Analize" ThisKey="id_buletin_analize" OtherKey="id_buletin" Type="Buletin_Analize" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Clinica" Member="Clinicas">
+    <Type Name="Clinica">
+      <Column Name="id_clinica" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nume_clinica" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="judet" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="oras" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="adresa" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="program" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nr_contact" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CIF" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IBAN" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Banca" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="cale_imagine" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="Clinica_Departament" Member="Departaments" ThisKey="id_clinica" OtherKey="id_clinica" Type="Departament" />
+      <Association Name="Clinica_Factura" Member="Facturas" ThisKey="id_clinica" OtherKey="id_clinica" Type="Factura" />
+      <Association Name="Clinica_Functie" Member="Functies" ThisKey="id_clinica" OtherKey="id_clinica" Type="Functie" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Angajat" Member="Angajats">
+    <Type Name="Angajat">
+      <Column Name="id_angajat" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nume" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="prenume" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="parola" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="telefon" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="specialitate" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="rating" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="imagine_cale" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="titulatura" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Angajat_Consultatie" Member="Consultaties" ThisKey="id_angajat" OtherKey="id_asistent" Type="Consultatie" />
+      <Association Name="Angajat_Consultatie1" Member="Consultaties1" ThisKey="id_angajat" OtherKey="id_doctor" Type="Consultatie" />
+      <Association Name="Angajat_Functie" Member="Functies" ThisKey="id_angajat" OtherKey="id_angajat" Type="Functie" />
+      <Association Name="Angajat_Incadrare_Departament" Member="Incadrare_Departaments" ThisKey="id_angajat" OtherKey="id_angajat" Type="Incadrare_Departament" />
+    </Type>
+  </Table>
+</Database>

@@ -6,6 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A7351E63-6FCE-4945-94F0-049692C7756E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
     <RootNamespace>Project</RootNamespace>
     <AssemblyName>Project</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -16,6 +18,8 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -26,6 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -37,6 +43,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +62,34 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Clinici.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Clinici.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Model\ClinicaModel.cs" />
+    <Compile Include="Model\MediciModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CliniciViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\MediciMoreViewModel.cs" />
+    <Compile Include="ViewModel\MediciViewModel.cs" />
+    <Compile Include="View\AnalizeView.xaml.cs">
+      <DependentUpon>AnalizeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CliniciView.xaml.cs">
+      <DependentUpon>CliniciView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MediciMoreView.xaml.cs">
+      <DependentUpon>MediciMoreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MediciView.xaml.cs">
+      <DependentUpon>MediciView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PaginaPrincipalaView.xaml.cs">
+      <DependentUpon>PaginaPrincipalaView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +102,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AnalizeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CliniciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MediciMoreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MediciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PaginaPrincipalaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,6 +141,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Clinici.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Clinici.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Clinici.dbml.layout">
+      <DependentUpon>Clinici.dbml</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,9 +158,40 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
+    <Resource Include="Images\Euroclinic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\analize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\programare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Ponderas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CampusBaiaMare.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\catalin_copaescu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cautare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\surlea_veronica.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
