@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Project.View.PaginaPrincipalaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Project.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1100">
+    <Grid Background="#FFE4E4E4">
+        <StackPanel>
+            <ContentControl Content="{Binding AnalizeView}" Height="100"/>
+            <ContentControl Content="{Binding CliniciView}" Height="320"/>
+            <ContentControl Content="{Binding MediciView}" Height="350"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

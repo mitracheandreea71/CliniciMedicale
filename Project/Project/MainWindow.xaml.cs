@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Project.View;
+using Project.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,9 +19,6 @@ using System.Windows.Shapes;
 
 namespace Project
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
