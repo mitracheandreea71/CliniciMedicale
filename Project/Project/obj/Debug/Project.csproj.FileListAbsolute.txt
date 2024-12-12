@@ -25,3 +25,5 @@ D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\ob
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\MediciMoreView.g.cs
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\MediciMoreView.baml
+D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\CliniciMoreView.g.cs
+D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\CliniciMoreView.baml

@@ -25,11 +25,14 @@ namespace Project.ViewModel
 
         public ICommand ShowMediciMoreView { get; }
         public ICommand ShowPaginaPrincipalaView { get; }
+        public ICommand ShowCliniciMoreView { get; }
         public MainWindowViewModel() {
             CurrentView = new PaginaPrincipalaView();
 
             ShowMediciMoreView = new BaseCommand(_ => CurrentView = new MediciMoreView());
             ShowPaginaPrincipalaView = new BaseCommand(_ => CurrentView = new PaginaPrincipalaView());
+            ShowCliniciMoreView = new BaseCommand(_ => CurrentView = new CliniciMoreView());
+
         }
     }
 }
