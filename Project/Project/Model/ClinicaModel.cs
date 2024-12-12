@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Common;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,8 @@ namespace Project.Model
         public string Banca { get; set; }
         public string CaleImagine { get; set; }
 
+        public List<string> ListaSpecializari { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private readonly CliniciDataContext _context;
@@ -34,8 +37,8 @@ namespace Project.Model
             _context = new CliniciDataContext();
         }
 
-        public ObservableCollection<ClinicaModel> GetAllClinici() 
-        { 
+        public ObservableCollection<ClinicaModel> GetAllClinici()
+        {
             ObservableCollection<ClinicaModel> clinici = new ObservableCollection<ClinicaModel>();
 
             foreach (var clinica in _context.Clinicas)
@@ -57,6 +60,13 @@ namespace Project.Model
                         CaleImagine = clinica.cale_imagine
                     }
                     );
+            }
+
+            foreach (var clinica in clinici)
+            {
+                clinica.ListaSpecializari = (from departament in _context.Departaments
+                                             where departament.id_clinica == clinica.ClinicaID
+                                             select departament.denumire).ToList();
             }
 
             return clinici;
@@ -83,5 +93,6 @@ namespace Project.Model
 
             return new ObservableCollection<string>(departamente);
         }
+
     }
 }

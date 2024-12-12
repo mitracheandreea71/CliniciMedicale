@@ -36,6 +36,9 @@ namespace Project
     partial void InsertAnalize_Factura(Analize_Factura instance);
     partial void UpdateAnalize_Factura(Analize_Factura instance);
     partial void DeleteAnalize_Factura(Analize_Factura instance);
+    partial void InsertAngajat(Angajat instance);
+    partial void UpdateAngajat(Angajat instance);
+    partial void DeleteAngajat(Angajat instance);
     partial void InsertAsigurare(Asigurare instance);
     partial void UpdateAsigurare(Asigurare instance);
     partial void DeleteAsigurare(Asigurare instance);
@@ -45,6 +48,9 @@ namespace Project
     partial void InsertBuletin_Analize(Buletin_Analize instance);
     partial void UpdateBuletin_Analize(Buletin_Analize instance);
     partial void DeleteBuletin_Analize(Buletin_Analize instance);
+    partial void InsertClinica(Clinica instance);
+    partial void UpdateClinica(Clinica instance);
+    partial void DeleteClinica(Clinica instance);
     partial void InsertConsultatie(Consultatie instance);
     partial void UpdateConsultatie(Consultatie instance);
     partial void DeleteConsultatie(Consultatie instance);
@@ -57,12 +63,12 @@ namespace Project
     partial void InsertDiagnostic(Diagnostic instance);
     partial void UpdateDiagnostic(Diagnostic instance);
     partial void DeleteDiagnostic(Diagnostic instance);
-    partial void InsertFormular_Analize(Formular_Analize instance);
-    partial void UpdateFormular_Analize(Formular_Analize instance);
-    partial void DeleteFormular_Analize(Formular_Analize instance);
     partial void InsertFactura(Factura instance);
     partial void UpdateFactura(Factura instance);
     partial void DeleteFactura(Factura instance);
+    partial void InsertFormular_Analize(Formular_Analize instance);
+    partial void UpdateFormular_Analize(Formular_Analize instance);
+    partial void DeleteFormular_Analize(Formular_Analize instance);
     partial void InsertFunctie(Functie instance);
     partial void UpdateFunctie(Functie instance);
     partial void DeleteFunctie(Functie instance);
@@ -75,12 +81,6 @@ namespace Project
     partial void InsertRezultat_Analize(Rezultat_Analize instance);
     partial void UpdateRezultat_Analize(Rezultat_Analize instance);
     partial void DeleteRezultat_Analize(Rezultat_Analize instance);
-    partial void InsertClinica(Clinica instance);
-    partial void UpdateClinica(Clinica instance);
-    partial void DeleteClinica(Clinica instance);
-    partial void InsertAngajat(Angajat instance);
-    partial void UpdateAngajat(Angajat instance);
-    partial void DeleteAngajat(Angajat instance);
     #endregion
 		
 		public CliniciDataContext() : 
@@ -129,6 +129,14 @@ namespace Project
 			}
 		}
 		
+		public System.Data.Linq.Table<Angajat> Angajats
+		{
+			get
+			{
+				return this.GetTable<Angajat>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Apartenenta_Formular> Apartenenta_Formulars
 		{
 			get
@@ -158,6 +166,14 @@ namespace Project
 			get
 			{
 				return this.GetTable<Buletin_Analize>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Clinica> Clinicas
+		{
+			get
+			{
+				return this.GetTable<Clinica>();
 			}
 		}
 		
@@ -193,19 +209,19 @@ namespace Project
 			}
 		}
 		
-		public System.Data.Linq.Table<Formular_Analize> Formular_Analizes
-		{
-			get
-			{
-				return this.GetTable<Formular_Analize>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Factura> Facturas
 		{
 			get
 			{
 				return this.GetTable<Factura>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Formular_Analize> Formular_Analizes
+		{
+			get
+			{
+				return this.GetTable<Formular_Analize>();
 			}
 		}
 		
@@ -240,22 +256,6 @@ namespace Project
 				return this.GetTable<Rezultat_Analize>();
 			}
 		}
-		
-		public System.Data.Linq.Table<Clinica> Clinicas
-		{
-			get
-			{
-				return this.GetTable<Clinica>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Angajat> Angajats
-		{
-			get
-			{
-				return this.GetTable<Angajat>();
-			}
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Analize")]
@@ -270,6 +270,8 @@ namespace Project
 		
 		private string _valori_referinta;
 		
+		private string _unitate_masura;
+		
 		private EntitySet<Rezultat_Analize> _Rezultat_Analizes;
 		
     #region Extensibility Method Definitions
@@ -282,6 +284,8 @@ namespace Project
     partial void Ondenumire_analizaChanged();
     partial void Onvalori_referintaChanging(string value);
     partial void Onvalori_referintaChanged();
+    partial void Onunitate_masuraChanging(string value);
+    partial void Onunitate_masuraChanged();
     #endregion
 		
 		public Analize()
@@ -346,6 +350,26 @@ namespace Project
 					this._valori_referinta = value;
 					this.SendPropertyChanged("valori_referinta");
 					this.Onvalori_referintaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unitate_masura", DbType="VarChar(50)")]
+		public string unitate_masura
+		{
+			get
+			{
+				return this._unitate_masura;
+			}
+			set
+			{
+				if ((this._unitate_masura != value))
+				{
+					this.Onunitate_masuraChanging(value);
+					this.SendPropertyChanging();
+					this._unitate_masura = value;
+					this.SendPropertyChanged("unitate_masura");
+					this.Onunitate_masuraChanged();
 				}
 			}
 		}
@@ -585,6 +609,448 @@ namespace Project
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Angajat")]
+	public partial class Angajat : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_angajat;
+		
+		private string _nume;
+		
+		private string _prenume;
+		
+		private string _username;
+		
+		private string _parola;
+		
+		private string _email;
+		
+		private string _telefon;
+		
+		private string _specialitate;
+		
+		private System.Nullable<decimal> _rating;
+		
+		private string _imagine_cale;
+		
+		private string _titulatura;
+		
+		private EntitySet<Buletin_Analize> _Buletin_Analizes;
+		
+		private EntitySet<Consultatie> _Consultaties;
+		
+		private EntitySet<Consultatie> _Consultaties1;
+		
+		private EntitySet<Functie> _Functies;
+		
+		private EntitySet<Incadrare_Departament> _Incadrare_Departaments;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_angajatChanging(int value);
+    partial void Onid_angajatChanged();
+    partial void OnnumeChanging(string value);
+    partial void OnnumeChanged();
+    partial void OnprenumeChanging(string value);
+    partial void OnprenumeChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnparolaChanging(string value);
+    partial void OnparolaChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void OntelefonChanging(string value);
+    partial void OntelefonChanged();
+    partial void OnspecialitateChanging(string value);
+    partial void OnspecialitateChanged();
+    partial void OnratingChanging(System.Nullable<decimal> value);
+    partial void OnratingChanged();
+    partial void Onimagine_caleChanging(string value);
+    partial void Onimagine_caleChanged();
+    partial void OntitulaturaChanging(string value);
+    partial void OntitulaturaChanged();
+    #endregion
+		
+		public Angajat()
+		{
+			this._Buletin_Analizes = new EntitySet<Buletin_Analize>(new Action<Buletin_Analize>(this.attach_Buletin_Analizes), new Action<Buletin_Analize>(this.detach_Buletin_Analizes));
+			this._Consultaties = new EntitySet<Consultatie>(new Action<Consultatie>(this.attach_Consultaties), new Action<Consultatie>(this.detach_Consultaties));
+			this._Consultaties1 = new EntitySet<Consultatie>(new Action<Consultatie>(this.attach_Consultaties1), new Action<Consultatie>(this.detach_Consultaties1));
+			this._Functies = new EntitySet<Functie>(new Action<Functie>(this.attach_Functies), new Action<Functie>(this.detach_Functies));
+			this._Incadrare_Departaments = new EntitySet<Incadrare_Departament>(new Action<Incadrare_Departament>(this.attach_Incadrare_Departaments), new Action<Incadrare_Departament>(this.detach_Incadrare_Departaments));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_angajat", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_angajat
+		{
+			get
+			{
+				return this._id_angajat;
+			}
+			set
+			{
+				if ((this._id_angajat != value))
+				{
+					this.Onid_angajatChanging(value);
+					this.SendPropertyChanging();
+					this._id_angajat = value;
+					this.SendPropertyChanged("id_angajat");
+					this.Onid_angajatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nume", DbType="VarChar(50)")]
+		public string nume
+		{
+			get
+			{
+				return this._nume;
+			}
+			set
+			{
+				if ((this._nume != value))
+				{
+					this.OnnumeChanging(value);
+					this.SendPropertyChanging();
+					this._nume = value;
+					this.SendPropertyChanged("nume");
+					this.OnnumeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prenume", DbType="VarChar(50)")]
+		public string prenume
+		{
+			get
+			{
+				return this._prenume;
+			}
+			set
+			{
+				if ((this._prenume != value))
+				{
+					this.OnprenumeChanging(value);
+					this.SendPropertyChanging();
+					this._prenume = value;
+					this.SendPropertyChanged("prenume");
+					this.OnprenumeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_parola", DbType="VarChar(50)")]
+		public string parola
+		{
+			get
+			{
+				return this._parola;
+			}
+			set
+			{
+				if ((this._parola != value))
+				{
+					this.OnparolaChanging(value);
+					this.SendPropertyChanging();
+					this._parola = value;
+					this.SendPropertyChanged("parola");
+					this.OnparolaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this.OnemailChanging(value);
+					this.SendPropertyChanging();
+					this._email = value;
+					this.SendPropertyChanged("email");
+					this.OnemailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefon", DbType="VarChar(11)")]
+		public string telefon
+		{
+			get
+			{
+				return this._telefon;
+			}
+			set
+			{
+				if ((this._telefon != value))
+				{
+					this.OntelefonChanging(value);
+					this.SendPropertyChanging();
+					this._telefon = value;
+					this.SendPropertyChanged("telefon");
+					this.OntelefonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_specialitate", DbType="NVarChar(100)")]
+		public string specialitate
+		{
+			get
+			{
+				return this._specialitate;
+			}
+			set
+			{
+				if ((this._specialitate != value))
+				{
+					this.OnspecialitateChanging(value);
+					this.SendPropertyChanging();
+					this._specialitate = value;
+					this.SendPropertyChanged("specialitate");
+					this.OnspecialitateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rating", DbType="Decimal(4,2)")]
+		public System.Nullable<decimal> rating
+		{
+			get
+			{
+				return this._rating;
+			}
+			set
+			{
+				if ((this._rating != value))
+				{
+					this.OnratingChanging(value);
+					this.SendPropertyChanging();
+					this._rating = value;
+					this.SendPropertyChanged("rating");
+					this.OnratingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imagine_cale", DbType="VarChar(255)")]
+		public string imagine_cale
+		{
+			get
+			{
+				return this._imagine_cale;
+			}
+			set
+			{
+				if ((this._imagine_cale != value))
+				{
+					this.Onimagine_caleChanging(value);
+					this.SendPropertyChanging();
+					this._imagine_cale = value;
+					this.SendPropertyChanged("imagine_cale");
+					this.Onimagine_caleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulatura", DbType="VarChar(100)")]
+		public string titulatura
+		{
+			get
+			{
+				return this._titulatura;
+			}
+			set
+			{
+				if ((this._titulatura != value))
+				{
+					this.OntitulaturaChanging(value);
+					this.SendPropertyChanging();
+					this._titulatura = value;
+					this.SendPropertyChanged("titulatura");
+					this.OntitulaturaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Buletin_Analize", Storage="_Buletin_Analizes", ThisKey="id_angajat", OtherKey="id_seflab")]
+		public EntitySet<Buletin_Analize> Buletin_Analizes
+		{
+			get
+			{
+				return this._Buletin_Analizes;
+			}
+			set
+			{
+				this._Buletin_Analizes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Consultatie", Storage="_Consultaties", ThisKey="id_angajat", OtherKey="id_asistent")]
+		public EntitySet<Consultatie> Consultaties
+		{
+			get
+			{
+				return this._Consultaties;
+			}
+			set
+			{
+				this._Consultaties.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Consultatie1", Storage="_Consultaties1", ThisKey="id_angajat", OtherKey="id_doctor")]
+		public EntitySet<Consultatie> Consultaties1
+		{
+			get
+			{
+				return this._Consultaties1;
+			}
+			set
+			{
+				this._Consultaties1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Functie", Storage="_Functies", ThisKey="id_angajat", OtherKey="id_angajat")]
+		public EntitySet<Functie> Functies
+		{
+			get
+			{
+				return this._Functies;
+			}
+			set
+			{
+				this._Functies.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Incadrare_Departament", Storage="_Incadrare_Departaments", ThisKey="id_angajat", OtherKey="id_angajat")]
+		public EntitySet<Incadrare_Departament> Incadrare_Departaments
+		{
+			get
+			{
+				return this._Incadrare_Departaments;
+			}
+			set
+			{
+				this._Incadrare_Departaments.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Buletin_Analizes(Buletin_Analize entity)
+		{
+			this.SendPropertyChanging();
+			entity.Angajat = this;
+		}
+		
+		private void detach_Buletin_Analizes(Buletin_Analize entity)
+		{
+			this.SendPropertyChanging();
+			entity.Angajat = null;
+		}
+		
+		private void attach_Consultaties(Consultatie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Angajat = this;
+		}
+		
+		private void detach_Consultaties(Consultatie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Angajat = null;
+		}
+		
+		private void attach_Consultaties1(Consultatie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Angajat1 = this;
+		}
+		
+		private void detach_Consultaties1(Consultatie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Angajat1 = null;
+		}
+		
+		private void attach_Functies(Functie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Angajat = this;
+		}
+		
+		private void detach_Functies(Functie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Angajat = null;
+		}
+		
+		private void attach_Incadrare_Departaments(Incadrare_Departament entity)
+		{
+			this.SendPropertyChanging();
+			entity.Angajat = this;
+		}
+		
+		private void detach_Incadrare_Departaments(Incadrare_Departament entity)
+		{
+			this.SendPropertyChanging();
+			entity.Angajat = null;
 		}
 	}
 	
@@ -1025,11 +1491,13 @@ namespace Project
 		
 		private System.Nullable<System.DateTime> _data_recoltare;
 		
-		private System.Nullable<decimal> _pret;
+		private System.Nullable<int> _id_seflab;
 		
 		private EntitySet<Analize_Factura> _Analize_Facturas;
 		
 		private EntitySet<Rezultat_Analize> _Rezultat_Analizes;
+		
+		private EntityRef<Angajat> _Angajat;
 		
 		private EntityRef<Formular_Analize> _Formular_Analize;
 		
@@ -1047,14 +1515,15 @@ namespace Project
     partial void Onid_pacientChanged();
     partial void Ondata_recoltareChanging(System.Nullable<System.DateTime> value);
     partial void Ondata_recoltareChanged();
-    partial void OnpretChanging(System.Nullable<decimal> value);
-    partial void OnpretChanged();
+    partial void Onid_seflabChanging(System.Nullable<int> value);
+    partial void Onid_seflabChanged();
     #endregion
 		
 		public Buletin_Analize()
 		{
 			this._Analize_Facturas = new EntitySet<Analize_Factura>(new Action<Analize_Factura>(this.attach_Analize_Facturas), new Action<Analize_Factura>(this.detach_Analize_Facturas));
 			this._Rezultat_Analizes = new EntitySet<Rezultat_Analize>(new Action<Rezultat_Analize>(this.attach_Rezultat_Analizes), new Action<Rezultat_Analize>(this.detach_Rezultat_Analizes));
+			this._Angajat = default(EntityRef<Angajat>);
 			this._Formular_Analize = default(EntityRef<Formular_Analize>);
 			this._Pacient = default(EntityRef<Pacient>);
 			OnCreated();
@@ -1148,22 +1617,26 @@ namespace Project
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pret", DbType="Decimal(6,2)")]
-		public System.Nullable<decimal> pret
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_seflab", DbType="Int")]
+		public System.Nullable<int> id_seflab
 		{
 			get
 			{
-				return this._pret;
+				return this._id_seflab;
 			}
 			set
 			{
-				if ((this._pret != value))
+				if ((this._id_seflab != value))
 				{
-					this.OnpretChanging(value);
+					if (this._Angajat.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_seflabChanging(value);
 					this.SendPropertyChanging();
-					this._pret = value;
-					this.SendPropertyChanged("pret");
-					this.OnpretChanged();
+					this._id_seflab = value;
+					this.SendPropertyChanged("id_seflab");
+					this.Onid_seflabChanged();
 				}
 			}
 		}
@@ -1191,6 +1664,40 @@ namespace Project
 			set
 			{
 				this._Rezultat_Analizes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Buletin_Analize", Storage="_Angajat", ThisKey="id_seflab", OtherKey="id_angajat", IsForeignKey=true)]
+		public Angajat Angajat
+		{
+			get
+			{
+				return this._Angajat.Entity;
+			}
+			set
+			{
+				Angajat previousValue = this._Angajat.Entity;
+				if (((previousValue != value) 
+							|| (this._Angajat.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Angajat.Entity = null;
+						previousValue.Buletin_Analizes.Remove(this);
+					}
+					this._Angajat.Entity = value;
+					if ((value != null))
+					{
+						value.Buletin_Analizes.Add(this);
+						this._id_seflab = value.id_angajat;
+					}
+					else
+					{
+						this._id_seflab = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Angajat");
+				}
 			}
 		}
 		
@@ -1307,6 +1814,416 @@ namespace Project
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Clinica")]
+	public partial class Clinica : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_clinica;
+		
+		private string _nume_clinica;
+		
+		private string _judet;
+		
+		private string _oras;
+		
+		private string _adresa;
+		
+		private string _program;
+		
+		private string _nr_contact;
+		
+		private string _email;
+		
+		private string _CIF;
+		
+		private string _IBAN;
+		
+		private string _Banca;
+		
+		private string _cale_imagine;
+		
+		private EntitySet<Departament> _Departaments;
+		
+		private EntitySet<Factura> _Facturas;
+		
+		private EntitySet<Functie> _Functies;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_clinicaChanging(int value);
+    partial void Onid_clinicaChanged();
+    partial void Onnume_clinicaChanging(string value);
+    partial void Onnume_clinicaChanged();
+    partial void OnjudetChanging(string value);
+    partial void OnjudetChanged();
+    partial void OnorasChanging(string value);
+    partial void OnorasChanged();
+    partial void OnadresaChanging(string value);
+    partial void OnadresaChanged();
+    partial void OnprogramChanging(string value);
+    partial void OnprogramChanged();
+    partial void Onnr_contactChanging(string value);
+    partial void Onnr_contactChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void OnCIFChanging(string value);
+    partial void OnCIFChanged();
+    partial void OnIBANChanging(string value);
+    partial void OnIBANChanged();
+    partial void OnBancaChanging(string value);
+    partial void OnBancaChanged();
+    partial void Oncale_imagineChanging(string value);
+    partial void Oncale_imagineChanged();
+    #endregion
+		
+		public Clinica()
+		{
+			this._Departaments = new EntitySet<Departament>(new Action<Departament>(this.attach_Departaments), new Action<Departament>(this.detach_Departaments));
+			this._Facturas = new EntitySet<Factura>(new Action<Factura>(this.attach_Facturas), new Action<Factura>(this.detach_Facturas));
+			this._Functies = new EntitySet<Functie>(new Action<Functie>(this.attach_Functies), new Action<Functie>(this.detach_Functies));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_clinica", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_clinica
+		{
+			get
+			{
+				return this._id_clinica;
+			}
+			set
+			{
+				if ((this._id_clinica != value))
+				{
+					this.Onid_clinicaChanging(value);
+					this.SendPropertyChanging();
+					this._id_clinica = value;
+					this.SendPropertyChanged("id_clinica");
+					this.Onid_clinicaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nume_clinica", DbType="VarChar(50)")]
+		public string nume_clinica
+		{
+			get
+			{
+				return this._nume_clinica;
+			}
+			set
+			{
+				if ((this._nume_clinica != value))
+				{
+					this.Onnume_clinicaChanging(value);
+					this.SendPropertyChanging();
+					this._nume_clinica = value;
+					this.SendPropertyChanged("nume_clinica");
+					this.Onnume_clinicaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_judet", DbType="VarChar(50)")]
+		public string judet
+		{
+			get
+			{
+				return this._judet;
+			}
+			set
+			{
+				if ((this._judet != value))
+				{
+					this.OnjudetChanging(value);
+					this.SendPropertyChanging();
+					this._judet = value;
+					this.SendPropertyChanged("judet");
+					this.OnjudetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_oras", DbType="VarChar(50)")]
+		public string oras
+		{
+			get
+			{
+				return this._oras;
+			}
+			set
+			{
+				if ((this._oras != value))
+				{
+					this.OnorasChanging(value);
+					this.SendPropertyChanging();
+					this._oras = value;
+					this.SendPropertyChanged("oras");
+					this.OnorasChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_adresa", DbType="VarChar(200)")]
+		public string adresa
+		{
+			get
+			{
+				return this._adresa;
+			}
+			set
+			{
+				if ((this._adresa != value))
+				{
+					this.OnadresaChanging(value);
+					this.SendPropertyChanging();
+					this._adresa = value;
+					this.SendPropertyChanged("adresa");
+					this.OnadresaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_program", DbType="VarChar(50)")]
+		public string program
+		{
+			get
+			{
+				return this._program;
+			}
+			set
+			{
+				if ((this._program != value))
+				{
+					this.OnprogramChanging(value);
+					this.SendPropertyChanging();
+					this._program = value;
+					this.SendPropertyChanged("program");
+					this.OnprogramChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nr_contact", DbType="VarChar(11)")]
+		public string nr_contact
+		{
+			get
+			{
+				return this._nr_contact;
+			}
+			set
+			{
+				if ((this._nr_contact != value))
+				{
+					this.Onnr_contactChanging(value);
+					this.SendPropertyChanging();
+					this._nr_contact = value;
+					this.SendPropertyChanged("nr_contact");
+					this.Onnr_contactChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this.OnemailChanging(value);
+					this.SendPropertyChanging();
+					this._email = value;
+					this.SendPropertyChanged("email");
+					this.OnemailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CIF", DbType="VarChar(10)")]
+		public string CIF
+		{
+			get
+			{
+				return this._CIF;
+			}
+			set
+			{
+				if ((this._CIF != value))
+				{
+					this.OnCIFChanging(value);
+					this.SendPropertyChanging();
+					this._CIF = value;
+					this.SendPropertyChanged("CIF");
+					this.OnCIFChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IBAN", DbType="VarChar(30)")]
+		public string IBAN
+		{
+			get
+			{
+				return this._IBAN;
+			}
+			set
+			{
+				if ((this._IBAN != value))
+				{
+					this.OnIBANChanging(value);
+					this.SendPropertyChanging();
+					this._IBAN = value;
+					this.SendPropertyChanged("IBAN");
+					this.OnIBANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Banca", DbType="VarChar(100)")]
+		public string Banca
+		{
+			get
+			{
+				return this._Banca;
+			}
+			set
+			{
+				if ((this._Banca != value))
+				{
+					this.OnBancaChanging(value);
+					this.SendPropertyChanging();
+					this._Banca = value;
+					this.SendPropertyChanged("Banca");
+					this.OnBancaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cale_imagine", DbType="NVarChar(255)")]
+		public string cale_imagine
+		{
+			get
+			{
+				return this._cale_imagine;
+			}
+			set
+			{
+				if ((this._cale_imagine != value))
+				{
+					this.Oncale_imagineChanging(value);
+					this.SendPropertyChanging();
+					this._cale_imagine = value;
+					this.SendPropertyChanged("cale_imagine");
+					this.Oncale_imagineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Clinica_Departament", Storage="_Departaments", ThisKey="id_clinica", OtherKey="id_clinica")]
+		public EntitySet<Departament> Departaments
+		{
+			get
+			{
+				return this._Departaments;
+			}
+			set
+			{
+				this._Departaments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Clinica_Factura", Storage="_Facturas", ThisKey="id_clinica", OtherKey="id_clinica")]
+		public EntitySet<Factura> Facturas
+		{
+			get
+			{
+				return this._Facturas;
+			}
+			set
+			{
+				this._Facturas.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Clinica_Functie", Storage="_Functies", ThisKey="id_clinica", OtherKey="id_clinica")]
+		public EntitySet<Functie> Functies
+		{
+			get
+			{
+				return this._Functies;
+			}
+			set
+			{
+				this._Functies.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Departaments(Departament entity)
+		{
+			this.SendPropertyChanging();
+			entity.Clinica = this;
+		}
+		
+		private void detach_Departaments(Departament entity)
+		{
+			this.SendPropertyChanging();
+			entity.Clinica = null;
+		}
+		
+		private void attach_Facturas(Factura entity)
+		{
+			this.SendPropertyChanging();
+			entity.Clinica = this;
+		}
+		
+		private void detach_Facturas(Factura entity)
+		{
+			this.SendPropertyChanging();
+			entity.Clinica = null;
+		}
+		
+		private void attach_Functies(Functie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Clinica = this;
+		}
+		
+		private void detach_Functies(Functie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Clinica = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Consultatie")]
 	public partial class Consultatie : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1331,11 +2248,11 @@ namespace Project
 		
 		private EntitySet<Diagnostic> _Diagnostics;
 		
-		private EntityRef<Pacient> _Pacient;
-		
 		private EntityRef<Angajat> _Angajat;
 		
 		private EntityRef<Angajat> _Angajat1;
+		
+		private EntityRef<Pacient> _Pacient;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1361,9 +2278,9 @@ namespace Project
 		{
 			this._Consultatii_Facturas = new EntitySet<Consultatii_Factura>(new Action<Consultatii_Factura>(this.attach_Consultatii_Facturas), new Action<Consultatii_Factura>(this.detach_Consultatii_Facturas));
 			this._Diagnostics = new EntitySet<Diagnostic>(new Action<Diagnostic>(this.attach_Diagnostics), new Action<Diagnostic>(this.detach_Diagnostics));
-			this._Pacient = default(EntityRef<Pacient>);
 			this._Angajat = default(EntityRef<Angajat>);
 			this._Angajat1 = default(EntityRef<Angajat>);
+			this._Pacient = default(EntityRef<Pacient>);
 			OnCreated();
 		}
 		
@@ -1545,40 +2462,6 @@ namespace Project
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pacient_Consultatie", Storage="_Pacient", ThisKey="id_pacient", OtherKey="id_pacient", IsForeignKey=true)]
-		public Pacient Pacient
-		{
-			get
-			{
-				return this._Pacient.Entity;
-			}
-			set
-			{
-				Pacient previousValue = this._Pacient.Entity;
-				if (((previousValue != value) 
-							|| (this._Pacient.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Pacient.Entity = null;
-						previousValue.Consultaties.Remove(this);
-					}
-					this._Pacient.Entity = value;
-					if ((value != null))
-					{
-						value.Consultaties.Add(this);
-						this._id_pacient = value.id_pacient;
-					}
-					else
-					{
-						this._id_pacient = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Pacient");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Consultatie", Storage="_Angajat", ThisKey="id_asistent", OtherKey="id_angajat", IsForeignKey=true)]
 		public Angajat Angajat
 		{
@@ -1643,6 +2526,40 @@ namespace Project
 						this._id_doctor = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Angajat1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pacient_Consultatie", Storage="_Pacient", ThisKey="id_pacient", OtherKey="id_pacient", IsForeignKey=true)]
+		public Pacient Pacient
+		{
+			get
+			{
+				return this._Pacient.Entity;
+			}
+			set
+			{
+				Pacient previousValue = this._Pacient.Entity;
+				if (((previousValue != value) 
+							|| (this._Pacient.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Pacient.Entity = null;
+						previousValue.Consultaties.Remove(this);
+					}
+					this._Pacient.Entity = value;
+					if ((value != null))
+					{
+						value.Consultaties.Add(this);
+						this._id_pacient = value.id_pacient;
+					}
+					else
+					{
+						this._id_pacient = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Pacient");
 				}
 			}
 		}
@@ -2262,144 +3179,6 @@ namespace Project
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Formular_Analize")]
-	public partial class Formular_Analize : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_formular;
-		
-		private string _tip_analize;
-		
-		private System.Nullable<bool> _decontabile;
-		
-		private EntitySet<Buletin_Analize> _Buletin_Analizes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_formularChanging(int value);
-    partial void Onid_formularChanged();
-    partial void Ontip_analizeChanging(string value);
-    partial void Ontip_analizeChanged();
-    partial void OndecontabileChanging(System.Nullable<bool> value);
-    partial void OndecontabileChanged();
-    #endregion
-		
-		public Formular_Analize()
-		{
-			this._Buletin_Analizes = new EntitySet<Buletin_Analize>(new Action<Buletin_Analize>(this.attach_Buletin_Analizes), new Action<Buletin_Analize>(this.detach_Buletin_Analizes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_formular", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_formular
-		{
-			get
-			{
-				return this._id_formular;
-			}
-			set
-			{
-				if ((this._id_formular != value))
-				{
-					this.Onid_formularChanging(value);
-					this.SendPropertyChanging();
-					this._id_formular = value;
-					this.SendPropertyChanged("id_formular");
-					this.Onid_formularChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tip_analize", DbType="VarChar(40)")]
-		public string tip_analize
-		{
-			get
-			{
-				return this._tip_analize;
-			}
-			set
-			{
-				if ((this._tip_analize != value))
-				{
-					this.Ontip_analizeChanging(value);
-					this.SendPropertyChanging();
-					this._tip_analize = value;
-					this.SendPropertyChanged("tip_analize");
-					this.Ontip_analizeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decontabile", DbType="Bit")]
-		public System.Nullable<bool> decontabile
-		{
-			get
-			{
-				return this._decontabile;
-			}
-			set
-			{
-				if ((this._decontabile != value))
-				{
-					this.OndecontabileChanging(value);
-					this.SendPropertyChanging();
-					this._decontabile = value;
-					this.SendPropertyChanged("decontabile");
-					this.OndecontabileChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Formular_Analize_Buletin_Analize", Storage="_Buletin_Analizes", ThisKey="id_formular", OtherKey="id_formular_analize")]
-		public EntitySet<Buletin_Analize> Buletin_Analizes
-		{
-			get
-			{
-				return this._Buletin_Analizes;
-			}
-			set
-			{
-				this._Buletin_Analizes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Buletin_Analizes(Buletin_Analize entity)
-		{
-			this.SendPropertyChanging();
-			entity.Formular_Analize = this;
-		}
-		
-		private void detach_Buletin_Analizes(Buletin_Analize entity)
-		{
-			this.SendPropertyChanging();
-			entity.Formular_Analize = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Factura")]
 	public partial class Factura : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2418,9 +3197,9 @@ namespace Project
 		
 		private EntitySet<Consultatii_Factura> _Consultatii_Facturas;
 		
-		private EntityRef<Pacient> _Pacient;
-		
 		private EntityRef<Clinica> _Clinica;
+		
+		private EntityRef<Pacient> _Pacient;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2440,8 +3219,8 @@ namespace Project
 		{
 			this._Analize_Facturas = new EntitySet<Analize_Factura>(new Action<Analize_Factura>(this.attach_Analize_Facturas), new Action<Analize_Factura>(this.detach_Analize_Facturas));
 			this._Consultatii_Facturas = new EntitySet<Consultatii_Factura>(new Action<Consultatii_Factura>(this.attach_Consultatii_Facturas), new Action<Consultatii_Factura>(this.detach_Consultatii_Facturas));
-			this._Pacient = default(EntityRef<Pacient>);
 			this._Clinica = default(EntityRef<Clinica>);
+			this._Pacient = default(EntityRef<Pacient>);
 			OnCreated();
 		}
 		
@@ -2559,40 +3338,6 @@ namespace Project
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pacient_Factura", Storage="_Pacient", ThisKey="id_pacient", OtherKey="id_pacient", IsForeignKey=true)]
-		public Pacient Pacient
-		{
-			get
-			{
-				return this._Pacient.Entity;
-			}
-			set
-			{
-				Pacient previousValue = this._Pacient.Entity;
-				if (((previousValue != value) 
-							|| (this._Pacient.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Pacient.Entity = null;
-						previousValue.Facturas.Remove(this);
-					}
-					this._Pacient.Entity = value;
-					if ((value != null))
-					{
-						value.Facturas.Add(this);
-						this._id_pacient = value.id_pacient;
-					}
-					else
-					{
-						this._id_pacient = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Pacient");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Clinica_Factura", Storage="_Clinica", ThisKey="id_clinica", OtherKey="id_clinica", IsForeignKey=true)]
 		public Clinica Clinica
 		{
@@ -2623,6 +3368,40 @@ namespace Project
 						this._id_clinica = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Clinica");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pacient_Factura", Storage="_Pacient", ThisKey="id_pacient", OtherKey="id_pacient", IsForeignKey=true)]
+		public Pacient Pacient
+		{
+			get
+			{
+				return this._Pacient.Entity;
+			}
+			set
+			{
+				Pacient previousValue = this._Pacient.Entity;
+				if (((previousValue != value) 
+							|| (this._Pacient.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Pacient.Entity = null;
+						previousValue.Facturas.Remove(this);
+					}
+					this._Pacient.Entity = value;
+					if ((value != null))
+					{
+						value.Facturas.Add(this);
+						this._id_pacient = value.id_pacient;
+					}
+					else
+					{
+						this._id_pacient = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Pacient");
 				}
 			}
 		}
@@ -2672,6 +3451,168 @@ namespace Project
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Formular_Analize")]
+	public partial class Formular_Analize : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_formular;
+		
+		private string _tip_analize;
+		
+		private System.Nullable<decimal> _pret;
+		
+		private string _decontabile;
+		
+		private EntitySet<Buletin_Analize> _Buletin_Analizes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_formularChanging(int value);
+    partial void Onid_formularChanged();
+    partial void Ontip_analizeChanging(string value);
+    partial void Ontip_analizeChanged();
+    partial void OnpretChanging(System.Nullable<decimal> value);
+    partial void OnpretChanged();
+    partial void OndecontabileChanging(string value);
+    partial void OndecontabileChanged();
+    #endregion
+		
+		public Formular_Analize()
+		{
+			this._Buletin_Analizes = new EntitySet<Buletin_Analize>(new Action<Buletin_Analize>(this.attach_Buletin_Analizes), new Action<Buletin_Analize>(this.detach_Buletin_Analizes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_formular", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_formular
+		{
+			get
+			{
+				return this._id_formular;
+			}
+			set
+			{
+				if ((this._id_formular != value))
+				{
+					this.Onid_formularChanging(value);
+					this.SendPropertyChanging();
+					this._id_formular = value;
+					this.SendPropertyChanged("id_formular");
+					this.Onid_formularChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tip_analize", DbType="VarChar(40)")]
+		public string tip_analize
+		{
+			get
+			{
+				return this._tip_analize;
+			}
+			set
+			{
+				if ((this._tip_analize != value))
+				{
+					this.Ontip_analizeChanging(value);
+					this.SendPropertyChanging();
+					this._tip_analize = value;
+					this.SendPropertyChanged("tip_analize");
+					this.Ontip_analizeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pret", DbType="Decimal(7,2)")]
+		public System.Nullable<decimal> pret
+		{
+			get
+			{
+				return this._pret;
+			}
+			set
+			{
+				if ((this._pret != value))
+				{
+					this.OnpretChanging(value);
+					this.SendPropertyChanging();
+					this._pret = value;
+					this.SendPropertyChanged("pret");
+					this.OnpretChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decontabile", DbType="VarChar(10)")]
+		public string decontabile
+		{
+			get
+			{
+				return this._decontabile;
+			}
+			set
+			{
+				if ((this._decontabile != value))
+				{
+					this.OndecontabileChanging(value);
+					this.SendPropertyChanging();
+					this._decontabile = value;
+					this.SendPropertyChanged("decontabile");
+					this.OndecontabileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Formular_Analize_Buletin_Analize", Storage="_Buletin_Analizes", ThisKey="id_formular", OtherKey="id_formular_analize")]
+		public EntitySet<Buletin_Analize> Buletin_Analizes
+		{
+			get
+			{
+				return this._Buletin_Analizes;
+			}
+			set
+			{
+				this._Buletin_Analizes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Buletin_Analizes(Buletin_Analize entity)
+		{
+			this.SendPropertyChanging();
+			entity.Formular_Analize = this;
+		}
+		
+		private void detach_Buletin_Analizes(Buletin_Analize entity)
+		{
+			this.SendPropertyChanging();
+			entity.Formular_Analize = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Functie")]
 	public partial class Functie : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2690,9 +3631,9 @@ namespace Project
 		
 		private System.Nullable<System.DateTime> _data_expirare_contract;
 		
-		private EntityRef<Clinica> _Clinica;
-		
 		private EntityRef<Angajat> _Angajat;
+		
+		private EntityRef<Clinica> _Clinica;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2714,8 +3655,8 @@ namespace Project
 		
 		public Functie()
 		{
-			this._Clinica = default(EntityRef<Clinica>);
 			this._Angajat = default(EntityRef<Angajat>);
+			this._Clinica = default(EntityRef<Clinica>);
 			OnCreated();
 		}
 		
@@ -2847,40 +3788,6 @@ namespace Project
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Clinica_Functie", Storage="_Clinica", ThisKey="id_clinica", OtherKey="id_clinica", IsForeignKey=true)]
-		public Clinica Clinica
-		{
-			get
-			{
-				return this._Clinica.Entity;
-			}
-			set
-			{
-				Clinica previousValue = this._Clinica.Entity;
-				if (((previousValue != value) 
-							|| (this._Clinica.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Clinica.Entity = null;
-						previousValue.Functies.Remove(this);
-					}
-					this._Clinica.Entity = value;
-					if ((value != null))
-					{
-						value.Functies.Add(this);
-						this._id_clinica = value.id_clinica;
-					}
-					else
-					{
-						this._id_clinica = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Clinica");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Functie", Storage="_Angajat", ThisKey="id_angajat", OtherKey="id_angajat", IsForeignKey=true)]
 		public Angajat Angajat
 		{
@@ -2911,6 +3818,40 @@ namespace Project
 						this._id_angajat = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Angajat");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Clinica_Functie", Storage="_Clinica", ThisKey="id_clinica", OtherKey="id_clinica", IsForeignKey=true)]
+		public Clinica Clinica
+		{
+			get
+			{
+				return this._Clinica.Entity;
+			}
+			set
+			{
+				Clinica previousValue = this._Clinica.Entity;
+				if (((previousValue != value) 
+							|| (this._Clinica.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Clinica.Entity = null;
+						previousValue.Functies.Remove(this);
+					}
+					this._Clinica.Entity = value;
+					if ((value != null))
+					{
+						value.Functies.Add(this);
+						this._id_clinica = value.id_clinica;
+					}
+					else
+					{
+						this._id_clinica = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Clinica");
 				}
 			}
 		}
@@ -2952,9 +3893,9 @@ namespace Project
 		
 		private string _iesire_tura;
 		
-		private EntityRef<Departament> _Departament;
-		
 		private EntityRef<Angajat> _Angajat;
+		
+		private EntityRef<Departament> _Departament;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2974,8 +3915,8 @@ namespace Project
 		
 		public Incadrare_Departament()
 		{
-			this._Departament = default(EntityRef<Departament>);
 			this._Angajat = default(EntityRef<Angajat>);
+			this._Departament = default(EntityRef<Departament>);
 			OnCreated();
 		}
 		
@@ -3087,40 +4028,6 @@ namespace Project
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Departament_Incadrare_Departament", Storage="_Departament", ThisKey="id_departament", OtherKey="id_departament", IsForeignKey=true)]
-		public Departament Departament
-		{
-			get
-			{
-				return this._Departament.Entity;
-			}
-			set
-			{
-				Departament previousValue = this._Departament.Entity;
-				if (((previousValue != value) 
-							|| (this._Departament.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Departament.Entity = null;
-						previousValue.Incadrare_Departaments.Remove(this);
-					}
-					this._Departament.Entity = value;
-					if ((value != null))
-					{
-						value.Incadrare_Departaments.Add(this);
-						this._id_departament = value.id_departament;
-					}
-					else
-					{
-						this._id_departament = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Departament");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Incadrare_Departament", Storage="_Angajat", ThisKey="id_angajat", OtherKey="id_angajat", IsForeignKey=true)]
 		public Angajat Angajat
 		{
@@ -3151,6 +4058,40 @@ namespace Project
 						this._id_angajat = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Angajat");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Departament_Incadrare_Departament", Storage="_Departament", ThisKey="id_departament", OtherKey="id_departament", IsForeignKey=true)]
+		public Departament Departament
+		{
+			get
+			{
+				return this._Departament.Entity;
+			}
+			set
+			{
+				Departament previousValue = this._Departament.Entity;
+				if (((previousValue != value) 
+							|| (this._Departament.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Departament.Entity = null;
+						previousValue.Incadrare_Departaments.Remove(this);
+					}
+					this._Departament.Entity = value;
+					if ((value != null))
+					{
+						value.Incadrare_Departaments.Add(this);
+						this._id_departament = value.id_departament;
+					}
+					else
+					{
+						this._id_departament = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Departament");
 				}
 			}
 		}
@@ -3659,830 +4600,6 @@ namespace Project
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Clinica")]
-	public partial class Clinica : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_clinica;
-		
-		private string _nume_clinica;
-		
-		private string _judet;
-		
-		private string _oras;
-		
-		private string _adresa;
-		
-		private string _program;
-		
-		private string _nr_contact;
-		
-		private string _email;
-		
-		private string _CIF;
-		
-		private string _IBAN;
-		
-		private string _Banca;
-		
-		private string _cale_imagine;
-		
-		private EntitySet<Departament> _Departaments;
-		
-		private EntitySet<Factura> _Facturas;
-		
-		private EntitySet<Functie> _Functies;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_clinicaChanging(int value);
-    partial void Onid_clinicaChanged();
-    partial void Onnume_clinicaChanging(string value);
-    partial void Onnume_clinicaChanged();
-    partial void OnjudetChanging(string value);
-    partial void OnjudetChanged();
-    partial void OnorasChanging(string value);
-    partial void OnorasChanged();
-    partial void OnadresaChanging(string value);
-    partial void OnadresaChanged();
-    partial void OnprogramChanging(string value);
-    partial void OnprogramChanged();
-    partial void Onnr_contactChanging(string value);
-    partial void Onnr_contactChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    partial void OnCIFChanging(string value);
-    partial void OnCIFChanged();
-    partial void OnIBANChanging(string value);
-    partial void OnIBANChanged();
-    partial void OnBancaChanging(string value);
-    partial void OnBancaChanged();
-    partial void Oncale_imagineChanging(string value);
-    partial void Oncale_imagineChanged();
-    #endregion
-		
-		public Clinica()
-		{
-			this._Departaments = new EntitySet<Departament>(new Action<Departament>(this.attach_Departaments), new Action<Departament>(this.detach_Departaments));
-			this._Facturas = new EntitySet<Factura>(new Action<Factura>(this.attach_Facturas), new Action<Factura>(this.detach_Facturas));
-			this._Functies = new EntitySet<Functie>(new Action<Functie>(this.attach_Functies), new Action<Functie>(this.detach_Functies));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_clinica", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_clinica
-		{
-			get
-			{
-				return this._id_clinica;
-			}
-			set
-			{
-				if ((this._id_clinica != value))
-				{
-					this.Onid_clinicaChanging(value);
-					this.SendPropertyChanging();
-					this._id_clinica = value;
-					this.SendPropertyChanged("id_clinica");
-					this.Onid_clinicaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nume_clinica", DbType="VarChar(50)")]
-		public string nume_clinica
-		{
-			get
-			{
-				return this._nume_clinica;
-			}
-			set
-			{
-				if ((this._nume_clinica != value))
-				{
-					this.Onnume_clinicaChanging(value);
-					this.SendPropertyChanging();
-					this._nume_clinica = value;
-					this.SendPropertyChanged("nume_clinica");
-					this.Onnume_clinicaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_judet", DbType="VarChar(50)")]
-		public string judet
-		{
-			get
-			{
-				return this._judet;
-			}
-			set
-			{
-				if ((this._judet != value))
-				{
-					this.OnjudetChanging(value);
-					this.SendPropertyChanging();
-					this._judet = value;
-					this.SendPropertyChanged("judet");
-					this.OnjudetChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_oras", DbType="VarChar(50)")]
-		public string oras
-		{
-			get
-			{
-				return this._oras;
-			}
-			set
-			{
-				if ((this._oras != value))
-				{
-					this.OnorasChanging(value);
-					this.SendPropertyChanging();
-					this._oras = value;
-					this.SendPropertyChanged("oras");
-					this.OnorasChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_adresa", DbType="VarChar(200)")]
-		public string adresa
-		{
-			get
-			{
-				return this._adresa;
-			}
-			set
-			{
-				if ((this._adresa != value))
-				{
-					this.OnadresaChanging(value);
-					this.SendPropertyChanging();
-					this._adresa = value;
-					this.SendPropertyChanged("adresa");
-					this.OnadresaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_program", DbType="VarChar(50)")]
-		public string program
-		{
-			get
-			{
-				return this._program;
-			}
-			set
-			{
-				if ((this._program != value))
-				{
-					this.OnprogramChanging(value);
-					this.SendPropertyChanging();
-					this._program = value;
-					this.SendPropertyChanged("program");
-					this.OnprogramChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nr_contact", DbType="VarChar(11)")]
-		public string nr_contact
-		{
-			get
-			{
-				return this._nr_contact;
-			}
-			set
-			{
-				if ((this._nr_contact != value))
-				{
-					this.Onnr_contactChanging(value);
-					this.SendPropertyChanging();
-					this._nr_contact = value;
-					this.SendPropertyChanged("nr_contact");
-					this.Onnr_contactChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50)")]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this.OnemailChanging(value);
-					this.SendPropertyChanging();
-					this._email = value;
-					this.SendPropertyChanged("email");
-					this.OnemailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CIF", DbType="VarChar(10)")]
-		public string CIF
-		{
-			get
-			{
-				return this._CIF;
-			}
-			set
-			{
-				if ((this._CIF != value))
-				{
-					this.OnCIFChanging(value);
-					this.SendPropertyChanging();
-					this._CIF = value;
-					this.SendPropertyChanged("CIF");
-					this.OnCIFChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IBAN", DbType="VarChar(30)")]
-		public string IBAN
-		{
-			get
-			{
-				return this._IBAN;
-			}
-			set
-			{
-				if ((this._IBAN != value))
-				{
-					this.OnIBANChanging(value);
-					this.SendPropertyChanging();
-					this._IBAN = value;
-					this.SendPropertyChanged("IBAN");
-					this.OnIBANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Banca", DbType="VarChar(100)")]
-		public string Banca
-		{
-			get
-			{
-				return this._Banca;
-			}
-			set
-			{
-				if ((this._Banca != value))
-				{
-					this.OnBancaChanging(value);
-					this.SendPropertyChanging();
-					this._Banca = value;
-					this.SendPropertyChanged("Banca");
-					this.OnBancaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cale_imagine", DbType="NVarChar(255)")]
-		public string cale_imagine
-		{
-			get
-			{
-				return this._cale_imagine;
-			}
-			set
-			{
-				if ((this._cale_imagine != value))
-				{
-					this.Oncale_imagineChanging(value);
-					this.SendPropertyChanging();
-					this._cale_imagine = value;
-					this.SendPropertyChanged("cale_imagine");
-					this.Oncale_imagineChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Clinica_Departament", Storage="_Departaments", ThisKey="id_clinica", OtherKey="id_clinica")]
-		public EntitySet<Departament> Departaments
-		{
-			get
-			{
-				return this._Departaments;
-			}
-			set
-			{
-				this._Departaments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Clinica_Factura", Storage="_Facturas", ThisKey="id_clinica", OtherKey="id_clinica")]
-		public EntitySet<Factura> Facturas
-		{
-			get
-			{
-				return this._Facturas;
-			}
-			set
-			{
-				this._Facturas.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Clinica_Functie", Storage="_Functies", ThisKey="id_clinica", OtherKey="id_clinica")]
-		public EntitySet<Functie> Functies
-		{
-			get
-			{
-				return this._Functies;
-			}
-			set
-			{
-				this._Functies.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Departaments(Departament entity)
-		{
-			this.SendPropertyChanging();
-			entity.Clinica = this;
-		}
-		
-		private void detach_Departaments(Departament entity)
-		{
-			this.SendPropertyChanging();
-			entity.Clinica = null;
-		}
-		
-		private void attach_Facturas(Factura entity)
-		{
-			this.SendPropertyChanging();
-			entity.Clinica = this;
-		}
-		
-		private void detach_Facturas(Factura entity)
-		{
-			this.SendPropertyChanging();
-			entity.Clinica = null;
-		}
-		
-		private void attach_Functies(Functie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Clinica = this;
-		}
-		
-		private void detach_Functies(Functie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Clinica = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Angajat")]
-	public partial class Angajat : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_angajat;
-		
-		private string _nume;
-		
-		private string _prenume;
-		
-		private string _username;
-		
-		private string _parola;
-		
-		private string _email;
-		
-		private string _telefon;
-		
-		private string _specialitate;
-		
-		private System.Nullable<decimal> _rating;
-		
-		private string _imagine_cale;
-		
-		private string _titulatura;
-		
-		private EntitySet<Consultatie> _Consultaties;
-		
-		private EntitySet<Consultatie> _Consultaties1;
-		
-		private EntitySet<Functie> _Functies;
-		
-		private EntitySet<Incadrare_Departament> _Incadrare_Departaments;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_angajatChanging(int value);
-    partial void Onid_angajatChanged();
-    partial void OnnumeChanging(string value);
-    partial void OnnumeChanged();
-    partial void OnprenumeChanging(string value);
-    partial void OnprenumeChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
-    partial void OnparolaChanging(string value);
-    partial void OnparolaChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    partial void OntelefonChanging(string value);
-    partial void OntelefonChanged();
-    partial void OnspecialitateChanging(string value);
-    partial void OnspecialitateChanged();
-    partial void OnratingChanging(System.Nullable<decimal> value);
-    partial void OnratingChanged();
-    partial void Onimagine_caleChanging(string value);
-    partial void Onimagine_caleChanged();
-    partial void OntitulaturaChanging(string value);
-    partial void OntitulaturaChanged();
-    #endregion
-		
-		public Angajat()
-		{
-			this._Consultaties = new EntitySet<Consultatie>(new Action<Consultatie>(this.attach_Consultaties), new Action<Consultatie>(this.detach_Consultaties));
-			this._Consultaties1 = new EntitySet<Consultatie>(new Action<Consultatie>(this.attach_Consultaties1), new Action<Consultatie>(this.detach_Consultaties1));
-			this._Functies = new EntitySet<Functie>(new Action<Functie>(this.attach_Functies), new Action<Functie>(this.detach_Functies));
-			this._Incadrare_Departaments = new EntitySet<Incadrare_Departament>(new Action<Incadrare_Departament>(this.attach_Incadrare_Departaments), new Action<Incadrare_Departament>(this.detach_Incadrare_Departaments));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_angajat", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_angajat
-		{
-			get
-			{
-				return this._id_angajat;
-			}
-			set
-			{
-				if ((this._id_angajat != value))
-				{
-					this.Onid_angajatChanging(value);
-					this.SendPropertyChanging();
-					this._id_angajat = value;
-					this.SendPropertyChanged("id_angajat");
-					this.Onid_angajatChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nume", DbType="VarChar(50)")]
-		public string nume
-		{
-			get
-			{
-				return this._nume;
-			}
-			set
-			{
-				if ((this._nume != value))
-				{
-					this.OnnumeChanging(value);
-					this.SendPropertyChanging();
-					this._nume = value;
-					this.SendPropertyChanged("nume");
-					this.OnnumeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_prenume", DbType="VarChar(50)")]
-		public string prenume
-		{
-			get
-			{
-				return this._prenume;
-			}
-			set
-			{
-				if ((this._prenume != value))
-				{
-					this.OnprenumeChanging(value);
-					this.SendPropertyChanging();
-					this._prenume = value;
-					this.SendPropertyChanged("prenume");
-					this.OnprenumeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this.OnusernameChanging(value);
-					this.SendPropertyChanging();
-					this._username = value;
-					this.SendPropertyChanged("username");
-					this.OnusernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_parola", DbType="VarChar(50)")]
-		public string parola
-		{
-			get
-			{
-				return this._parola;
-			}
-			set
-			{
-				if ((this._parola != value))
-				{
-					this.OnparolaChanging(value);
-					this.SendPropertyChanging();
-					this._parola = value;
-					this.SendPropertyChanged("parola");
-					this.OnparolaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50)")]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this.OnemailChanging(value);
-					this.SendPropertyChanging();
-					this._email = value;
-					this.SendPropertyChanged("email");
-					this.OnemailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefon", DbType="VarChar(11)")]
-		public string telefon
-		{
-			get
-			{
-				return this._telefon;
-			}
-			set
-			{
-				if ((this._telefon != value))
-				{
-					this.OntelefonChanging(value);
-					this.SendPropertyChanging();
-					this._telefon = value;
-					this.SendPropertyChanged("telefon");
-					this.OntelefonChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_specialitate", DbType="NVarChar(100)")]
-		public string specialitate
-		{
-			get
-			{
-				return this._specialitate;
-			}
-			set
-			{
-				if ((this._specialitate != value))
-				{
-					this.OnspecialitateChanging(value);
-					this.SendPropertyChanging();
-					this._specialitate = value;
-					this.SendPropertyChanged("specialitate");
-					this.OnspecialitateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rating", DbType="Decimal(4,2)")]
-		public System.Nullable<decimal> rating
-		{
-			get
-			{
-				return this._rating;
-			}
-			set
-			{
-				if ((this._rating != value))
-				{
-					this.OnratingChanging(value);
-					this.SendPropertyChanging();
-					this._rating = value;
-					this.SendPropertyChanged("rating");
-					this.OnratingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imagine_cale", DbType="VarChar(255)")]
-		public string imagine_cale
-		{
-			get
-			{
-				return this._imagine_cale;
-			}
-			set
-			{
-				if ((this._imagine_cale != value))
-				{
-					this.Onimagine_caleChanging(value);
-					this.SendPropertyChanging();
-					this._imagine_cale = value;
-					this.SendPropertyChanged("imagine_cale");
-					this.Onimagine_caleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulatura", DbType="VarChar(100)")]
-		public string titulatura
-		{
-			get
-			{
-				return this._titulatura;
-			}
-			set
-			{
-				if ((this._titulatura != value))
-				{
-					this.OntitulaturaChanging(value);
-					this.SendPropertyChanging();
-					this._titulatura = value;
-					this.SendPropertyChanged("titulatura");
-					this.OntitulaturaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Consultatie", Storage="_Consultaties", ThisKey="id_angajat", OtherKey="id_asistent")]
-		public EntitySet<Consultatie> Consultaties
-		{
-			get
-			{
-				return this._Consultaties;
-			}
-			set
-			{
-				this._Consultaties.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Consultatie1", Storage="_Consultaties1", ThisKey="id_angajat", OtherKey="id_doctor")]
-		public EntitySet<Consultatie> Consultaties1
-		{
-			get
-			{
-				return this._Consultaties1;
-			}
-			set
-			{
-				this._Consultaties1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Functie", Storage="_Functies", ThisKey="id_angajat", OtherKey="id_angajat")]
-		public EntitySet<Functie> Functies
-		{
-			get
-			{
-				return this._Functies;
-			}
-			set
-			{
-				this._Functies.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Angajat_Incadrare_Departament", Storage="_Incadrare_Departaments", ThisKey="id_angajat", OtherKey="id_angajat")]
-		public EntitySet<Incadrare_Departament> Incadrare_Departaments
-		{
-			get
-			{
-				return this._Incadrare_Departaments;
-			}
-			set
-			{
-				this._Incadrare_Departaments.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Consultaties(Consultatie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Angajat = this;
-		}
-		
-		private void detach_Consultaties(Consultatie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Angajat = null;
-		}
-		
-		private void attach_Consultaties1(Consultatie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Angajat1 = this;
-		}
-		
-		private void detach_Consultaties1(Consultatie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Angajat1 = null;
-		}
-		
-		private void attach_Functies(Functie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Angajat = this;
-		}
-		
-		private void detach_Functies(Functie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Angajat = null;
-		}
-		
-		private void attach_Incadrare_Departaments(Incadrare_Departament entity)
-		{
-			this.SendPropertyChanging();
-			entity.Angajat = this;
-		}
-		
-		private void detach_Incadrare_Departaments(Incadrare_Departament entity)
-		{
-			this.SendPropertyChanging();
-			entity.Angajat = null;
 		}
 	}
 }

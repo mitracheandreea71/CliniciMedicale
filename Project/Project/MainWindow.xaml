@@ -56,7 +56,7 @@
                 <ImageBrush/>
             </Button.BorderBrush>
         </Button>
-        <Button x:Name="CliniciBttn" Content="Clinici" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="431,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black" FontWeight="Bold">
+        <Button x:Name="CliniciBttn" Content="Clinici" Command="{Binding ShowCliniciMoreView}" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="431,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black" FontWeight="Bold">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>

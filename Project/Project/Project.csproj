@@ -71,12 +71,16 @@
     <Compile Include="Model\ClinicaModel.cs" />
     <Compile Include="Model\MediciModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CliniciMoreViewModel.cs" />
     <Compile Include="ViewModel\CliniciViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\MediciMoreViewModel.cs" />
     <Compile Include="ViewModel\MediciViewModel.cs" />
     <Compile Include="View\AnalizeView.xaml.cs">
       <DependentUpon>AnalizeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CliniciMoreView.xaml.cs">
+      <DependentUpon>CliniciMoreView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CliniciView.xaml.cs">
       <DependentUpon>CliniciView.xaml</DependentUpon>
@@ -103,6 +107,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AnalizeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CliniciMoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
