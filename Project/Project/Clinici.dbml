@@ -76,8 +76,8 @@
       <Association Name="Buletin_Analize_Analize_Factura" Member="Analize_Facturas" ThisKey="id_buletin" OtherKey="id_analize" Type="Analize_Factura" />
       <Association Name="Buletin_Analize_Rezultat_Analize" Member="Rezultat_Analizes" ThisKey="id_buletin" OtherKey="id_buletin_analize" Type="Rezultat_Analize" />
       <Association Name="Angajat_Buletin_Analize" Member="Angajat" ThisKey="id_seflab" OtherKey="id_angajat" Type="Angajat" IsForeignKey="true" />
-      <Association Name="Formular_Analize_Buletin_Analize" Member="Formular_Analize" ThisKey="id_formular_analize" OtherKey="id_formular" Type="Formular_Analize" IsForeignKey="true" />
       <Association Name="Pacient_Buletin_Analize" Member="Pacient" ThisKey="id_pacient" OtherKey="id_pacient" Type="Pacient" IsForeignKey="true" />
+      <Association Name="Formular_Analize_Buletin_Analize" Member="Formular_Analize" ThisKey="id_formular_analize" OtherKey="id_formular" Type="Formular_Analize" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Clinica" Member="Clinicas">
@@ -155,16 +155,6 @@
       <Association Name="Pacient_Factura" Member="Pacient" ThisKey="id_pacient" OtherKey="id_pacient" Type="Pacient" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Formular_Analize" Member="Formular_Analizes">
-    <Type Name="Formular_Analize">
-      <Column Name="id_formular" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tip_analize" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="pret" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
-      <Column Name="decontabile" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="Formular_Analize_Apartenenta_Formular" Member="Apartenenta_Formulars" ThisKey="id_formular" OtherKey="id_formular" Type="Apartenenta_Formular" />
-      <Association Name="Formular_Analize_Buletin_Analize" Member="Buletin_Analizes" ThisKey="id_formular" OtherKey="id_formular_analize" Type="Buletin_Analize" />
-    </Type>
-  </Table>
   <Table Name="dbo.Functie" Member="Functies">
     <Type Name="Functie">
       <Column Name="id_functie" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -209,6 +199,18 @@
       <Column Name="valori_rezultate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Analize_Rezultat_Analize" Member="Analize" ThisKey="id_analiza" OtherKey="id_analiza" Type="Analize" IsForeignKey="true" />
       <Association Name="Buletin_Analize_Rezultat_Analize" Member="Buletin_Analize" ThisKey="id_buletin_analize" OtherKey="id_buletin" Type="Buletin_Analize" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Formular_Analize" Member="Formular_Analizes">
+    <Type Name="Formular_Analize">
+      <Column Name="id_formular" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tip_analize" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="pret" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="decontabile" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="nume_formular" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="cale_imagine" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="Formular_Analize_Apartenenta_Formular" Member="Apartenenta_Formulars" ThisKey="id_formular" OtherKey="id_formular" Type="Apartenenta_Formular" />
+      <Association Name="Formular_Analize_Buletin_Analize" Member="Buletin_Analizes" ThisKey="id_formular" OtherKey="id_formular_analize" Type="Buletin_Analize" />
     </Type>
   </Table>
 </Database>

@@ -61,7 +61,7 @@
                 <ImageBrush/>
             </Button.BorderBrush>
         </Button>
-        <Button x:Name="AnalizeBttn" Content="Pachete Analize" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="691,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black">
+        <Button x:Name="AnalizeBttn" Content="Pachete Analize" Command="{Binding ShowAnalizeMoreView}" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="691,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>

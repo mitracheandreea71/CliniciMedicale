@@ -66,9 +66,6 @@ namespace Project
     partial void InsertFactura(Factura instance);
     partial void UpdateFactura(Factura instance);
     partial void DeleteFactura(Factura instance);
-    partial void InsertFormular_Analize(Formular_Analize instance);
-    partial void UpdateFormular_Analize(Formular_Analize instance);
-    partial void DeleteFormular_Analize(Formular_Analize instance);
     partial void InsertFunctie(Functie instance);
     partial void UpdateFunctie(Functie instance);
     partial void DeleteFunctie(Functie instance);
@@ -81,6 +78,9 @@ namespace Project
     partial void InsertRezultat_Analize(Rezultat_Analize instance);
     partial void UpdateRezultat_Analize(Rezultat_Analize instance);
     partial void DeleteRezultat_Analize(Rezultat_Analize instance);
+    partial void InsertFormular_Analize(Formular_Analize instance);
+    partial void UpdateFormular_Analize(Formular_Analize instance);
+    partial void DeleteFormular_Analize(Formular_Analize instance);
     #endregion
 		
 		public CliniciDataContext() : 
@@ -217,14 +217,6 @@ namespace Project
 			}
 		}
 		
-		public System.Data.Linq.Table<Formular_Analize> Formular_Analizes
-		{
-			get
-			{
-				return this.GetTable<Formular_Analize>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Functie> Functies
 		{
 			get
@@ -254,6 +246,14 @@ namespace Project
 			get
 			{
 				return this.GetTable<Rezultat_Analize>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Formular_Analize> Formular_Analizes
+		{
+			get
+			{
+				return this.GetTable<Formular_Analize>();
 			}
 		}
 	}
@@ -1499,9 +1499,9 @@ namespace Project
 		
 		private EntityRef<Angajat> _Angajat;
 		
-		private EntityRef<Formular_Analize> _Formular_Analize;
-		
 		private EntityRef<Pacient> _Pacient;
+		
+		private EntityRef<Formular_Analize> _Formular_Analize;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1524,8 +1524,8 @@ namespace Project
 			this._Analize_Facturas = new EntitySet<Analize_Factura>(new Action<Analize_Factura>(this.attach_Analize_Facturas), new Action<Analize_Factura>(this.detach_Analize_Facturas));
 			this._Rezultat_Analizes = new EntitySet<Rezultat_Analize>(new Action<Rezultat_Analize>(this.attach_Rezultat_Analizes), new Action<Rezultat_Analize>(this.detach_Rezultat_Analizes));
 			this._Angajat = default(EntityRef<Angajat>);
-			this._Formular_Analize = default(EntityRef<Formular_Analize>);
 			this._Pacient = default(EntityRef<Pacient>);
+			this._Formular_Analize = default(EntityRef<Formular_Analize>);
 			OnCreated();
 		}
 		
@@ -1701,40 +1701,6 @@ namespace Project
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Formular_Analize_Buletin_Analize", Storage="_Formular_Analize", ThisKey="id_formular_analize", OtherKey="id_formular", IsForeignKey=true)]
-		public Formular_Analize Formular_Analize
-		{
-			get
-			{
-				return this._Formular_Analize.Entity;
-			}
-			set
-			{
-				Formular_Analize previousValue = this._Formular_Analize.Entity;
-				if (((previousValue != value) 
-							|| (this._Formular_Analize.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Formular_Analize.Entity = null;
-						previousValue.Buletin_Analizes.Remove(this);
-					}
-					this._Formular_Analize.Entity = value;
-					if ((value != null))
-					{
-						value.Buletin_Analizes.Add(this);
-						this._id_formular_analize = value.id_formular;
-					}
-					else
-					{
-						this._id_formular_analize = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Formular_Analize");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pacient_Buletin_Analize", Storage="_Pacient", ThisKey="id_pacient", OtherKey="id_pacient", IsForeignKey=true)]
 		public Pacient Pacient
 		{
@@ -1765,6 +1731,40 @@ namespace Project
 						this._id_pacient = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Pacient");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Formular_Analize_Buletin_Analize", Storage="_Formular_Analize", ThisKey="id_formular_analize", OtherKey="id_formular", IsForeignKey=true)]
+		public Formular_Analize Formular_Analize
+		{
+			get
+			{
+				return this._Formular_Analize.Entity;
+			}
+			set
+			{
+				Formular_Analize previousValue = this._Formular_Analize.Entity;
+				if (((previousValue != value) 
+							|| (this._Formular_Analize.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Formular_Analize.Entity = null;
+						previousValue.Buletin_Analizes.Remove(this);
+					}
+					this._Formular_Analize.Entity = value;
+					if ((value != null))
+					{
+						value.Buletin_Analizes.Add(this);
+						this._id_formular_analize = value.id_formular;
+					}
+					else
+					{
+						this._id_formular_analize = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Formular_Analize");
 				}
 			}
 		}
@@ -3451,168 +3451,6 @@ namespace Project
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Formular_Analize")]
-	public partial class Formular_Analize : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_formular;
-		
-		private string _tip_analize;
-		
-		private System.Nullable<decimal> _pret;
-		
-		private string _decontabile;
-		
-		private EntitySet<Buletin_Analize> _Buletin_Analizes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_formularChanging(int value);
-    partial void Onid_formularChanged();
-    partial void Ontip_analizeChanging(string value);
-    partial void Ontip_analizeChanged();
-    partial void OnpretChanging(System.Nullable<decimal> value);
-    partial void OnpretChanged();
-    partial void OndecontabileChanging(string value);
-    partial void OndecontabileChanged();
-    #endregion
-		
-		public Formular_Analize()
-		{
-			this._Buletin_Analizes = new EntitySet<Buletin_Analize>(new Action<Buletin_Analize>(this.attach_Buletin_Analizes), new Action<Buletin_Analize>(this.detach_Buletin_Analizes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_formular", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_formular
-		{
-			get
-			{
-				return this._id_formular;
-			}
-			set
-			{
-				if ((this._id_formular != value))
-				{
-					this.Onid_formularChanging(value);
-					this.SendPropertyChanging();
-					this._id_formular = value;
-					this.SendPropertyChanged("id_formular");
-					this.Onid_formularChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tip_analize", DbType="VarChar(40)")]
-		public string tip_analize
-		{
-			get
-			{
-				return this._tip_analize;
-			}
-			set
-			{
-				if ((this._tip_analize != value))
-				{
-					this.Ontip_analizeChanging(value);
-					this.SendPropertyChanging();
-					this._tip_analize = value;
-					this.SendPropertyChanged("tip_analize");
-					this.Ontip_analizeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pret", DbType="Decimal(7,2)")]
-		public System.Nullable<decimal> pret
-		{
-			get
-			{
-				return this._pret;
-			}
-			set
-			{
-				if ((this._pret != value))
-				{
-					this.OnpretChanging(value);
-					this.SendPropertyChanging();
-					this._pret = value;
-					this.SendPropertyChanged("pret");
-					this.OnpretChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decontabile", DbType="VarChar(10)")]
-		public string decontabile
-		{
-			get
-			{
-				return this._decontabile;
-			}
-			set
-			{
-				if ((this._decontabile != value))
-				{
-					this.OndecontabileChanging(value);
-					this.SendPropertyChanging();
-					this._decontabile = value;
-					this.SendPropertyChanged("decontabile");
-					this.OndecontabileChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Formular_Analize_Buletin_Analize", Storage="_Buletin_Analizes", ThisKey="id_formular", OtherKey="id_formular_analize")]
-		public EntitySet<Buletin_Analize> Buletin_Analizes
-		{
-			get
-			{
-				return this._Buletin_Analizes;
-			}
-			set
-			{
-				this._Buletin_Analizes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Buletin_Analizes(Buletin_Analize entity)
-		{
-			this.SendPropertyChanging();
-			entity.Formular_Analize = this;
-		}
-		
-		private void detach_Buletin_Analizes(Buletin_Analize entity)
-		{
-			this.SendPropertyChanging();
-			entity.Formular_Analize = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Functie")]
 	public partial class Functie : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -4600,6 +4438,216 @@ namespace Project
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Formular_Analize")]
+	public partial class Formular_Analize : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_formular;
+		
+		private string _tip_analize;
+		
+		private System.Nullable<decimal> _pret;
+		
+		private string _decontabile;
+		
+		private string _nume_formular;
+		
+		private string _cale_imagine;
+		
+		private EntitySet<Buletin_Analize> _Buletin_Analizes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_formularChanging(int value);
+    partial void Onid_formularChanged();
+    partial void Ontip_analizeChanging(string value);
+    partial void Ontip_analizeChanged();
+    partial void OnpretChanging(System.Nullable<decimal> value);
+    partial void OnpretChanged();
+    partial void OndecontabileChanging(string value);
+    partial void OndecontabileChanged();
+    partial void Onnume_formularChanging(string value);
+    partial void Onnume_formularChanged();
+    partial void Oncale_imagineChanging(string value);
+    partial void Oncale_imagineChanged();
+    #endregion
+		
+		public Formular_Analize()
+		{
+			this._Buletin_Analizes = new EntitySet<Buletin_Analize>(new Action<Buletin_Analize>(this.attach_Buletin_Analizes), new Action<Buletin_Analize>(this.detach_Buletin_Analizes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_formular", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_formular
+		{
+			get
+			{
+				return this._id_formular;
+			}
+			set
+			{
+				if ((this._id_formular != value))
+				{
+					this.Onid_formularChanging(value);
+					this.SendPropertyChanging();
+					this._id_formular = value;
+					this.SendPropertyChanged("id_formular");
+					this.Onid_formularChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tip_analize", DbType="VarChar(40)")]
+		public string tip_analize
+		{
+			get
+			{
+				return this._tip_analize;
+			}
+			set
+			{
+				if ((this._tip_analize != value))
+				{
+					this.Ontip_analizeChanging(value);
+					this.SendPropertyChanging();
+					this._tip_analize = value;
+					this.SendPropertyChanged("tip_analize");
+					this.Ontip_analizeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pret", DbType="Decimal(7,2)")]
+		public System.Nullable<decimal> pret
+		{
+			get
+			{
+				return this._pret;
+			}
+			set
+			{
+				if ((this._pret != value))
+				{
+					this.OnpretChanging(value);
+					this.SendPropertyChanging();
+					this._pret = value;
+					this.SendPropertyChanged("pret");
+					this.OnpretChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decontabile", DbType="VarChar(10)")]
+		public string decontabile
+		{
+			get
+			{
+				return this._decontabile;
+			}
+			set
+			{
+				if ((this._decontabile != value))
+				{
+					this.OndecontabileChanging(value);
+					this.SendPropertyChanging();
+					this._decontabile = value;
+					this.SendPropertyChanged("decontabile");
+					this.OndecontabileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nume_formular", DbType="VarChar(100)")]
+		public string nume_formular
+		{
+			get
+			{
+				return this._nume_formular;
+			}
+			set
+			{
+				if ((this._nume_formular != value))
+				{
+					this.Onnume_formularChanging(value);
+					this.SendPropertyChanging();
+					this._nume_formular = value;
+					this.SendPropertyChanged("nume_formular");
+					this.Onnume_formularChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cale_imagine", DbType="VarChar(255)")]
+		public string cale_imagine
+		{
+			get
+			{
+				return this._cale_imagine;
+			}
+			set
+			{
+				if ((this._cale_imagine != value))
+				{
+					this.Oncale_imagineChanging(value);
+					this.SendPropertyChanging();
+					this._cale_imagine = value;
+					this.SendPropertyChanged("cale_imagine");
+					this.Oncale_imagineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Formular_Analize_Buletin_Analize", Storage="_Buletin_Analizes", ThisKey="id_formular", OtherKey="id_formular_analize")]
+		public EntitySet<Buletin_Analize> Buletin_Analizes
+		{
+			get
+			{
+				return this._Buletin_Analizes;
+			}
+			set
+			{
+				this._Buletin_Analizes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Buletin_Analizes(Buletin_Analize entity)
+		{
+			this.SendPropertyChanging();
+			entity.Formular_Analize = this;
+		}
+		
+		private void detach_Buletin_Analizes(Buletin_Analize entity)
+		{
+			this.SendPropertyChanging();
+			entity.Formular_Analize = null;
 		}
 	}
 }
