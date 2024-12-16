@@ -11,7 +11,7 @@ using System.Windows.Navigation;
 
 namespace Project.Model
 {
-    public class ClinicaModel : INotifyPropertyChanged
+    public class ClinicaModel
     {
         public int ClinicaID { get; set; }
         public string NumeClinica { get; set; }
@@ -27,8 +27,6 @@ namespace Project.Model
         public string CaleImagine { get; set; }
 
         public List<string> ListaSpecializari { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private readonly CliniciDataContext _context;
 

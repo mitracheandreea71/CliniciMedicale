@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,19 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Project.ViewModel;
 
-namespace Project.View
+namespace Project.Windows
 {
     /// <summary>
-    /// Interaction logic for CliniciMoreView.xaml
+    /// Interaction logic for RezultatAnalize.xaml
     /// </summary>
-    public partial class CliniciMoreView : UserControl
+    public partial class RezultatAnalizeWindow : Window
     {
-        public CliniciMoreView()
+        public RezultatAnalizeWindow(int idBuletin, int idPacient)
         {
             InitializeComponent();
+            DataContext = new RezultateWindowViewModel(idBuletin, idPacient);
         }
     }
 }

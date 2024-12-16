@@ -11,7 +11,6 @@ namespace Project.Commands
         private Action<object> execute;
         private Func<object, bool> canExecute;
 
-        public event EventHandler CanExecuteChanged;
         public BaseCommand(Action<object> execute, Func<object, bool> canExecute = null) 
         {
             this.execute = execute;
@@ -26,6 +25,12 @@ namespace Project.Commands
         public void Execute(object parameter)
         {
             execute(parameter);
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
     }
 }

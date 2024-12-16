@@ -1,18 +1,23 @@
 ﻿<UserControl x:Class="Project.View.AnalizeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Project.ViewModel"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Project.View"
              mc:Ignorable="d" 
              d:DesignWidth="1000" Height="90">
 
+    <UserControl.DataContext>
+        <vm:AnalizeViewModel />
+    </UserControl.DataContext>
+    
     <Grid>
         <Rectangle Height="90"  VerticalAlignment="Center" Fill="White" RadiusX="15" RadiusY="15"/>
         <Image HorizontalAlignment="Left" Height="70" Margin="26,0,0,0" VerticalAlignment="Center" Width="40" Source="/Images/analize.png"/>
-        <TextBox Style="{StaticResource RoundedTextBoxStyle}" x:Name="CodAnalizeTxtBox" HorizontalAlignment="Left" Margin="316,0,0,0" TextWrapping="Wrap" Text="Cod Unic Analize" VerticalAlignment="Center" Width="242" Height="36" SelectionBrush="#FF73060D" Foreground="#FF888888" FontFamily="Arial" FontSize="16" TextAlignment="Center"/>
+        <TextBox Style="{StaticResource RoundedTextBoxStyle}" x:Name="CodAnalizeTxtBox" HorizontalAlignment="Left" Margin="316,0,0,0" TextWrapping="Wrap" Text="{Binding CodUnicAnalize, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="242" Height="36" SelectionBrush="#FF73060D" Foreground="#FF888888" FontFamily="Arial" FontSize="16" TextAlignment="Center"/>
         <TextBlock HorizontalAlignment="Left" Margin="85,0,0,0" TextWrapping="Wrap" Text="Rezultate analize" VerticalAlignment="Center" Height="22" Width="192" FontSize="20" Foreground="Black" FontFamily="Arial Black"/>
-        <TextBox Style="{StaticResource RoundedTextBoxStyle}" x:Name="CodPacientTxtBox" HorizontalAlignment="Left" Margin="598,0,0,0" TextWrapping="Wrap" Text="Cod Unic Pacient" VerticalAlignment="Center" Width="241" Height="36" SelectionBrush="#FF73060D" Foreground="#FF888888" FontFamily="Arial" FontSize="16" TextAlignment="Center"/>
-        <Button x:Name="TrimiteAnalizeBttn" Style="{StaticResource RoundedButtonStyle}" Content="Trimite" HorizontalAlignment="Left" Margin="870,0,0,0" VerticalAlignment="Center" Height="36" Width="105" Background="#FF73060D"/>
+        <TextBox Style="{StaticResource RoundedTextBoxStyle}" x:Name="CodPacientTxtBox" HorizontalAlignment="Left" Margin="598,0,0,0" TextWrapping="Wrap" Text="{Binding CodUnicPacient, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="241" Height="36" SelectionBrush="#FF73060D" Foreground="#FF888888" FontFamily="Arial" FontSize="16" TextAlignment="Center"/>
+        <Button x:Name="TrimiteAnalizeBttn" Style="{StaticResource RoundedButtonStyle}" Command="{Binding TrimiteAnalizeBttn}" Content="Trimite" HorizontalAlignment="Left" Margin="870,0,0,0" VerticalAlignment="Center" Height="36" Width="105" Background="#FF73060D"/>
     </Grid>
 </UserControl>

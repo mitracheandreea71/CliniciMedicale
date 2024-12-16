@@ -11,14 +11,13 @@ using System.Windows.Navigation;
 
 namespace Project.Model
 {
-    internal class AnalizeModel : INotifyPropertyChanged
+    internal class AnalizeModel
     {
         public int IDAnaliza {  get; set; }
         public string DenumireAnaliza {  set; get; }
         public string ValoriReferinta {  set; get; }
         public string UnitateMasura { set; get; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
         private readonly CliniciDataContext _context;
 
         public AnalizeModel()
@@ -29,10 +28,11 @@ namespace Project.Model
         public ObservableCollection<AnalizeModel> GetAllAnalizeForFormular(int formularID)
         {
             ObservableCollection<AnalizeModel> analizeRet = new ObservableCollection<AnalizeModel>();
-            
+
             var analizeT = from analize in _context.Analizes
-                          join apartenta_formular in _context.Apartenenta_Formulars on analize.id_analiza equals apartenta_formular.id_analiza
-                          select analize;
+                           join ap_formular in _context.Apartenenta_Formulars on analize.id_analiza equals ap_formular.id_analiza
+                           where ap_formular.id_formular == formularID
+                           select analize;
 
             foreach (var iterator in analizeT)
             {

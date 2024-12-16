@@ -29,3 +29,7 @@ D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\ob
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\CliniciMoreView.baml
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeMoreView.g.cs
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeMoreView.baml
+D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeRezultatView.g.cs
+D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeRezultatView.baml
+D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\Windows\RezultatAnalizeWindow.g.cs
+D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\Windows\RezultatAnalizeWindow.baml
