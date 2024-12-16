@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\App.xaml
-8-72830779
+1062658244
 
-28-26029064
+34-424870276
 141458853696
-MainWindow.xaml;View\AnalizeMoreView.xaml;View\AnalizeView.xaml;View\CliniciMoreView.xaml;View\CliniciView.xaml;View\MediciMoreView.xaml;View\MediciView.xaml;View\PaginaPrincipalaView.xaml;
+MainWindow.xaml;View\AnalizeMoreView.xaml;View\AnalizeRezultatView.xaml;View\AnalizeView.xaml;View\CliniciMoreView.xaml;View\CliniciView.xaml;View\MediciMoreView.xaml;View\MediciView.xaml;View\PaginaPrincipalaView.xaml;Windows\RezultatAnalizeWindow.xaml;
 
 True
 

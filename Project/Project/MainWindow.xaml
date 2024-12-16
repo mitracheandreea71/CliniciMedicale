@@ -72,7 +72,7 @@
                 <ImageBrush/>
             </Button.BorderBrush>
         </Button>
-        <Button x:Name="ArticoleBttn" Content="Articole" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="949,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black">
+        <Button x:Name="IstoricMedBttn" Content="Istoric Medical" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="949,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>
@@ -98,7 +98,7 @@
                 <ImageBrush/>
             </Button.BorderBrush>
         </Button>
-        <Button x:Name="ViewAnalizeBttn" Content="Vizualizeaza Analize" Style="{StaticResource SecondaryButtonSyle}" HorizontalAlignment="Left" Margin="732,3,0,0" VerticalAlignment="Top" Background="#00000000" Width="127" Height="30" FontSize="14" FontFamily="Arial" FontWeight="Bold">
+        <Button x:Name="ViewAnalizeBttn" Content="Vizualizeaza Analize" Command="{Binding ShowRezultateAnalize}" Style="{StaticResource SecondaryButtonSyle}" HorizontalAlignment="Left" Margin="732,3,0,0" VerticalAlignment="Top" Background="#00000000" Width="127" Height="30" FontSize="14" FontFamily="Arial" FontWeight="Bold">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>

@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 
 namespace Project.Model
 {
-    public class MediciModel : INotifyPropertyChanged
+    public class MediciModel
     {
         public int IdAngajat { get; set; }
         public string Titulatura { get; set; }
@@ -29,7 +29,6 @@ namespace Project.Model
         public string NumeComplet => $" {Titulatura} {Nume} {Prenume}";
         public string Program { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private readonly CliniciDataContext _context;
 

@@ -11,7 +11,7 @@ using System.Windows.Navigation;
 
 namespace Project.Model
 {
-    internal class FormularAnalizeModel : INotifyPropertyChanged
+    internal class FormularAnalizeModel
     {
         public int IDFormular { get; set; }
         public string TipAnalize { get; set; }
@@ -20,8 +20,6 @@ namespace Project.Model
         public string NumeFormular { get; set; }
         public string CaleImagine {  get; set; }
         public ObservableCollection<AnalizeModel> ListaAnalize { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private readonly CliniciDataContext _context;
 
@@ -55,6 +53,24 @@ namespace Project.Model
             }
 
             return formulare;
+        }
+
+        public FormularAnalizeModel GetFormularByBuletinAnalizeID(int buletinAnalizeID)
+        {
+            FormularAnalizeModel formular = new FormularAnalizeModel();
+
+            var f = (from form in _context.Formular_Analizes
+                     join buletin in _context.Buletin_Analizes on form.id_formular equals buletin.id_formular_analize
+                     select form).First();
+            formular.IDFormular = f.id_formular;
+            formular.TipAnalize = f.tip_analize;
+            formular.Pret = (decimal)f.pret;
+            formular.Decontabile = f.decontabile;
+            formular.NumeFormular = f.nume_formular;
+            formular.CaleImagine = f.cale_imagine;
+            formular.ListaAnalize = (new AnalizeModel()).GetAllAnalizeForFormular(formular.IDFormular);
+
+            return formular;
         }
     }
 }
