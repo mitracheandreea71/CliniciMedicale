@@ -25,6 +25,7 @@ D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\ob
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\MediciMoreView.g.cs
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\MediciMoreView.baml
+<<<<<<< Updated upstream
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\CliniciMoreView.g.cs
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\CliniciMoreView.baml
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeMoreView.g.cs
@@ -33,3 +34,44 @@ D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\ob
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeRezultatView.baml
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\Windows\RezultatAnalizeWindow.g.cs
 D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\Windows\RezultatAnalizeWindow.baml
+=======
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\bin\Debug\Project.exe.config
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\bin\Debug\Project.exe
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\bin\Debug\Project.pdb
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project.csproj.AssemblyReference.cache
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\MainWindow.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeView.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\CliniciView.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\MediciMoreView.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\MediciView.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\PaginaPrincipalaView.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\App.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project_MarkupCompile.cache
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project_MarkupCompile.lref
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\App.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\MainWindow.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeView.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\CliniciView.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\MediciMoreView.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\MediciView.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\PaginaPrincipalaView.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project.g.resources
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project.Properties.Resources.resources
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project.exe
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project.pdb
+>>>>>>> Stashed changes
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeMoreView.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeRezultatView.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\CliniciMoreView.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Windows\RezultatAnalizeWindow.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeMoreView.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AnalizeRezultatView.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\CliniciMoreView.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Windows\RezultatAnalizeWindow.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\LoginView.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\LoginView.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\LoginWindow.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\LoginWindow.baml

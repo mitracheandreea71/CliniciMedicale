@@ -25,5 +25,13 @@ namespace Project
         {
             InitializeComponent();
         }
+
+        private void LogareBttn_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+          
+            this.Close();
+        }
     }
 }

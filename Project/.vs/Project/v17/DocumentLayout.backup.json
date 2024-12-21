@@ -1,70 +1,161 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\",
+  "WorkspaceRootPath": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|d:\\materiale academie\\anul iii sem 1\\ap. baze\\clinicimedicale\\project\\project\\viewmodel\\analizeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\analizeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\analizerezultatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\analizerezultatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\view\\analizerezultatview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\analizerezultatview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|c:\\users\\mitra\\desktop\\proiect ap. baze\\clinicimedicale\\project\\project\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\view\\analizerezultatview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\analizerezultatview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\view\\analizeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\analizeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\windows\\rezultatanalizewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\windows\\rezultatanalizewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\medicimoreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\medicimoreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\model\\buletinanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\model\\buletinanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\model\\analizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\model\\analizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\commands\\basecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\commands\\basecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\model\\formularanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\model\\formularanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mitra\\AppData\\Local\\Temp\\nkrwwuqz..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\analizemoreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\analizemoreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\model\\medicimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\model\\medicimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\model\\clinicamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\model\\clinicamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\clinicimoreview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\clinicimoreview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\analizeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\analizeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\model\\rezultatanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\cliniciviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\cliniciviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\mediciviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\mediciviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\clinicimoreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\clinicimoreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\clinicimoreview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\clinicimoreview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\analizemoreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\analizemoreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\cliniciview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\cliniciview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\medicimoreview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\medicimoreview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\paginaprincipalaview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\paginaprincipalaview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\analizeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\analizeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\analizerezultatview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\analizerezultatview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\viewmodel\\analizerezultatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\viewmodel\\analizerezultatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\model\\rezultatanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\model\\rezultatanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\windows\\rezultatanalizewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\model\\analizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\model\\analizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\analizemoreview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\analizemoreview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\model\\buletinanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\model\\buletinanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\paginaprincipalaview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\paginaprincipalaview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\model\\formularanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\model\\formularanalizemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\view\\analizerezultatview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\view\\analizerezultatview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\windows\\rezultatanalizewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\windows\\rezultatanalizewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\model\\clinicamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\model\\clinicamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\project\\windows\\rezultatanalizewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\windows\\rezultatanalizewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\project\\commands\\basecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7351E63-6FCE-4945-94F0-049692C7756E}|Project\\Project.csproj|solutionrelative:project\\commands\\basecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,28 +169,31 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AnalizeRezultatView.xaml",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeRezultatView.xaml",
-              "RelativeDocumentMoniker": "Project\\View\\AnalizeRezultatView.xaml",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeRezultatView.xaml",
-              "RelativeToolTip": "Project\\View\\AnalizeRezultatView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-13T22:41:14.065Z",
-              "IsPinned": true
+              "DocumentIndex": 1,
+              "Title": "LoginView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\LoginView.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\View\\LoginView.xaml.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\LoginView.xaml.cs",
+              "RelativeToolTip": "Project\\View\\LoginView.xaml.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAtwE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:48:02.74Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AnalizeRezultatViewModel.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeRezultatViewModel.cs",
-              "RelativeDocumentMoniker": "Project\\ViewModel\\AnalizeRezultatViewModel.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeRezultatViewModel.cs",
-              "RelativeToolTip": "Project\\ViewModel\\AnalizeRezultatViewModel.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAlwCAAAABgAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "Project\\ViewModel\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\LoginViewModel.cs",
+              "RelativeToolTip": "Project\\ViewModel\\LoginViewModel.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwEgAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T22:42:04.946Z",
-              "IsPinned": true
+              "WhenOpened": "2024-12-16T09:33:44.215Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -108,168 +202,424 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AnalizeViewModel.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeViewModel.cs",
-              "RelativeDocumentMoniker": "Project\\ViewModel\\AnalizeViewModel.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeViewModel.cs",
-              "RelativeToolTip": "Project\\ViewModel\\AnalizeViewModel.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAA/wB4AAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T23:53:50.758Z",
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\LoginView.xaml",
+              "RelativeDocumentMoniker": "Project\\View\\LoginView.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\LoginView.xaml*",
+              "RelativeToolTip": "Project\\View\\LoginView.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-20T21:58:31.432Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AnalizeView.xaml",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeView.xaml",
-              "RelativeDocumentMoniker": "Project\\View\\AnalizeView.xaml",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeView.xaml",
-              "RelativeToolTip": "Project\\View\\AnalizeView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-16T06:44:26.024Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AnalizeRezultatView.xaml.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeRezultatView.xaml.cs",
-              "RelativeDocumentMoniker": "Project\\View\\AnalizeRezultatView.xaml.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeRezultatView.xaml.cs",
-              "RelativeToolTip": "Project\\View\\AnalizeRezultatView.xaml.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T06:44:30.783Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BuletinAnalizeModel.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Model\\BuletinAnalizeModel.cs",
-              "RelativeDocumentMoniker": "Project\\Model\\BuletinAnalizeModel.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Model\\BuletinAnalizeModel.cs",
-              "RelativeToolTip": "Project\\Model\\BuletinAnalizeModel.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAowB8AAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T23:37:52.632Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RezultatAnalizeWindow.xaml.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Windows\\RezultatAnalizeWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Project\\Windows\\RezultatAnalizeWindow.xaml.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Windows\\RezultatAnalizeWindow.xaml.cs",
-              "RelativeToolTip": "Project\\Windows\\RezultatAnalizeWindow.xaml.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAjwBkAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T23:53:13.155Z"
+              "DocumentIndex": 3,
+              "Title": "SQLQuery1.sql ",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\SQLQuery1.sql",
+              "RelativeDocumentMoniker": "SQLQuery1.sql",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\SQLQuery1.sql",
+              "RelativeToolTip": "SQLQuery1.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-12-20T15:05:55.117Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "AnalizeModel.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Model\\AnalizeModel.cs",
-              "RelativeDocumentMoniker": "Project\\Model\\AnalizeModel.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Model\\AnalizeModel.cs",
-              "RelativeToolTip": "Project\\Model\\AnalizeModel.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Title": "BaseCommand.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Commands\\BaseCommand.cs",
+              "RelativeDocumentMoniker": "Project\\Commands\\BaseCommand.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Commands\\BaseCommand.cs",
+              "RelativeToolTip": "Project\\Commands\\BaseCommand.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T06:29:56.976Z"
+              "WhenOpened": "2024-12-16T09:24:03.931Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FormularAnalizeModel.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Model\\FormularAnalizeModel.cs",
-              "RelativeDocumentMoniker": "Project\\Model\\FormularAnalizeModel.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Model\\FormularAnalizeModel.cs",
-              "RelativeToolTip": "Project\\Model\\FormularAnalizeModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Project\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAD4vxcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T06:26:54.502Z"
+              "WhenOpened": "2024-12-16T09:26:36.801Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AnalizeMoreViewModel.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeMoreViewModel.cs",
-              "RelativeDocumentMoniker": "Project\\ViewModel\\AnalizeMoreViewModel.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeMoreViewModel.cs",
-              "RelativeToolTip": "Project\\ViewModel\\AnalizeMoreViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "LoginWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\LoginWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\View\\LoginWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\LoginWindow.xaml.cs",
+              "RelativeToolTip": "Project\\View\\LoginWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T06:28:15.665Z"
+              "WhenOpened": "2024-12-18T06:21:49.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MediciMoreViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\MediciMoreViewModel.cs",
+              "RelativeDocumentMoniker": "Project\\ViewModel\\MediciMoreViewModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\MediciMoreViewModel.cs",
+              "RelativeToolTip": "Project\\ViewModel\\MediciMoreViewModel.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T18:41:11.947Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "ClinicaModel.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Model\\ClinicaModel.cs",
-              "RelativeDocumentMoniker": "Project\\Model\\ClinicaModel.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Model\\ClinicaModel.cs",
-              "RelativeToolTip": "Project\\Model\\ClinicaModel.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T06:26:52.266Z"
+              "Title": "CliniciMoreView.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\CliniciMoreView.xaml",
+              "RelativeDocumentMoniker": "Project\\View\\CliniciMoreView.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\CliniciMoreView.xaml",
+              "RelativeToolTip": "Project\\View\\CliniciMoreView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-18T06:11:56.228Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "MainWindowViewModel.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\MainWindowViewModel.cs",
-              "RelativeDocumentMoniker": "Project\\ViewModel\\MainWindowViewModel.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\MainWindowViewModel.cs",
-              "RelativeToolTip": "Project\\ViewModel\\MainWindowViewModel.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAA8wB0AAAAsAAAAAAAAAA==",
+              "Title": "BaseViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\BaseViewModel.cs",
+              "RelativeDocumentMoniker": "Project\\ViewModel\\BaseViewModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\BaseViewModel.cs",
+              "RelativeToolTip": "Project\\ViewModel\\BaseViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T06:23:45.324Z"
+              "WhenOpened": "2024-12-20T18:51:27.341Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "RezultatAnalizeWindow.xaml",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Windows\\RezultatAnalizeWindow.xaml",
-              "RelativeDocumentMoniker": "Project\\Windows\\RezultatAnalizeWindow.xaml",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Windows\\RezultatAnalizeWindow.xaml",
-              "RelativeToolTip": "Project\\Windows\\RezultatAnalizeWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-15T23:53:10.951Z"
+              "DocumentIndex": 8,
+              "Title": "nkrwwuqz..sql",
+              "DocumentMoniker": "C:\\Users\\mitra\\AppData\\Local\\Temp\\nkrwwuqz..sql",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\nkrwwuqz..sql",
+              "ToolTip": "C:\\Users\\mitra\\AppData\\Local\\Temp\\nkrwwuqz..sql",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\nkrwwuqz..sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-12-20T19:25:59.073Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "RezultatAnalizeModel.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Model\\RezultatAnalizeModel.cs",
-              "RelativeDocumentMoniker": "Project\\Model\\RezultatAnalizeModel.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Model\\RezultatAnalizeModel.cs",
-              "RelativeToolTip": "Project\\Model\\RezultatAnalizeModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBEAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "MediciModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\MediciModel.cs",
+              "RelativeDocumentMoniker": "Project\\Model\\MediciModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\MediciModel.cs",
+              "RelativeToolTip": "Project\\Model\\MediciModel.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBsAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T00:09:19.174Z"
+              "WhenOpened": "2024-12-20T17:31:22.323Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Project\\MainWindow.xaml",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\MainWindow.xaml",
-              "RelativeToolTip": "Project\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-16T06:23:00.295Z"
+              "Title": "MainWindowViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\MainWindowViewModel.cs",
+              "RelativeDocumentMoniker": "Project\\ViewModel\\MainWindowViewModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\MainWindowViewModel.cs",
+              "RelativeToolTip": "Project\\ViewModel\\MainWindowViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CliniciViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\CliniciViewModel.cs",
+              "RelativeDocumentMoniker": "Project\\ViewModel\\CliniciViewModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\CliniciViewModel.cs",
+              "RelativeToolTip": "Project\\ViewModel\\CliniciViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T18:41:36.737Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "BaseCommand.cs",
-              "DocumentMoniker": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Commands\\BaseCommand.cs",
-              "RelativeDocumentMoniker": "Project\\Commands\\BaseCommand.cs",
-              "ToolTip": "D:\\MATERIALE ACADEMIE\\ANUL III SEM 1\\Ap. Baze\\CliniciMedicale\\Project\\Project\\Commands\\BaseCommand.cs",
-              "RelativeToolTip": "Project\\Commands\\BaseCommand.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAYwBYAAAAIAAAAAAAAAA==",
+              "Title": "MediciViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\MediciViewModel.cs",
+              "RelativeDocumentMoniker": "Project\\ViewModel\\MediciViewModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\MediciViewModel.cs",
+              "RelativeToolTip": "Project\\ViewModel\\MediciViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T07:38:14.651Z"
+              "WhenOpened": "2024-12-20T18:41:01.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AnalizeViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeViewModel.cs",
+              "RelativeDocumentMoniker": "Project\\ViewModel\\AnalizeViewModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeViewModel.cs",
+              "RelativeToolTip": "Project\\ViewModel\\AnalizeViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "Project\\View\\LoginWindow.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\LoginWindow.xaml",
+              "RelativeToolTip": "Project\\View\\LoginWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-18T06:20:27.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CliniciMoreViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\CliniciMoreViewModel.cs",
+              "RelativeDocumentMoniker": "Project\\ViewModel\\CliniciMoreViewModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\CliniciMoreViewModel.cs",
+              "RelativeToolTip": "Project\\ViewModel\\CliniciMoreViewModel.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T06:11:41.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CliniciMoreView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\CliniciMoreView.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\View\\CliniciMoreView.xaml.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\CliniciMoreView.xaml.cs",
+              "RelativeToolTip": "Project\\View\\CliniciMoreView.xaml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T06:12:01.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CliniciView.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\CliniciView.xaml",
+              "RelativeDocumentMoniker": "Project\\View\\CliniciView.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\CliniciView.xaml",
+              "RelativeToolTip": "Project\\View\\CliniciView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T09:39:02.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AnalizeMoreViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeMoreViewModel.cs",
+              "RelativeDocumentMoniker": "Project\\ViewModel\\AnalizeMoreViewModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeMoreViewModel.cs",
+              "RelativeToolTip": "Project\\ViewModel\\AnalizeMoreViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MediciMoreView.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\MediciMoreView.xaml",
+              "RelativeDocumentMoniker": "Project\\View\\MediciMoreView.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\MediciMoreView.xaml",
+              "RelativeToolTip": "Project\\View\\MediciMoreView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T09:39:06.348Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AnalizeRezultatView.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeRezultatView.xaml",
+              "RelativeDocumentMoniker": "Project\\View\\AnalizeRezultatView.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeRezultatView.xaml",
+              "RelativeToolTip": "Project\\View\\AnalizeRezultatView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T09:24:03.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PaginaPrincipalaView.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\PaginaPrincipalaView.xaml",
+              "RelativeDocumentMoniker": "Project\\View\\PaginaPrincipalaView.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\PaginaPrincipalaView.xaml",
+              "RelativeToolTip": "Project\\View\\PaginaPrincipalaView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T09:26:10.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AnalizeRezultatViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeRezultatViewModel.cs",
+              "RelativeDocumentMoniker": "Project\\ViewModel\\AnalizeRezultatViewModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\ViewModel\\AnalizeRezultatViewModel.cs",
+              "RelativeToolTip": "Project\\ViewModel\\AnalizeRezultatViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.771Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AnalizeView.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeView.xaml",
+              "RelativeDocumentMoniker": "Project\\View\\AnalizeView.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeView.xaml",
+              "RelativeToolTip": "Project\\View\\AnalizeView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T09:24:03.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "RezultatAnalizeModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\RezultatAnalizeModel.cs",
+              "RelativeDocumentMoniker": "Project\\Model\\RezultatAnalizeModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\RezultatAnalizeModel.cs",
+              "RelativeToolTip": "Project\\Model\\RezultatAnalizeModel.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwBEAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "ClinicaModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\ClinicaModel.cs",
+              "RelativeDocumentMoniker": "Project\\Model\\ClinicaModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\ClinicaModel.cs",
+              "RelativeToolTip": "Project\\Model\\ClinicaModel.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "RezultatAnalizeWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Windows\\RezultatAnalizeWindow.xaml",
+              "RelativeDocumentMoniker": "Project\\Windows\\RezultatAnalizeWindow.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Windows\\RezultatAnalizeWindow.xaml",
+              "RelativeToolTip": "Project\\Windows\\RezultatAnalizeWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T09:24:03.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AnalizeModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\AnalizeModel.cs",
+              "RelativeDocumentMoniker": "Project\\Model\\AnalizeModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\AnalizeModel.cs",
+              "RelativeToolTip": "Project\\Model\\AnalizeModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AnalizeMoreView.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeMoreView.xaml",
+              "RelativeDocumentMoniker": "Project\\View\\AnalizeMoreView.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeMoreView.xaml",
+              "RelativeToolTip": "Project\\View\\AnalizeMoreView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T09:32:01.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\App.xaml",
+              "RelativeDocumentMoniker": "Project\\App.xaml",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\App.xaml",
+              "RelativeToolTip": "Project\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T09:30:26.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "BuletinAnalizeModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\BuletinAnalizeModel.cs",
+              "RelativeDocumentMoniker": "Project\\Model\\BuletinAnalizeModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\BuletinAnalizeModel.cs",
+              "RelativeToolTip": "Project\\Model\\BuletinAnalizeModel.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAwwAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\App.config",
+              "RelativeDocumentMoniker": "Project\\App.config",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\App.config",
+              "RelativeToolTip": "Project\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-12-16T09:30:25.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "PaginaPrincipalaView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\PaginaPrincipalaView.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\View\\PaginaPrincipalaView.xaml.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\PaginaPrincipalaView.xaml.cs",
+              "RelativeToolTip": "Project\\View\\PaginaPrincipalaView.xaml.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:26:16.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "FormularAnalizeModel.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\FormularAnalizeModel.cs",
+              "RelativeDocumentMoniker": "Project\\Model\\FormularAnalizeModel.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Model\\FormularAnalizeModel.cs",
+              "RelativeToolTip": "Project\\Model\\FormularAnalizeModel.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "AnalizeRezultatView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeRezultatView.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\View\\AnalizeRezultatView.xaml.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\View\\AnalizeRezultatView.xaml.cs",
+              "RelativeToolTip": "Project\\View\\AnalizeRezultatView.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "RezultatAnalizeWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Windows\\RezultatAnalizeWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Project\\Windows\\RezultatAnalizeWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\mitra\\Desktop\\Proiect AP. Baze\\CliniciMedicale\\Project\\Project\\Windows\\RezultatAnalizeWindow.xaml.cs",
+              "RelativeToolTip": "Project\\Windows\\RezultatAnalizeWindow.xaml.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAjwBkAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T09:24:03.924Z"
             }
           ]
         }

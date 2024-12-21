@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\obj\Debug\
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\
 Project
 none
 false
 DEBUG;TRACE
-D:\MATERIALE ACADEMIE\ANUL III SEM 1\Ap. Baze\CliniciMedicale\Project\Project\App.xaml
-1062658244
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\App.xaml
+12-2004869065
 
-331657218342
+36605758680
 141458853696
-MainWindow.xaml;View\AnalizeMoreView.xaml;View\AnalizeRezultatView.xaml;View\AnalizeView.xaml;View\CliniciMoreView.xaml;View\CliniciView.xaml;View\MediciMoreView.xaml;View\MediciView.xaml;View\PaginaPrincipalaView.xaml;Windows\RezultatAnalizeWindow.xaml;
+MainWindow.xaml;View\AnalizeMoreView.xaml;View\AnalizeRezultatView.xaml;View\AnalizeView.xaml;View\CliniciMoreView.xaml;View\CliniciView.xaml;View\LoginView.xaml;View\LoginWindow.xaml;View\MediciMoreView.xaml;View\MediciView.xaml;View\PaginaPrincipalaView.xaml;Windows\RezultatAnalizeWindow.xaml;
 
 False
 

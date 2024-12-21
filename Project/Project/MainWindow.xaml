@@ -93,7 +93,7 @@
                 <ImageBrush/>
             </Button.BorderBrush>
         </Button>
-        <Button x:Name="LogareBttn" Content="Intra in cont" Style="{StaticResource SecondaryButtonSyle}" HorizontalAlignment="Left" Margin="1080,3,0,0" VerticalAlignment="Top" Background="#00000000" Width="80" Height="30" FontSize="14" FontFamily="Arial" FontWeight="Bold">
+        <Button x:Name="LogareBttn" Content="Intra in cont" Style="{StaticResource SecondaryButtonSyle}" HorizontalAlignment="Left" Margin="1080,3,0,0" VerticalAlignment="Top" Background="#00000000" Width="80" Height="30" FontSize="14" FontFamily="Arial" FontWeight="Bold" Click="LogareBttn_Click">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>
