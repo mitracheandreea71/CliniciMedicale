@@ -5,7 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Project.Model; 
-using Project.Commands; 
+using Project.Commands;
+using Project.Windows;
+using System.Windows;
+using System.Diagnostics.Contracts;
+using System.Windows;
+using Project.Model;
+using Project.Commands;
+using Project.View;
+
 
 namespace Project.ViewModel
 {
@@ -13,9 +21,17 @@ namespace Project.ViewModel
     {
         private string _email;
         private string _parola;
-        private string _message;
-        private bool _isMessageVisible;
-
+        private string _role;
+        private bool _loginSucceeded;
+        public bool LoginSucceeded
+        {
+            get => _loginSucceeded;
+            set
+            {
+                _loginSucceeded = value;
+                OnPropertyChanged(nameof(LoginSucceeded));
+            }
+        }
         public string Email
         {
             get => _email;
@@ -35,72 +51,63 @@ namespace Project.ViewModel
             }
         }
 
-        public string Message
+        public string Role
         {
-            get => _message;
+            get => _role;
             set
             {
-                _message = value;
-                OnPropertyChanged(nameof(Message));
+                _role = value;
+                OnPropertyChanged(nameof(Role));
             }
         }
-
-        public bool IsMessageVisible
-        {
-            get => _isMessageVisible;
-            set
-            {
-                _isMessageVisible = value;
-                OnPropertyChanged(nameof(IsMessageVisible));
-
-            }
-        }
-
         public ICommand LoginCommand { get; }
-        public ICommand HideMessageCommand { get; }
 
         public LoginViewModel()
         {
             LoginCommand = new BaseCommand(ExecuteLogin, CanExecuteLogin);
-            HideMessageCommand = new BaseCommand(HideMessage);
-            IsMessageVisible = false;
+            
         }
 
         private void ExecuteLogin(object parameter)
         {
             if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Parola))
             {
-                Message = "E-mail si parola sunt obligatorii";
-                IsMessageVisible = true;
+                MessageBox.Show("E-mail si parola sunt obligatorii", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                LoginSucceeded = false;
                 return;
             }
-
-            var mediciModel = new MediciModel();
-            try
+            else
             {
+                var mediciModel = new MediciModel();
                 var medici = mediciModel.GetAllMedici();
                 var user = medici.FirstOrDefault(u => u.Email == Email && u.Parola == Parola);
                 if (user != null)
                 {
-                    Message = "Autentificare reusita";
-                    IsMessageVisible = true;
+                    if (user.Titulatura.IndexOf("Dr.", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        Role = "Medic";
+                    }
+                    else if (user.Titulatura.IndexOf("Asist.", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        Role = "Asistent";
+                    }
+                    else if (user.Titulatura.IndexOf("Admin", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        Role = "Administrator";
+                    }
+                    
+                    LoginSucceeded = true;
+                   
                 }
                 else
                 {
-                    Message = "E-mail sau parola incorecta";
-                    IsMessageVisible = true;
+                    MessageBox.Show("E-mail sau parola incorecta", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+
                 }
             }
-            catch (Exception ex)
-            {
-                Message = $"Eroare la autentificare: {ex.Message}";
-                IsMessageVisible = true;
-            }
+          
         }
-        public void HideMessage(object parameter)
-        {
-            IsMessageVisible = false; 
-            }
+      
 
         private bool CanExecuteLogin(object parameter)
         {

@@ -1,6 +1,7 @@
 ﻿using Project.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +22,52 @@ namespace Project.View
     /// </summary>
     public partial class LoginView : UserControl
     {
+        private LoginViewModel viewModel;
         public LoginView()
         {
             InitializeComponent();
-            this.DataContext = new LoginViewModel();
+            viewModel = new LoginViewModel();
+            this.DataContext = viewModel;
+            if (viewModel is INotifyPropertyChanged notifier)
+            {
+                notifier.PropertyChanged += ViewModel_PropertyChanged;
+            }
         }
 
+        private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(LoginViewModel.LoginSucceeded))
+            {
+                if (viewModel.LoginSucceeded)
+                {
+                   
+                    Window loginWindow = Window.GetWindow(this);
+                    Window newWindow = null;
+
+                    switch (viewModel.Role)
+                    {
+                        case "Medic":
+                            newWindow = new MedicWindow();
+                            break;
+                        case "Asistent":
+                            newWindow = new AsistentWindow();
+                            break;
+                        case "Administrator":
+                            newWindow = new AdminWindow();
+                            break;
+                        default:
+                            MessageBox.Show("Rol necunoscut. Contactați administratorul.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                    }
+
+                    if (newWindow != null)
+                    {
+                        newWindow.Show();
+                        loginWindow.Close();
+                    }
+                }
+            }
+        }
         private void TogglePasswordVisibility_Click(object sender, RoutedEventArgs e)
         {
             
@@ -69,15 +110,6 @@ namespace Project.View
                 viewModel.Parola = passwordBox.Password;  
             }
         }
-
-        private void Button_Click_X(object sender, RoutedEventArgs e)
-        {
-            MessageBorder.Visibility = Visibility.Collapsed;
-        }
-
-        private void ContNouBttn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
 }

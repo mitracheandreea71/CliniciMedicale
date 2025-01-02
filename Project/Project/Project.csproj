@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -16,6 +17,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <LangVersion>8.0</LangVersion>
@@ -41,7 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
@@ -71,6 +81,7 @@
     <Compile Include="Model\AnalizeModel.cs" />
     <Compile Include="Model\BuletinAnalizeModel.cs" />
     <Compile Include="Model\ClinicaModel.cs" />
+    <Compile Include="Model\ConsultatieModel.cs" />
     <Compile Include="Model\FormularAnalizeModel.cs" />
     <Compile Include="Model\MediciModel.cs" />
     <Compile Include="Model\PacientModel.cs" />
@@ -86,6 +97,10 @@
     <Compile Include="ViewModel\MediciMoreViewModel.cs" />
     <Compile Include="ViewModel\MediciViewModel.cs" />
     <Compile Include="ViewModel\RezultateWindowViewModel.cs" />
+    <Compile Include="ViewModel\SolicitaProgramareViewModel.cs" />
+    <Compile Include="View\AdminWindow.xaml.cs">
+      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AnalizeMoreView.xaml.cs">
       <DependentUpon>AnalizeMoreView.xaml</DependentUpon>
     </Compile>
@@ -94,6 +109,9 @@
     </Compile>
     <Compile Include="View\AnalizeView.xaml.cs">
       <DependentUpon>AnalizeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AsistentWindow.xaml.cs">
+      <DependentUpon>AsistentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CliniciMoreView.xaml.cs">
       <DependentUpon>CliniciMoreView.xaml</DependentUpon>
@@ -113,8 +131,14 @@
     <Compile Include="View\MediciView.xaml.cs">
       <DependentUpon>MediciView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MedicWindow.xaml.cs">
+      <DependentUpon>MedicWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PaginaPrincipalaView.xaml.cs">
       <DependentUpon>PaginaPrincipalaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SolicitaProgramareWindow.xaml.cs">
+      <DependentUpon>SolicitaProgramareWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RezultatAnalizeWindow.xaml.cs">
       <DependentUpon>RezultatAnalizeWindow.xaml</DependentUpon>
@@ -131,6 +155,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AnalizeMoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -140,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AnalizeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AsistentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,7 +199,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MedicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PaginaPrincipalaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SolicitaProgramareWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,6 +242,7 @@
     <None Include="Clinici.dbml.layout">
       <DependentUpon>Clinici.dbml</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -253,4 +294,12 @@
     <Resource Include="Images\medical.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
 </Project>

@@ -52,7 +52,8 @@
                                 <TextBlock Text="{Binding Rating}" FontWeight="Bold" FontSize="24"  TextAlignment="Center" Margin="1017,171,33,10" FontFamily="Arial Black"/>
 
                                 <TextBlock Text="{Binding Sectie}" FontSize="16" Margin="384,72,308,118" TextAlignment="Center" TextWrapping="Wrap" Height="21" FontFamily="Arial"/>
-                                <Button Style="{StaticResource RoundedButtonStyle }" Content="Solicita Programare" Margin="516,120,440,59" FontSize="16"></Button>
+                                <Button Style="{StaticResource RoundedButtonStyle }" Content="Solicita Programare" Margin="516,120,440,59" FontSize="16" Command="{Binding DataContext.SolicitaProgramareCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                        CommandParameter="{Binding}"></Button>
                             </Grid>
                         </Border>
                     </DataTemplate>

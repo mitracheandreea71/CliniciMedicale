@@ -9,6 +9,8 @@ using System.Windows.Input;
 using Project.Commands;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Windows;
+using Project.View;
 
 namespace Project.ViewModel
 {
@@ -26,6 +28,7 @@ namespace Project.ViewModel
         private ObservableCollection<string> _ListaLocatii;
         private ObservableCollection<string> _ListaSpecialitati;
 
+        public ICommand SolicitaProgramareCommand { get; }
         public MediciMoreViewModel()
         {
             NumeFiltru = "Nume";
@@ -37,8 +40,44 @@ namespace Project.ViewModel
             _ListaOrase = (new ClinicaModel()).GetAllOrase();
             _ListaLocatii = (new ClinicaModel()).GetAllLocatii();
             _ListaSpecialitati = (new ClinicaModel()).GetAllDepartaments();
+            SolicitaProgramareCommand = new BaseCommand(ExecuteSolicitaProgramare, CanExecuteSolicitaProgramare);
         }
 
+        private void ExecuteSolicitaProgramare(object parameter)
+        {
+            var medic = parameter as MediciModel;
+            if (medic != null)
+            {
+                string caleImagine = medic.CaleImagine;
+
+                if (!string.IsNullOrWhiteSpace(caleImagine))
+                {
+                    MediciModel medicGasit = new MediciModel().GetMedicByCaleImagine(caleImagine);
+
+                    if (medicGasit != null)
+                    {
+                        SolicitaProgramareWindow window = new SolicitaProgramareWindow(medicGasit.IdAngajat, medicGasit.NumeComplet);
+                        window.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Medicul nu a fost găsit în baza de date.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Calea imaginii medicului este invalidă.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Eroare: Medic invalid.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private bool CanExecuteSolicitaProgramare(object parameter)
+        {
+            return parameter is MediciModel;
+        }
         public string NumeLocatie
         {
             get => _numeLocatie;

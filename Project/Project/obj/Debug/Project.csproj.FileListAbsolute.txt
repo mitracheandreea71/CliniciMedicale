@@ -75,3 +75,16 @@ C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debu
 C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\LoginView.baml
 C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\LoginWindow.g.cs
 C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\LoginWindow.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AdminWindow.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AsistentWindow.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\MedicWindow.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AdminWindow.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\AsistentWindow.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\MedicWindow.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\SolicitaProgramareWindow.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\SolicitaProgramareWindow.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\bin\Debug\EntityFramework.dll
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\bin\Debug\EntityFramework.xml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project.csproj.Up2Date

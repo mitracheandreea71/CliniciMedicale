@@ -11,6 +11,8 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
 
+
+
 namespace Project.Model
 {
     public class MediciModel
@@ -37,6 +39,44 @@ namespace Project.Model
             _context = new CliniciDataContext();
         }
 
+        public MediciModel GetMedicByCaleImagine(string caleImagine)
+        {
+            var medic = _context.Angajats
+                .Where(a => a.imagine_cale == caleImagine)
+                .FirstOrDefault();
+
+            if (medic != null)
+            {
+                var programTure = _context.Incadrare_Departaments
+                    .Where(i => i.id_angajat == medic.id_angajat)
+                    .Select(i => new
+                    {
+                        Intrare = i.intrare_tura,
+                        Iesire = i.iesire_tura
+                    })
+                    .ToList();
+
+                string ProgramMedic = string.Join(", ", programTure.Select(t => $"Program: {t.Intrare} - {t.Iesire}"));
+
+                return new MediciModel
+                {
+                    IdAngajat = medic.id_angajat,
+                    Titulatura = medic.titulatura,
+                    Nume = medic.nume,
+                    Prenume = medic.prenume,
+                    Username = medic.username,
+                    Parola = medic.parola,
+                    Email = medic.email,
+                    Telefon = medic.telefon,
+                    Sectie = medic.specialitate,
+                    Rating = (double)medic.rating,
+                    CaleImagine = medic.imagine_cale,
+                    Program = ProgramMedic
+                };
+            }
+
+            return null;
+        }
         public ObservableCollection<MediciModel> GetAllMedici()
         {
             ObservableCollection<MediciModel> medici = new ObservableCollection<MediciModel>();

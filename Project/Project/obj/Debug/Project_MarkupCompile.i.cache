@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\App.xaml
-12-2004869065
+161925938431
 
-37-1476329938
-141458853696
-MainWindow.xaml;View\AnalizeMoreView.xaml;View\AnalizeRezultatView.xaml;View\AnalizeView.xaml;View\CliniciMoreView.xaml;View\CliniciView.xaml;View\LoginView.xaml;View\LoginWindow.xaml;View\MediciMoreView.xaml;View\MediciView.xaml;View\PaginaPrincipalaView.xaml;Windows\RezultatAnalizeWindow.xaml;
+43-912697701
+17-1669326852
+MainWindow.xaml;View\AdminWindow.xaml;View\AnalizeMoreView.xaml;View\AnalizeRezultatView.xaml;View\AnalizeView.xaml;View\AsistentWindow.xaml;View\CliniciMoreView.xaml;View\CliniciView.xaml;View\LoginView.xaml;View\LoginWindow.xaml;View\MediciMoreView.xaml;View\MediciView.xaml;View\MedicWindow.xaml;View\PaginaPrincipalaView.xaml;View\SolicitaProgramareWindow.xaml;Windows\RezultatAnalizeWindow.xaml;
 
 True
 
