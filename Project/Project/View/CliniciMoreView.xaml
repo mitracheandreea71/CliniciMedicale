@@ -40,7 +40,13 @@
                                 <TextBlock Text="{Binding Judet}" FontWeight="Bold" FontSize="15" Margin="363,70,288,139" TextAlignment="Center" FontFamily="Arial Black"/>
                                 <TextBlock Text="{Binding Adresa}" FontSize="16" Margin="384,90,308,118" TextAlignment="Center" TextWrapping="Wrap" Height="21" FontFamily="Arial"/>
                                 <TextBlock Text="{Binding Program}" FontWeight="Bold" FontSize="14" Margin="363,114,288,96" TextAlignment="Center" FontFamily="Arial Black"/>
-                                <Button Style="{StaticResource RoundedButtonStyle }" Content="Solicita Programare" Margin="516,135,440,63" FontSize="16"></Button>
+                                <Button Style="{StaticResource RoundedButtonStyle }" 
+                                    Content="Solicita Programare" 
+                                    Command="{Binding DataContext.SolicitaProgramareCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                    CommandParameter="{Binding}" 
+                                    Margin="516,135,440,63" 
+                                    FontSize="16" />            
+
                                 <Border BorderBrush="#FFE4E4E4" BorderThickness="1" HorizontalAlignment="Center" Height="1" Margin="0,201,0,0" VerticalAlignment="Top" Width="1028" RenderTransformOrigin="0.5,0.5"/>
                                 <TextBlock Text="Specializari" FontWeight="Bold" FontSize="24" Margin="909,40,36,159" TextAlignment="Center" FontFamily="Arial Black"/>
                                 <ListBox Style="{StaticResource CenteredListBoxStyle}" Height="100" Margin="878,66,4,63" ItemsSource="{Binding ListaSpecializari}" FontFamily="Arial" BorderBrush="White"/>

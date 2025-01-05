@@ -83,6 +83,7 @@
     <Compile Include="Model\ClinicaModel.cs" />
     <Compile Include="Model\ConsultatieModel.cs" />
     <Compile Include="Model\FormularAnalizeModel.cs" />
+    <Compile Include="Model\IncadrareDepartamentModel.cs" />
     <Compile Include="Model\MediciModel.cs" />
     <Compile Include="Model\PacientModel.cs" />
     <Compile Include="Model\RezultatAnalizeModel.cs" />
@@ -97,6 +98,8 @@
     <Compile Include="ViewModel\MediciMoreViewModel.cs" />
     <Compile Include="ViewModel\MediciViewModel.cs" />
     <Compile Include="ViewModel\RezultateWindowViewModel.cs" />
+    <Compile Include="ViewModel\SolicitaProgramareClinicaViewModel.cs" />
+    <Compile Include="ViewModel\SolicitaProgramareDepartamentSiMedicViewModel.cs" />
     <Compile Include="ViewModel\SolicitaProgramareViewModel.cs" />
     <Compile Include="View\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
@@ -136,6 +139,12 @@
     </Compile>
     <Compile Include="View\PaginaPrincipalaView.xaml.cs">
       <DependentUpon>PaginaPrincipalaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SolicitaProgramareClinicaWindow.xaml.cs">
+      <DependentUpon>SolicitaProgramareClinicaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SolicitaProgramareDepartamentSiMedicWindow.xaml.cs">
+      <DependentUpon>SolicitaProgramareDepartamentSiMedicWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SolicitaProgramareWindow.xaml.cs">
       <DependentUpon>SolicitaProgramareWindow.xaml</DependentUpon>
@@ -204,6 +213,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PaginaPrincipalaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SolicitaProgramareClinicaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SolicitaProgramareDepartamentSiMedicWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,6 +309,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\medical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SolicitaProgramare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Clinica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Departament.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

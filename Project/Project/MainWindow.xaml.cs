@@ -33,5 +33,11 @@ namespace Project
           
             this.Close();
         }
+
+        private void ProgramareBttn_Click(object sender, RoutedEventArgs e)
+        {
+            SolicitaProgramareClinicaWindow wd = new SolicitaProgramareClinicaWindow();
+            wd.Show();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,20 +12,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Project.ViewModel;
-
 
 namespace Project.View
 {
     /// <summary>
-    /// Interaction logic for SolicitaProgramareWindow.xaml
+    /// Interaction logic for SolicitaProgramareDepartamentSiMedicWindow.xaml
     /// </summary>
-    public partial class SolicitaProgramareWindow : Window
+    public partial class SolicitaProgramareDepartamentSiMedicWindow : Window
     {
-        public SolicitaProgramareWindow(int medicID, string numeMedic)
+        public SolicitaProgramareDepartamentSiMedicWindow(string clinica)
         {
             InitializeComponent();
-            this.DataContext = new SolicitaProgramareViewModel(medicID, numeMedic);
+            DataContext = new SolicitaProgramareDepartamentSiMedicViewModel(clinica);
         }
     }
 }

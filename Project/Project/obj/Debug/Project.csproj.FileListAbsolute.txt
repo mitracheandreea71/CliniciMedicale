@@ -88,3 +88,9 @@ C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\bin\Debu
 C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\bin\Debug\EntityFramework.xml
 C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\Project.csproj.Up2Date
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\SolicitaProgramareDepartamentSiMedic.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\SolicitaProgramareDepartamentSiMedic.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\SolicitaProgramareDepartamentSiMedicWindow.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\SolicitaProgramareDepartamentSiMedicWindow.baml
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\SolicitaProgramareClinicaWindow.g.cs
+C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\View\SolicitaProgramareClinicaWindow.baml

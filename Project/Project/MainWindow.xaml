@@ -88,7 +88,7 @@
             </Border.RenderTransform>
         </Border>
         <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="120,51,0,0" VerticalAlignment="Top" Width="1022"/>
-        <Button x:Name="ProgramareBttn" Content="Solicita o programare" Style="{StaticResource SecondaryButtonSyle}" HorizontalAlignment="Left" Margin="908,3,0,0" VerticalAlignment="Top" Background="#00000000" Width="134" Height="30" FontSize="14" FontFamily="Arial" FontWeight="Bold">
+        <Button x:Name="ProgramareBttn" Content="Solicita o programare" Style="{StaticResource SecondaryButtonSyle}" HorizontalAlignment="Left" Margin="908,3,0,0" VerticalAlignment="Top" Background="#00000000" Width="134" Height="30" FontSize="14" FontFamily="Arial" FontWeight="Bold" Click="ProgramareBttn_Click">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>

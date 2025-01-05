@@ -236,6 +236,30 @@ namespace Project.Model
             return mediciRet;
         }
 
+        public int? GetMedicIdByNumeComplet(string numeComplet)
+        {
+            if (string.IsNullOrEmpty(numeComplet))
+                return null;
+
+            var parts = numeComplet.Trim().Split(' ');
+
+            if (parts.Length < 3)
+                return null; 
+
+            int indexNume = parts.Length - 2; 
+            string titulatura = string.Join(" ", parts.Take(indexNume)); 
+
+            string nume = parts[indexNume]; 
+            string prenume = string.Join(" ", parts.Skip(indexNume + 1)); 
+
+            var medic = _context.Angajats
+                .FirstOrDefault(a => a.titulatura == titulatura &&
+                                     a.nume == nume &&
+                                     a.prenume == prenume);
+
+            return medic?.id_angajat; 
+        }
+
 
     }
 }
