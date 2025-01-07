@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Project.View.AnalizeMoreView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:Project.ViewModel"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Project.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1100">
+
+    <UserControl.DataContext>
+        <vm:AnalizeMoreViewModel/>
+    </UserControl.DataContext>
+
+    <Grid Background="#FFE4E4E4">
+        <Rectangle HorizontalAlignment="Left" Height="158" Margin="0,10,0,0" VerticalAlignment="Top" Width="1100" Fill="White" RadiusX="15" RadiusY="15" Grid.ColumnSpan="2"/>
+
+        <ComboBox Style="{StaticResource RoundedComboBoxStyle}" SelectedValue="{Binding TipAnalize, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ListaTipuriAnalize, UpdateSourceTrigger=PropertyChanged}" SelectedIndex="-1"  Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="56" Margin="179,61,0,0" VerticalAlignment="Top" Width="743" FontSize="25"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,173,0,0" Grid.ColumnSpan="2">
+            <ItemsControl ItemsSource="{Binding ListaFormulareAnalize}" Height="827" Margin="0,0,0,0">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#FFE4E4E4" BorderThickness="1" CornerRadius="15" Width="1100" Background="White" Padding="10">
+                            <Grid Margin="-11,0,-11,0">
+                                <Border BorderBrush="#FFE4E4E4" BorderThickness="1" HorizontalAlignment="Center" Height="1" Margin="0,10,0,0" VerticalAlignment="Top" Width="1028" RenderTransformOrigin="0.5,0.5"/>
+
+                                <Image Source="{Binding CaleImagine}" Height="NaN" Width="NaN" Stretch="Uniform" Margin="43,28,921,57"/>
+                                <TextBlock Text="{Binding NumeFormular}" FontWeight="Bold" FontSize="24" Margin="308,40,233,159" TextAlignment="Center" FontFamily="Arial Black"/>
+                                <TextBlock Text="{Binding TipAnalize}" FontWeight="Bold" FontSize="15" Margin="363,75,288,134" TextAlignment="Center" FontFamily="Arial Black"/>
+                                <TextBlock Text="{Binding Decontabile}" FontSize="16" Margin="384,100,308,108" TextAlignment="Center" TextWrapping="Wrap" Height="21" FontFamily="Arial"/>
+                                <Button Style="{StaticResource RoundedButtonStyle }" Content="Solicita Programare" Margin="516,126,440,72" FontSize="16"></Button>
+                                <Border BorderBrush="#FFE4E4E4" BorderThickness="1" HorizontalAlignment="Center" Height="1" Margin="0,192,0,0" VerticalAlignment="Top" Width="1028" RenderTransformOrigin="0.5,0.5"/>
+                                <TextBlock Text="Pret" FontWeight="Bold" FontSize="24" Margin="951,63,60,136" TextAlignment="Center" FontFamily="Arial Black"/>
+                                <TextBlock Text="{Binding Pret}" FontWeight="Bold" FontSize="24"  TextAlignment="Center" Margin="950,93,59,88" FontFamily="Arial Black"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <TextBlock HorizontalAlignment="Left" Height="28" Margin="187,33,0,0" TextWrapping="Wrap" Text="Alege un tip de analize" VerticalAlignment="Top" Width="209" FontFamily="Arial" Foreground="#FF888888" FontSize="20"/>
+    </Grid>
+</UserControl>

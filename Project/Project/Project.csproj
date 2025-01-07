@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -16,6 +17,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <LangVersion>8.0</LangVersion>
@@ -41,7 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
@@ -68,18 +78,55 @@
       <DependentUpon>Clinici.dbml</DependentUpon>
     </Compile>
     <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Model\AnalizeModel.cs" />
+    <Compile Include="Model\BuletinAnalizeModel.cs" />
     <Compile Include="Model\ClinicaModel.cs" />
+    <Compile Include="Model\ConsultatieModel.cs" />
+    <Compile Include="Model\FormularAnalizeModel.cs" />
+    <Compile Include="Model\IncadrareDepartamentModel.cs" />
     <Compile Include="Model\MediciModel.cs" />
+    <Compile Include="Model\PacientModel.cs" />
+    <Compile Include="Model\RezultatAnalizeModel.cs" />
+    <Compile Include="ViewModel\AnalizeMoreViewModel.cs" />
+    <Compile Include="ViewModel\AnalizeRezultatViewModel.cs" />
+    <Compile Include="ViewModel\AnalizeViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CliniciMoreViewModel.cs" />
     <Compile Include="ViewModel\CliniciViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\MediciMoreViewModel.cs" />
     <Compile Include="ViewModel\MediciViewModel.cs" />
+    <Compile Include="ViewModel\RezultateWindowViewModel.cs" />
+    <Compile Include="ViewModel\SolicitaProgramareClinicaViewModel.cs" />
+    <Compile Include="ViewModel\SolicitaProgramareDepartamentSiMedicViewModel.cs" />
+    <Compile Include="ViewModel\SolicitaProgramareViewModel.cs" />
+    <Compile Include="View\AdminWindow.xaml.cs">
+      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AnalizeMoreView.xaml.cs">
+      <DependentUpon>AnalizeMoreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AnalizeRezultatView.xaml.cs">
+      <DependentUpon>AnalizeRezultatView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AnalizeView.xaml.cs">
       <DependentUpon>AnalizeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AsistentWindow.xaml.cs">
+      <DependentUpon>AsistentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CliniciMoreView.xaml.cs">
+      <DependentUpon>CliniciMoreView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CliniciView.xaml.cs">
       <DependentUpon>CliniciView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MediciMoreView.xaml.cs">
       <DependentUpon>MediciMoreView.xaml</DependentUpon>
@@ -87,8 +134,23 @@
     <Compile Include="View\MediciView.xaml.cs">
       <DependentUpon>MediciView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MedicWindow.xaml.cs">
+      <DependentUpon>MedicWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PaginaPrincipalaView.xaml.cs">
       <DependentUpon>PaginaPrincipalaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SolicitaProgramareClinicaWindow.xaml.cs">
+      <DependentUpon>SolicitaProgramareClinicaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SolicitaProgramareDepartamentSiMedicWindow.xaml.cs">
+      <DependentUpon>SolicitaProgramareDepartamentSiMedicWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SolicitaProgramareWindow.xaml.cs">
+      <DependentUpon>SolicitaProgramareWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\RezultatAnalizeWindow.xaml.cs">
+      <DependentUpon>RezultatAnalizeWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -102,11 +164,39 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AnalizeMoreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AnalizeRezultatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AnalizeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AsistentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CliniciMoreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CliniciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,7 +208,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MedicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PaginaPrincipalaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SolicitaProgramareClinicaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SolicitaProgramareDepartamentSiMedicWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SolicitaProgramareWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RezultatAnalizeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,6 +259,7 @@
     <None Include="Clinici.dbml.layout">
       <DependentUpon>Clinici.dbml</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -193,5 +304,28 @@
   <ItemGroup>
     <Resource Include="Images\surlea_veronica.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\hemoleucograma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\medical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SolicitaProgramare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Clinica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Departament.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
 </Project>
