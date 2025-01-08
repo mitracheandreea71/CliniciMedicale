@@ -72,11 +72,5 @@ namespace Project.Model
 
             return formular;
         }
-
-        public int GetIdByName(string name)
-        {
-            var formular = _context.Formular_Analizes.FirstOrDefault(f => f.nume_formular == name);
-            return formular?.id_formular ?? -1;
-        }
     }
 }

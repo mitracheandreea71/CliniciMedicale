@@ -47,7 +47,7 @@ namespace Project.View
                     switch (viewModel.Role)
                     {
                         case "Medic":
-                            newWindow = new MedicWindow();
+                            newWindow = new MedicWindow(viewModel.Medic);
                             break;
                         case "Asistent":
                             newWindow = new AsistentWindow();

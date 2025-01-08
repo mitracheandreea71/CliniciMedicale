@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\
+C:\Users\George\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\obj\Debug\
 Project
 none
 false
 DEBUG;TRACE
-C:\Users\mitra\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\App.xaml
-201195651268
+C:\Users\George\Desktop\Proiect AP. Baze\CliniciMedicale\Project\Project\App.xaml
+18-144009409
 
-522129407673
-17-1669326852
-MainWindow.xaml;View\AdminWindow.xaml;View\AnalizeMoreView.xaml;View\AnalizeRezultatView.xaml;View\AnalizeView.xaml;View\AsistentWindow.xaml;View\CliniciMoreView.xaml;View\CliniciView.xaml;View\LoginView.xaml;View\LoginWindow.xaml;View\MediciMoreView.xaml;View\MediciView.xaml;View\MedicWindow.xaml;View\PaginaPrincipalaView.xaml;View\SolicitaProgramareAnalizeClinicaWindow.xaml;View\SolicitaProgramareAnalizePacientWindow.xaml;View\SolicitaProgramareClinicaWindow.xaml;View\SolicitaProgramareDepartamentSiMedicWindow.xaml;View\SolicitaProgramareWindow.xaml;Windows\RezultatAnalizeWindow.xaml;
+49-145842581
+17-342671426
+MainWindow.xaml;View\AdminWindow.xaml;View\AnalizeMoreView.xaml;View\AnalizeRezultatView.xaml;View\AnalizeView.xaml;View\AsistentWindow.xaml;View\CliniciMoreView.xaml;View\CliniciView.xaml;View\LoginView.xaml;View\LoginWindow.xaml;View\MediciMoreView.xaml;View\MediciView.xaml;Windows\MedicWindow.xaml;View\PaginaPrincipalaView.xaml;Windows\SolicitaProgramareClinicaWindow.xaml;Windows\SolicitaProgramareDepartamentSiMedicWindow.xaml;Windows\SolicitaProgramareWindow.xaml;Windows\RezultatAnalizeWindow.xaml;
 
-False
+True
 
