@@ -23,6 +23,17 @@ namespace Project.ViewModel
         private string _parola;
         private string _role;
         private bool _loginSucceeded;
+        MediciModel _medic;
+        
+        public MediciModel Medic
+        {
+            get => _medic;
+            set
+            {
+                _medic = value;
+                OnPropertyChanged(nameof(Medic));
+            }
+        }
         public bool LoginSucceeded
         {
             get => _loginSucceeded;
@@ -65,7 +76,6 @@ namespace Project.ViewModel
         public LoginViewModel()
         {
             LoginCommand = new BaseCommand(ExecuteLogin, CanExecuteLogin);
-            
         }
 
         private void ExecuteLogin(object parameter)
@@ -86,6 +96,7 @@ namespace Project.ViewModel
                     if (user.Titulatura.IndexOf("Dr.", StringComparison.OrdinalIgnoreCase) >= 0)
                     {
                         Role = "Medic";
+                        Medic = user;
                     }
                     else if (user.Titulatura.IndexOf("Asist.", StringComparison.OrdinalIgnoreCase) >= 0)
                     {

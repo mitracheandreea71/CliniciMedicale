@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project.Model;
+using Project.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,10 @@ namespace Project.View
     /// </summary>
     public partial class MedicWindow : Window
     {
-        public MedicWindow()
+        public MedicWindow(MediciModel medic)
         {
             InitializeComponent();
+            DataContext = new MedicWindowViewModel(medic);
         }
     }
 }
