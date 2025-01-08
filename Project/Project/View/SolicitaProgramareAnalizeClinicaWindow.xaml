@@ -1,0 +1,19 @@
+﻿<Window x:Class="Project.View.SolicitaProgramareAnalizeClinicaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.View"
+        mc:Ignorable="d"
+        Title="SolicitaProgramareAnalizeClinicaWindow" Height="450" Width="800">
+   
+    <Grid>
+        <Image HorizontalAlignment="Left"  Source="/Images/Clinica.png" Height="493" VerticalAlignment="Top" Width="461" RenderTransformOrigin="0.5,0.5" Margin="339,0,0,0" />
+        <ComboBox x:Name="CBClinica" FontSize="14" FontFamily="Arial Rounded MT Bold" ItemsSource="{Binding Clinici}" 
+      SelectedItem="{Binding ClinicaSelectata}"  HorizontalAlignment="Left" Margin="91,180,0,0" VerticalAlignment="Top" Width="248"/>
+        <TextBlock FontSize="16" FontFamily="Arial Rounded MT Bold" HorizontalAlignment="Left" Margin="52,105,0,0" TextWrapping="Wrap" Text="Alegeti clinica:" VerticalAlignment="Top"/>
+        <Button x:Name="BttnNext" Foreground="White" Background="DarkRed" BorderBrush="Black"  Command="{Binding MaiDeparteCommand}"  CommandParameter="{Binding ClinicaSelectata}" 
+    FontSize="14" FontFamily="Arial Rounded MT Bold" Content="Mai departe" HorizontalAlignment="Left" Margin="94,326,0,0" VerticalAlignment="Top" Height="39" Width="118"/>
+
+    </Grid>
+</Window>

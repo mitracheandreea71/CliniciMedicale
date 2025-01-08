@@ -23,11 +23,9 @@
         <ComboBox x:Name="OrasCmbBox" Style="{StaticResource RoundedComboBoxStyle}" SelectedIndex="-1" HorizontalAlignment="Left" Height="31" Margin="55,114,0,0" VerticalAlignment="Top" Width="156" SelectedItem="{Binding NumeOras, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ListaOrase, UpdateSourceTrigger=PropertyChanged}"/>
         <ComboBox x:Name="LocatieCmbBox" Style="{StaticResource RoundedComboBoxStyle}" SelectedIndex="-1" HorizontalAlignment="Left" Height="31" Margin="281,114,0,0" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2" SelectedItem="{Binding NumeLocatie, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Locatii, UpdateSourceTrigger=PropertyChanged}"/>
         <ComboBox x:Name="SpecialitateCmbBox" Style="{StaticResource RoundedComboBoxStyle}" SelectedIndex="-1" HorizontalAlignment="Left" Height="31" Margin="302,114,0,0" VerticalAlignment="Top" Width="278" Grid.Column="1" SelectedItem="{Binding NumeSpecialitate, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Specialitati, UpdateSourceTrigger=PropertyChanged}"/>
-        <ComboBox x:Name="OrdonareCmbBox" Style="{StaticResource RoundedComboBoxStyle}" SelectedIndex="-1" HorizontalAlignment="Left" Height="31" Margin="632,114,0,0" VerticalAlignment="Top" Width="121" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="16" Margin="68,98,0,0" TextWrapping="Wrap" Text="Oras" VerticalAlignment="Top" Width="29" FontFamily="Arial" Foreground="#FF888888"/>
         <TextBlock HorizontalAlignment="Left" Height="16" Margin="296,98,0,0" TextWrapping="Wrap" Text="Locatie" VerticalAlignment="Top" Width="48" FontFamily="Arial" Foreground="#FF888888" Grid.ColumnSpan="2"/>
         <TextBlock HorizontalAlignment="Left" Height="16" Margin="320,98,0,0" TextWrapping="Wrap" Text="Specialitate" VerticalAlignment="Top" Width="65" FontFamily="Arial" Foreground="#FF888888" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="16" Margin="646,98,0,0" TextWrapping="Wrap" Text="Ordonare" VerticalAlignment="Top" Width="65" FontFamily="Arial" Foreground="#FF888888" Grid.Column="1"/>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,173,0,0" Grid.ColumnSpan="2">
             <ItemsControl ItemsSource="{Binding Medici}" Height="827" Margin="0,0,0,0">
