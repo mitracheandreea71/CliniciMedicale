@@ -98,6 +98,8 @@
     <Compile Include="ViewModel\MediciMoreViewModel.cs" />
     <Compile Include="ViewModel\MediciViewModel.cs" />
     <Compile Include="ViewModel\RezultateWindowViewModel.cs" />
+    <Compile Include="ViewModel\SolicitaProgramareAnalizeClinicaViewModel.cs" />
+    <Compile Include="ViewModel\SolicitaProgramareAnalizePacientViewModel.cs" />
     <Compile Include="ViewModel\SolicitaProgramareClinicaViewModel.cs" />
     <Compile Include="ViewModel\SolicitaProgramareDepartamentSiMedicViewModel.cs" />
     <Compile Include="ViewModel\SolicitaProgramareViewModel.cs" />
@@ -139,6 +141,12 @@
     </Compile>
     <Compile Include="View\PaginaPrincipalaView.xaml.cs">
       <DependentUpon>PaginaPrincipalaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SolicitaProgramareAnalizeClinicaWindow.xaml.cs">
+      <DependentUpon>SolicitaProgramareAnalizeClinicaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SolicitaProgramareAnalizePacientWindow.xaml.cs">
+      <DependentUpon>SolicitaProgramareAnalizePacientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SolicitaProgramareClinicaWindow.xaml.cs">
       <DependentUpon>SolicitaProgramareClinicaWindow.xaml</DependentUpon>
@@ -213,6 +221,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PaginaPrincipalaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SolicitaProgramareAnalizeClinicaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SolicitaProgramareAnalizePacientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

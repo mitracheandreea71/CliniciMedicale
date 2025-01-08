@@ -1,10 +1,13 @@
-﻿using Project.Model;
+﻿using Project.Commands;
+using Project.Model;
+using Project.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Project.ViewModel
 {
@@ -14,13 +17,29 @@ namespace Project.ViewModel
         public ObservableCollection<FormularAnalizeModel> _ListaFormulareAnalizeFiltrate;
         public ObservableCollection<string> _ListaTipuriAnalize;
         public string _TipAnalize;
+
+        public ICommand OpenSolicitaProgramareCommand { get; }
+
         public AnalizeMoreViewModel()
         {
             _ListaTipuriAnalize = (new AnalizeModel()).GetAllAnalizeType();
             _ListaFormulareAnalize = (new FormularAnalizeModel()).GetAllFormulare();
             _ListaFormulareAnalizeFiltrate = (new FormularAnalizeModel()).GetAllFormulare();
+
+            OpenSolicitaProgramareCommand = new BaseCommand(OpenSolicitaProgramare);
         }
 
+        private void OpenSolicitaProgramare(object parameter)
+        {
+            if (parameter is string numeFormular)
+            {
+                var solicitaProgramareWindow = new SolicitaProgramareAnalizeClinicaWindow
+                {
+                    DataContext = new SolicitaProgramareAnalizeClinicaViewModel(numeFormular)
+                };
+                solicitaProgramareWindow.Show();
+            }
+        }
         public string TipAnalize
         {
             get => _TipAnalize;
@@ -55,5 +74,7 @@ namespace Project.ViewModel
             if (!string.IsNullOrEmpty(tipAnalize))
                 ListaFormulareAnalize = new ObservableCollection<FormularAnalizeModel>(_ListaFormulareAnalize.Where(l => l.TipAnalize.ToLower().Contains(tipAnalize.ToLower())));
         }
+
+       
     }
 }
