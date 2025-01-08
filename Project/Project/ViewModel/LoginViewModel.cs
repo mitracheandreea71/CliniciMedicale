@@ -17,23 +17,14 @@ using Project.View;
 
 namespace Project.ViewModel
 {
-    internal class LoginViewModel: BaseViewModel
+    internal class LoginViewModel : BaseViewModel
     {
         private string _email;
         private string _parola;
         private string _role;
         private bool _loginSucceeded;
-        MediciModel _medic;
-        
-        public MediciModel Medic
-        {
-            get => _medic;
-            set
-            {
-                _medic = value;
-                OnPropertyChanged(nameof(Medic));
-            }
-        }
+
+        private MediciModel _medic;
         public bool LoginSucceeded
         {
             get => _loginSucceeded;
@@ -41,6 +32,16 @@ namespace Project.ViewModel
             {
                 _loginSucceeded = value;
                 OnPropertyChanged(nameof(LoginSucceeded));
+            }
+        }
+
+        public MediciModel Medic
+        {
+            get => _medic;
+            set
+            {
+                _medic = value;
+                OnPropertyChanged(nameof(Medic));
             }
         }
         public string Email
@@ -76,6 +77,7 @@ namespace Project.ViewModel
         public LoginViewModel()
         {
             LoginCommand = new BaseCommand(ExecuteLogin, CanExecuteLogin);
+            
         }
 
         private void ExecuteLogin(object parameter)
