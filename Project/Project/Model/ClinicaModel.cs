@@ -92,5 +92,14 @@ namespace Project.Model
             return new ObservableCollection<string>(departamente);
         }
 
+        public int GetIdByName(string name)
+        {
+            var clinica = _context.Clinicas.FirstOrDefault(c => c.nume_clinica == name);
+            if (clinica != null)
+            {
+                return clinica.id_clinica;
+            }
+            return -1;
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Project.ViewModel
         private string _departamentSelectat;
         private ObservableCollection<string> _medici;
         private string _medicSelectat;
-
+        private readonly ClinicaModel _clinicaModel;
         public ICommand MaiDeparteCommand { get; }
 
         private readonly CliniciDataContext _context;
@@ -27,7 +27,7 @@ namespace Project.ViewModel
         {
             _numeClinica = numeClinica;
             _context = new CliniciDataContext();
-
+            _clinicaModel = new ClinicaModel();
             Departamente = new ObservableCollection<string>();
             Medici = new ObservableCollection<string>();
 
@@ -104,14 +104,21 @@ namespace Project.ViewModel
         {
             if (string.IsNullOrEmpty(DepartamentSelectat))
                 return;
+            int idClinica = _clinicaModel.GetIdByName(_numeClinica);
+            var medici = (from angajat in _context.Angajats
+                          join functie in _context.Functies
+                          on angajat.id_angajat equals functie.id_angajat 
+                          where angajat.specialitate == DepartamentSelectat
+                                && angajat.titulatura.Contains("Dr") 
+                                && functie.id_clinica == idClinica 
+                          select new
+                          {
+                              NumeComplet = angajat.titulatura + " " + angajat.nume + " " + angajat.prenume
+                          })
+              .ToList()
+              .Select(x => x.NumeComplet)
+              .ToList();
 
-            var medici = _context.Angajats
-                .Where(a => a.specialitate == DepartamentSelectat &&
-                            a.titulatura.Contains("Dr")) // Verifică dacă "Titulatura" conține "Dr"
-                .Select(a => a.titulatura + " " + a.nume + " " + a.prenume) // Selectează numele complet al angajatului
-                .ToList();
-
-            // Curăță lista de medici și adaugă noile valori
             Medici.Clear();
             foreach (var medic in medici)
             {
