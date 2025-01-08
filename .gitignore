@@ -1,0 +1,57 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.ide.*
+*.tlog
+*.VC.db
+*.VC.VC.opendb
+*.VC.VC.db-shm
+*.VC.VC.db-wal
+
+# Visual Studio Code workspace
+.vscode/
+
+# NuGet
+*.nupkg
+packages/
+
+# Others
+*.class
+*.dll
+*.exe
+*.cache
+*.pdb
+*.ipch
+*.obj
+*.o
+*.gch
+*.ilk
+*.lib
+*.log
+*.lst
+*.sbr
+*.sdf
+*.opensdf
+*.sqlite
+*.cache
+
+# Configuration
+appsettings.Development.json

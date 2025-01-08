@@ -35,7 +35,7 @@
                                 <TextBlock Text="{Binding NumeFormular}" FontWeight="Bold" FontSize="24" Margin="308,40,233,159" TextAlignment="Center" FontFamily="Arial Black"/>
                                 <TextBlock Text="{Binding TipAnalize}" FontWeight="Bold" FontSize="15" Margin="363,75,288,134" TextAlignment="Center" FontFamily="Arial Black"/>
                                 <TextBlock Text="{Binding Decontabile}" FontSize="16" Margin="384,100,308,108" TextAlignment="Center" TextWrapping="Wrap" Height="21" FontFamily="Arial"/>
-                                <Button Style="{StaticResource RoundedButtonStyle }" Content="Solicita Programare" Margin="516,126,440,72" FontSize="16"></Button>
+                                <Button Style="{StaticResource RoundedButtonStyle }" Content="Solicita Programare" Margin="516,126,440,72" FontSize="16" Command="{Binding DataContext.OpenSolicitaProgramareCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding NumeFormular}" ></Button>
                                 <Border BorderBrush="#FFE4E4E4" BorderThickness="1" HorizontalAlignment="Center" Height="1" Margin="0,192,0,0" VerticalAlignment="Top" Width="1028" RenderTransformOrigin="0.5,0.5"/>
                                 <TextBlock Text="Pret" FontWeight="Bold" FontSize="24" Margin="951,63,60,136" TextAlignment="Center" FontFamily="Arial Black"/>
                                 <TextBlock Text="{Binding Pret}" FontWeight="Bold" FontSize="24"  TextAlignment="Center" Margin="950,93,59,88" FontFamily="Arial Black"/>
