@@ -181,5 +181,31 @@ namespace Project.Model
 
             return consultatiiRet;
         }
+
+        public List<ConsultatieModel> GetConsultatiiByPacientID(int idPacient)
+        {
+            var consultatii = _context.Consultaties
+                .Where(c => c.id_pacient == idPacient)
+                .ToList();
+
+            List<ConsultatieModel> consultatiiList = new List<ConsultatieModel>();
+
+            foreach (var iterator in consultatii)
+            {
+                consultatiiList.Add(new ConsultatieModel
+                {
+                    IdConsultatie = iterator.id_consultatie,
+                    IdDoctor = iterator.id_doctor,
+                    IdAsistent = iterator.id_asistent,
+                    IdPacient = iterator.id_pacient,
+                    DataConsultatie = iterator.data_consultatie,
+                    Ora = iterator.ora,
+                    Pret = iterator.pret
+                });
+            }
+
+            return consultatiiList;
+        }
+
     }
 }

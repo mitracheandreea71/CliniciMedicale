@@ -299,5 +299,50 @@ namespace Project.Model
             return department.Clinica.nume_clinica;
         }
 
+        public MediciModel GetMedicById(int idAngajat)
+        {
+            var medic = _context.Angajats
+                .FirstOrDefault(a => a.id_angajat == idAngajat);
+
+            if (medic != null)
+            {
+                var programTure = _context.Incadrare_Departaments
+                    .Where(i => i.id_angajat == medic.id_angajat)
+                    .Select(i => new
+                    {
+                        Intrare = i.intrare_tura,
+                        Iesire = i.iesire_tura
+                    })
+                    .ToList();
+
+                string ProgramMedic = string.Join(", ", programTure.Select(t => $"Program: {t.Intrare} - {t.Iesire}"));
+
+                var FunctieMedic = _context.Functies
+                    .FirstOrDefault(f => f.id_angajat == medic.id_angajat);
+
+                return new MediciModel
+                {
+                    IdAngajat = medic.id_angajat,
+                    Titulatura = medic.titulatura,
+                    Nume = medic.nume,
+                    Prenume = medic.prenume,
+                    Username = medic.username,
+                    Parola = medic.parola,
+                    Email = medic.email,
+                    Telefon = medic.telefon,
+                    Sectie = medic.specialitate,
+                    Rating = (double?)medic.rating,
+                    CaleImagine = medic.imagine_cale,
+                    Program = ProgramMedic,
+                    Functie = FunctieMedic?.nume_functie,
+                    DataIncadrare = FunctieMedic?.data_incadrare.ToString(),
+                    IdClinica = FunctieMedic?.id_clinica
+                };
+            }
+
+            return null;
+        }
+
+
     }
 }

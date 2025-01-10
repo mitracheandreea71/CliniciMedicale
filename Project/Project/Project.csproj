@@ -90,6 +90,7 @@
     <Compile Include="Model\MediciModel.cs" />
     <Compile Include="Model\PacientModel.cs" />
     <Compile Include="Model\RezultatAnalizeModel.cs" />
+    <Compile Include="Model\VizualizareDiagnosticViewModel.cs" />
     <Compile Include="ViewModel\AddDiagnosticViewModel.cs" />
     <Compile Include="ViewModel\AnalizeMoreViewModel.cs" />
     <Compile Include="ViewModel\AnalizeRezultatViewModel.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="ViewModel\CliniciMoreViewModel.cs" />
     <Compile Include="ViewModel\CliniciViewModel.cs" />
     <Compile Include="ViewModel\EditProgramareMedicViewModel.cs" />
+    <Compile Include="ViewModel\IstoricMoreViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\MedicHomeViewModel.cs" />
@@ -139,6 +141,9 @@
     <Compile Include="View\EditProgramareMedicView.xaml.cs">
       <DependentUpon>EditProgramareMedicView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\IstoricMoreView.xaml.cs">
+      <DependentUpon>IstoricMoreView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
@@ -159,6 +164,9 @@
     </Compile>
     <Compile Include="View\ProgramariMedicView.xaml.cs">
       <DependentUpon>ProgramariMedicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VizualizareDiagnosticView.xaml.cs">
+      <DependentUpon>VizualizareDiagnosticView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MedicWindow.xaml.cs">
       <DependentUpon>MedicWindow.xaml</DependentUpon>
@@ -183,6 +191,9 @@
     </Compile>
     <Compile Include="Windows\RezultatAnalizeWindow.xaml.cs">
       <DependentUpon>RezultatAnalizeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\VizualizareDiagnosticWindow.xaml.cs">
+      <DependentUpon>VizualizareDiagnosticWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -232,6 +243,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\IstoricMoreView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -257,6 +272,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProgramariMedicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VizualizareDiagnosticView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -289,6 +308,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\RezultatAnalizeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\VizualizareDiagnosticWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -390,6 +413,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\medic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\analiza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\consultatie.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -28,7 +28,9 @@ namespace Project.ViewModel
         public ICommand ShowCliniciMoreView { get; }
         public ICommand ShowAnalizeMoreView { get; }
         public ICommand ShowRezultateAnalize { get; }
-        public MainWindowViewModel() {
+        public ICommand ShowIstoricMoreView { get; }
+        public MainWindowViewModel()
+        {
             CurrentView = new PaginaPrincipalaView();
 
             ShowMediciMoreView = new BaseCommand(_ => CurrentView = new MediciMoreView());
@@ -36,6 +38,7 @@ namespace Project.ViewModel
             ShowCliniciMoreView = new BaseCommand(_ => CurrentView = new CliniciMoreView());
             ShowAnalizeMoreView = new BaseCommand(_ => CurrentView = new AnalizeMoreView());
             ShowRezultateAnalize = new BaseCommand(_ => CurrentView = new AnalizeView());
+            ShowIstoricMoreView = new BaseCommand(_ => CurrentView = new IstoricMoreView());
         }
     }
 }
