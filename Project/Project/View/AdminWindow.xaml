@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.View"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="AdminWindow" Height="700" Width="1200">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="#FF4E0606" CornerRadius="20" Margin="10">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,10,10,20">
+                    <Image Source="/Images/adminIcon.png" Width="60" Height="50" Margin="0,0,10,0"/>
+                    <TextBlock Text="Admin Menu" Foreground="White" FontWeight="Bold" FontSize="24" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <Expander Header="Gestionare Angajați" Foreground="White" Margin="10,10,10,0" FontSize="18">
+                    <StackPanel>
+                        <Button Content="Adaugă Angajat" Command="{Binding AddEmployeeCommand}" Margin="10" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="Black" Background="White" />
+                        <Button Content="Șterge Angajat" Command="{Binding DeleteEmployeeCommand}" Margin="10" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="Black" Background="White" />
+                        <Button Content="Prelungire Contract Angajat" Command="{Binding ExtendEmployeeContractCommand}" Margin="10" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="Black" Background="White" />
+                    </StackPanel>
+                </Expander>
+
+                <Expander Header="Gestionare Departamente" Foreground="White" Margin="10,10,10,0" FontSize="18">
+                    <StackPanel>
+                        <Button Content="Adaugă Departament" Command="{Binding AddDepartmentCommand}" Margin="10" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="Black" Background="White" />
+                        <Button Content="Șterge Departament" Command="{Binding DeleteDepartmentCommand}" Margin="10" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="Black" Background="White" />
+                    </StackPanel>
+                </Expander>
+
+                <Expander Header="Gestionare Clinici" Foreground="White" Margin="10,10,10,0" FontSize="18">
+                    <StackPanel>
+                        <Button Content="Adaugă Clinică" Command="{Binding AddClinicCommand}" Margin="10" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="Black" Background="White" />
+                        <Button Content="Șterge Clinică" Command="{Binding DeleteClinicCommand}" Margin="10" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="Black" Background="White" />
+                    </StackPanel>
+                </Expander>
+
+                <Expander Header="Gestionare Pacienți" Foreground="White" Margin="10,10,10,10" FontSize="18">
+                    <StackPanel>
+                        <Button Content="Șterge Pacient" Command="{Binding DeletePatientCommand}" Margin="10" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="Black" Background="White" />
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+        </Border>
+
+        <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}" Margin="10" />
+
     </Grid>
 </Window>
