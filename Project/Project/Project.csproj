@@ -90,6 +90,7 @@
     <Compile Include="Model\MediciModel.cs" />
     <Compile Include="Model\PacientModel.cs" />
     <Compile Include="Model\RezultatAnalizeModel.cs" />
+    <Compile Include="Model\VizualizareDiagnosticViewModel.cs" />
     <Compile Include="ViewModel\AddDiagnosticViewModel.cs" />
     <Compile Include="ViewModel\AnalizeMoreViewModel.cs" />
     <Compile Include="ViewModel\AnalizeRezultatViewModel.cs" />
@@ -164,6 +165,9 @@
     <Compile Include="View\ProgramariMedicView.xaml.cs">
       <DependentUpon>ProgramariMedicView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\VizualizareDiagnosticView.xaml.cs">
+      <DependentUpon>VizualizareDiagnosticView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MedicWindow.xaml.cs">
       <DependentUpon>MedicWindow.xaml</DependentUpon>
     </Compile>
@@ -187,6 +191,9 @@
     </Compile>
     <Compile Include="Windows\RezultatAnalizeWindow.xaml.cs">
       <DependentUpon>RezultatAnalizeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\VizualizareDiagnosticWindow.xaml.cs">
+      <DependentUpon>VizualizareDiagnosticWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -268,6 +275,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\VizualizareDiagnosticView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MedicWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -297,6 +308,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\RezultatAnalizeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\VizualizareDiagnosticWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

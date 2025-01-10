@@ -60,13 +60,14 @@ namespace Project.ViewModel
         private readonly BuletinAnalizeModel _buletinAnalizeModel;
         private readonly ConsultatieModel _consultatieModel;
         private readonly CliniciDataContext _context;
-
+        private readonly MediciModel _medicModel;
         public IstoricMoreViewModel()
         {
             IstoricItems = new ObservableCollection<IstoricItem>();
             _buletinAnalizeModel = new BuletinAnalizeModel();
             _consultatieModel = new ConsultatieModel();
             _context = new CliniciDataContext();
+            _medicModel = new MediciModel();
             VizualizareIstoricCommand = new BaseCommand(VizualizareIstoric, CanExecuteVizualizareIstoric);
             VizualizareRezultatCommand = new BaseCommand(VizualizareRezultat);
         }
@@ -148,8 +149,13 @@ namespace Project.ViewModel
                     MessageBox.Show("Consultația selectată nu aparține pacientului curent.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
+                string id_medic = consultatie.IdDoctor.ToString();
+                int im = int.Parse(id_medic);
+                MediciModel medic = _medicModel.GetMedicById(im);
+                var vizualizareDW = new VizualizareDiagnosticWindow(consultatie,medic);
+                vizualizareDW.Show();
 
-                MessageBox.Show($"Consultația pentru pacientul {idPacient} este validată.", "Informație", MessageBoxButton.OK, MessageBoxImage.Information);
+               // MessageBox.Show($"Consultația pentru pacientul {idPacient} este validată.", "Informație", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
