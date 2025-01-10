@@ -26,10 +26,13 @@ namespace Project.Model
         public string Email { get; set; }
         public string Telefon { get; set; }
         public string Sectie { get; set; }
-        public double Rating { get; set; }
-        public string CaleImagine { get; set; }
+        public double? Rating { get; set; }
+        public string? CaleImagine { get; set; }
         public string NumeComplet => $" {Titulatura} {Nume} {Prenume}";
         public string Program { get; set; }
+        public string Functie { get; set; }
+        public string DataIncadrare { get; set; }
+        public int? IdClinica { get; set; }
 
 
         private readonly CliniciDataContext _context;
@@ -58,6 +61,8 @@ namespace Project.Model
 
                 string ProgramMedic = string.Join(", ", programTure.Select(t => $"Program: {t.Intrare} - {t.Iesire}"));
 
+                var FunctieMedic = _context.Functies.Where(f => f.id_angajat == medic.id_angajat).ToList().First();
+
                 return new MediciModel
                 {
                     IdAngajat = medic.id_angajat,
@@ -71,7 +76,10 @@ namespace Project.Model
                     Sectie = medic.specialitate,
                     Rating = (double)medic.rating,
                     CaleImagine = medic.imagine_cale,
-                    Program = ProgramMedic
+                    Program = ProgramMedic,
+                    Functie = FunctieMedic.nume_functie,
+                    DataIncadrare = FunctieMedic.data_incadrare.ToString(),
+                    IdClinica = FunctieMedic.id_clinica
                 };
             }
 
@@ -107,7 +115,10 @@ namespace Project.Model
                         Sectie = functie.Angajat.specialitate,
                         Rating = (double)functie.Angajat.rating,
                         CaleImagine = functie.Angajat.imagine_cale,
-                        Program = ProgramMedic
+                        Program = ProgramMedic,
+                        Functie = functie.nume_functie,
+                        DataIncadrare = functie.data_incadrare.ToString(),
+                        IdClinica = functie.id_clinica
                     }
                     );
             }
@@ -134,6 +145,8 @@ namespace Project.Model
                                                                      Iesire = i.iesire_tura
                                                                  }).ToList();
                 string ProgramMedic = string.Join(", ", programTure.Select(t => $"Program: {t.Intrare} - {t.Iesire}"));
+                var FunctieMedic = _context.Functies.Where(f => f.id_angajat == medic.id_angajat).ToList().First();
+
                 mediciRet.Add(
                     new MediciModel
                     {
@@ -148,7 +161,10 @@ namespace Project.Model
                         Sectie = medic.specialitate,
                         Rating = (double)medic.rating,
                         CaleImagine = medic.imagine_cale,
-                        Program = ProgramMedic
+                        Program = ProgramMedic,
+                        Functie = FunctieMedic.nume_functie,
+                        DataIncadrare = FunctieMedic.data_incadrare.ToString(),
+                        IdClinica = FunctieMedic.id_clinica
                     }
                     );
             }
@@ -174,6 +190,7 @@ namespace Project.Model
                                                                      Iesire = i.iesire_tura
                                                                  }).ToList();
                 string ProgramMedic = string.Join(", ", programTure.Select(t => $"Program: {t.Intrare} - {t.Iesire}"));
+                var FunctieMedic = _context.Functies.Where(f => f.id_angajat == medic.id_angajat).ToList().First();
                 mediciRet.Add(
                     new MediciModel
                     {
@@ -188,7 +205,10 @@ namespace Project.Model
                         Sectie = medic.specialitate,
                         Rating = (double)medic.rating,
                         CaleImagine = medic.imagine_cale,
-                        Program = ProgramMedic
+                        Program = ProgramMedic,
+                        Functie = FunctieMedic.nume_functie,
+                        DataIncadrare = FunctieMedic.data_incadrare.ToString(),
+                        IdClinica = FunctieMedic.id_clinica
                     }
                     );
             }
@@ -214,6 +234,8 @@ namespace Project.Model
                                                                      Iesire = i.iesire_tura
                                                                  }).ToList();
                 string ProgramMedic = string.Join(", ", programTure.Select(t => $"Program: {t.Intrare} - {t.Iesire}"));
+                var FunctieMedic = _context.Functies.Where(f => f.id_angajat == medic.id_angajat).ToList().First();
+
                 mediciRet.Add(
                     new MediciModel
                     {
@@ -228,7 +250,10 @@ namespace Project.Model
                         Sectie = medic.specialitate,
                         Rating = (double)medic.rating,
                         CaleImagine = medic.imagine_cale,
-                        Program = ProgramMedic
+                        Program = ProgramMedic,
+                        Functie = FunctieMedic.nume_functie,
+                        DataIncadrare = FunctieMedic.data_incadrare.ToString(),
+                        IdClinica = FunctieMedic.id_clinica
                     }
                     );
             }
@@ -260,6 +285,19 @@ namespace Project.Model
             return medic?.id_angajat; 
         }
 
+        public string getMedicDepartament(int medicId)
+        {
+            var incadrare_departament = _context.Incadrare_Departaments.Where(d => d.id_angajat == medicId).ToList().First();
+            var department = _context.Departaments.Where(d => d.id_departament == incadrare_departament.id_departament).ToList().First();
+            return department.denumire;
+        }
+
+        public string getMedicClinic(int medicId)
+        {
+            var incadrare_departament = _context.Incadrare_Departaments.Where(d => d.id_angajat == medicId).ToList().First();
+            var department = _context.Departaments.Where(d => d.id_departament == incadrare_departament.id_departament).ToList().First();
+            return department.Clinica.nume_clinica;
+        }
 
     }
 }
