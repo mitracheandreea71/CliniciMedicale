@@ -72,7 +72,7 @@
                 <ImageBrush/>
             </Button.BorderBrush>
         </Button>
-        <Button x:Name="IstoricMedBttn" Content="Istoric Medical" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="949,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black">
+        <Button x:Name="IstoricMedBttn" Content="Istoric Medical"  Command="{Binding ShowIstoricMoreView}" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="949,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>

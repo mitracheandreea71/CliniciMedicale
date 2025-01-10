@@ -44,5 +44,36 @@ namespace Project.Model
             return buletinAnalize;
         }
 
+        public List<BuletinAnalizeModel> GetBuletineByPacientID(int idPacient)
+        {
+            var buletine = _context.Buletin_Analizes
+                .Where(ba => ba.id_pacient == idPacient)
+                .ToList();
+
+            List<BuletinAnalizeModel> buletineAnalizeList = new List<BuletinAnalizeModel>();
+
+            foreach (var buletin in buletine)
+            {
+                var buletinAnalize = new BuletinAnalizeModel
+                {
+                    IDBuletin = buletin.id_buletin,
+                    DataRecoltare = (DateTime)buletin.data_recoltare,
+                    Pacient = (new PacientModel()).GetPacientByID((int)buletin.id_pacient),
+                    FormularAnalize = (new FormularAnalizeModel()).GetFormularByBuletinAnalizeID(buletin.id_buletin),
+                    RezultateAnalize = (new RezultatAnalizeModel()).GetRezultateForBuletin(buletin.id_buletin)
+                };
+
+                var sefLab = _context.Angajats.FirstOrDefault(angajat => angajat.id_angajat == buletin.id_seflab);
+                if (sefLab != null)
+                {
+                    buletinAnalize.NumeSefLab = $"{sefLab.titulatura} {sefLab.nume} {sefLab.prenume}";
+                }
+
+                buletineAnalizeList.Add(buletinAnalize);
+            }
+
+            return buletineAnalizeList;
+        }
+
     }
 }
