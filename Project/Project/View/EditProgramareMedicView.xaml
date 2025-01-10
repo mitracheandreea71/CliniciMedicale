@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Project.View.EditProgramareMedicView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Project.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="850">
+    <Grid Background="White">
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="105,67,0,0" TextWrapping="Wrap" Text="Asigneaza asistent" VerticalAlignment="Top" Width="191" TextAlignment="Center" FontSize="16" FontFamily="Arial Black"/>
+        <ComboBox x:Name="AsistentCmbBox" Style="{StaticResource RoundedComboBoxStyle}" SelectedIndex="-1" HorizontalAlignment="Left" Height="31" Margin="495,61,0,0" VerticalAlignment="Top" Width="224" SelectedItem="{Binding NumeAsistent, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ListaAsistentiNume, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock HorizontalAlignment="Left" Height="40" Margin="105,160,0,0" TextWrapping="Wrap" Text="Modifica data programarii" VerticalAlignment="Top" Width="191" TextAlignment="Center" FontSize="16" FontFamily="Arial Black"/>
+        <Border BorderBrush="#FFE4E4E4" BorderThickness="1" HorizontalAlignment="Center" Height="1" Margin="0,124,0,0" VerticalAlignment="Top" Width="654" RenderTransformOrigin="0.5,0.5"/>
+        <DatePicker SelectedDate="{Binding DataConsultatie}" HorizontalAlignment="Left" Height="28" Margin="495,166,0,0" VerticalAlignment="Top" Width="224"/>
+        <Border BorderBrush="#FFE4E4E4" BorderThickness="1" HorizontalAlignment="Center" Height="1" Margin="0,233,0,0" VerticalAlignment="Top" Width="654" RenderTransformOrigin="0.5,0.5"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="105,267,0,0" TextWrapping="Wrap" Text="Modifica pretul" VerticalAlignment="Top" Width="191" TextAlignment="Center" FontSize="16" FontFamily="Arial Black"/>
+        <TextBox x:Name="Pret"  Style="{StaticResource RoundedTextBoxStyle}" HorizontalAlignment="Left" Height="31" Margin="495,262,0,0" TextWrapping="Wrap" Text="{Binding PretProgramare, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="224" Foreground="#FF888888" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="105,379,0,0" TextWrapping="Wrap" Text="Modifica ora" VerticalAlignment="Top" Width="191" TextAlignment="Center" FontSize="16" FontFamily="Arial Black"/>
+        <ComboBox x:Name="Ora" Style="{StaticResource RoundedComboBoxStyle}" SelectedIndex="-1" HorizontalAlignment="Left" Height="31" Margin="495,374,0,0" VerticalAlignment="Top" Width="224" SelectedItem="{Binding OraProgramare, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ListaOreDisponibile, UpdateSourceTrigger=PropertyChanged}"/>
+        <Border BorderBrush="#FFE4E4E4" BorderThickness="1" HorizontalAlignment="Center" Height="1" Margin="0,331,0,0" VerticalAlignment="Top" Width="654" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="Salveaza" Style="{StaticResource RoundedButtonStyle}" Command="{Binding SaveChanges}" Content="Salveaza programarea" HorizontalAlignment="Center" Margin="0,469,0,0" VerticalAlignment="Top" Height="36" Width="190" Background="#FF73060D"/>
+    </Grid>
+</UserControl>

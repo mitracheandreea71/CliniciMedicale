@@ -12,19 +12,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Project.View
 {
     /// <summary>
-    /// Interaction logic for MedicWindow.xaml
+    /// Interaction logic for EditProgramareMedicView.xaml
     /// </summary>
-    public partial class MedicWindow : Window
-    { 
-        public MedicWindow(MediciModel medic)
+    public partial class EditProgramareMedicView : UserControl
+    {
+        public EditProgramareMedicView(ConsultatieModel consultatie,MediciModel medic)
         {
             InitializeComponent();
-            DataContext = new MedicWindowViewModel(medic);
+            DataContext = new EditProgramareMedicViewModel(consultatie,medic);
         }
     }
 }

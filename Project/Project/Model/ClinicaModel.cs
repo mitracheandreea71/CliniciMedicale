@@ -70,6 +70,11 @@ namespace Project.Model
             return clinici;
         }
 
+        public ClinicaModel GetClinicaById(int idClinica)
+        {
+            ClinicaModel clinica = (new ClinicaModel()).GetAllClinici().Where(c => c.ClinicaID == idClinica).First();
+            return clinica;
+        }
         public ObservableCollection<string> GetAllOrase()
         {
             var orase = _context.Clinicas.Select(Clinica => Clinica.oras)

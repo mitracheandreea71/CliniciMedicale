@@ -9,12 +9,15 @@
         Title="MedicWindow" Height="700" Width="1200">
 
     <Grid>
-        <Grid Background="White">
-            <Rectangle Height="648" Margin="10,0,939,0" Stroke="#FF4E0606" VerticalAlignment="Center" Fill="#FF73060D" OpacityMask="#FF4E0606" RadiusX="15" RadiusY="15"/>
-            <Button x:Name="TrimiteAnalizeBttn" Style="{StaticResource RoundedButtonStyle}" Command="{Binding TrimiteAnalizeBttn}" Content="Trimite" HorizontalAlignment="Left" Margin="46,255,0,0" VerticalAlignment="Top" Height="44" Width="178" Background="White" Foreground="Black"/>
-            <Rectangle HorizontalAlignment="Left" Height="186" Margin="38,28,0,0" VerticalAlignment="Top" Width="179" Fill="White" RadiusX="15" RadiusY="15"/>
-            <Image Source="{Binding CaleImagine}" Stretch="Fill" HorizontalAlignment="Left" Height="185" Margin="49,28,0,0" VerticalAlignment="Top" Width="157" OpacityMask="White"/>
-
+        <Grid Background="#FFE4E4E4">
+            <Rectangle Height="648" Margin="10,0,939,0" Stroke="Black" VerticalAlignment="Center" Fill="White" OpacityMask="#FF4E0606" RadiusX="15" RadiusY="15"/>
+            <Rectangle Height="648" Margin="283,0,22,0" Stroke="#FFE4E4E4" VerticalAlignment="Center" Fill="WHITE" OpacityMask="WHITE" RadiusX="15" RadiusY="15"/>
+            <Button x:Name="TrimiteAnalizeBttn" Style="{StaticResource RoundedButtonStyle}" Command="{Binding ViewProfile}" Content="Vizualizeaza profil" HorizontalAlignment="Left" Margin="39,315,0,0" VerticalAlignment="Top" Height="40" Width="178" Background="#FF73060D" Foreground="white"/>
+            <Image Source="{Binding CaleImagine}" Stretch="Fill" HorizontalAlignment="Left" Height="185" Margin="49,58,0,0" VerticalAlignment="Top" Width="157" OpacityMask="White"/>
+            <Button x:Name="TrimiteAnalizeBttn_Copy" Style="{StaticResource RoundedButtonStyle}" Command="{Binding ViewProgramari}" Content="Vizualizeaza programari" HorizontalAlignment="Left" Margin="39,418,0,0" VerticalAlignment="Top" Height="42" Width="178" Background="#FF73060D" Foreground="White"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="291,24,30,23">
+                <ContentControl x:Name="MainContent" Content="{Binding CurrentView}" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,0,10,0" />
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>
