@@ -11,7 +11,7 @@ using System.Windows.Navigation;
 
 namespace Project.Model
 {
-    internal class AnalizeModel
+    public class AnalizeModel
     {
         public int IDAnaliza {  get; set; }
         public string DenumireAnaliza {  set; get; }

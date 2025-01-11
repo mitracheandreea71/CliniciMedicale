@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project.Model
 {
-    internal class BuletinAnalizeModel
+    public class BuletinAnalizeModel
     {
         public int IDBuletin { get; set; }
         public DateTime DataRecoltare { get; set; }
@@ -23,6 +23,18 @@ namespace Project.Model
             _context = new CliniciDataContext();
         }
 
+        public string Data
+        {
+            get => DataRecoltare.ToString("yyyy-MM-dd");
+        }
+        public string NumePacient
+        {
+            get => $"{Pacient.Nume} {Pacient.Prenume}";
+        }
+        public string Ora
+        {
+            get => DataRecoltare.ToString("HH:mm");
+        }
         public BuletinAnalizeModel GetBuletinAnalizeByID(int idBuletin,int idpacient)
         { 
             BuletinAnalizeModel buletinAnalize = new BuletinAnalizeModel ();
@@ -42,6 +54,37 @@ namespace Project.Model
             var sefLab = _context.Angajats.Where(angajat => angajat.id_angajat == buletin.id_seflab).First();
             buletinAnalize.NumeSefLab = $"{sefLab.titulatura} {sefLab.nume} {sefLab.prenume}";
             return buletinAnalize;
+        }
+
+        public ObservableCollection<BuletinAnalizeModel> GetBuletineByMedicID(int medicId)
+        {
+            var buletine = _context.Buletin_Analizes
+                .Where(ba => ba.id_seflab == medicId)
+                .ToList();
+
+            ObservableCollection<BuletinAnalizeModel> buletineAnalizeList = new ObservableCollection<BuletinAnalizeModel>();
+
+            foreach (var buletin in buletine)
+            {
+                var buletinAnalize = new BuletinAnalizeModel
+                {
+                    IDBuletin = buletin.id_buletin,
+                    DataRecoltare = (DateTime)buletin.data_recoltare,
+                    Pacient = (new PacientModel()).GetPacientByID((int)buletin.id_pacient),
+                    FormularAnalize = (new FormularAnalizeModel()).GetFormularByBuletinAnalizeID(buletin.id_buletin),
+                    RezultateAnalize = (new RezultatAnalizeModel()).GetRezultateForBuletin(buletin.id_buletin)
+                };
+
+                var sefLab = _context.Angajats.FirstOrDefault(angajat => angajat.id_angajat == buletin.id_seflab);
+                if (sefLab != null)
+                {
+                    buletinAnalize.NumeSefLab = $"{sefLab.titulatura} {sefLab.nume} {sefLab.prenume}";
+                }
+
+                buletineAnalizeList.Add(buletinAnalize);
+            }
+
+            return buletineAnalizeList;
         }
 
         public List<BuletinAnalizeModel> GetBuletineByPacientID(int idPacient)

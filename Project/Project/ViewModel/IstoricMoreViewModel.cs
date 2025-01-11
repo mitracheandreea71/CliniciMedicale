@@ -5,11 +5,17 @@ using Project.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System.Windows.Controls;
 
 
 namespace Project.ViewModel
@@ -56,6 +62,7 @@ namespace Project.ViewModel
 
         public ICommand VizualizareIstoricCommand { get; }
         public ICommand VizualizareRezultatCommand { get; }
+        public ICommand SavePdfCommand { get; }
 
         private readonly BuletinAnalizeModel _buletinAnalizeModel;
         private readonly ConsultatieModel _consultatieModel;
@@ -70,6 +77,7 @@ namespace Project.ViewModel
             _medicModel = new MediciModel();
             VizualizareIstoricCommand = new BaseCommand(VizualizareIstoric, CanExecuteVizualizareIstoric);
             VizualizareRezultatCommand = new BaseCommand(VizualizareRezultat);
+            SavePdfCommand = new BaseCommand(SaveAsPdf);
         }
 
         private bool CanExecuteVizualizareIstoric(object parameter)
@@ -158,6 +166,163 @@ namespace Project.ViewModel
             else
             {
                 MessageBox.Show("Doar rezultatele analizelor sau consultațiilor pot fi vizualizate.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void SaveAsPdf(object parameter)
+        {
+            if (parameter is IstoricItem item)
+            {
+                try
+                {
+                    var saveDialog = new Microsoft.Win32.SaveFileDialog
+                    {
+                        Filter = "PDF files (*.pdf)|*.pdf",
+                        DefaultExt = ".pdf",
+                        FileName = $"{item.Tip}_{item.Data.Replace("/", "_")}"
+                    };
+
+                    if (saveDialog.ShowDialog() == true)
+                    {
+                        if (item.Tip == "Analiza")
+                        {
+                            var rezultatView = new AnalizeRezultatView(item.IdItem,int.Parse(Cnp));
+
+                            rezultatView.Width = 1100; 
+                            rezultatView.Height = 1000;
+                            rezultatView.DataContext = new AnalizeRezultatViewModel(item.IdItem, int.Parse(Cnp));
+
+                            rezultatView.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                            rezultatView.Arrange(new Rect(0, 0, rezultatView.Width, rezultatView.Height));
+                            rezultatView.UpdateLayout();
+
+                            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+                            var document = new PdfDocument();
+                            var page = document.AddPage();
+
+                            page.Width = XUnit.FromMillimeter(210); 
+                            page.Height = XUnit.FromMillimeter(297);
+
+                            var gfx = XGraphics.FromPdfPage(page);
+
+                            // cea mai mare rezolutie pentru bitmap 300
+                            var dpi = 300.0;
+                            var scale = dpi / 96.0; // 96 este DPI-ul standard Windows
+
+                            var renderBitmap = new RenderTargetBitmap(
+                                (int)(rezultatView.Width * scale),
+                                (int)(rezultatView.Height * scale),
+                                dpi,
+                                dpi,
+                                PixelFormats.Pbgra32);
+
+                            renderBitmap.Render(rezultatView);
+                            var encoder = new PngBitmapEncoder();
+                            encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
+
+                            using (var stream = new MemoryStream())
+                            {
+                                encoder.Save(stream);
+                                stream.Position = 0;
+
+                                var xImage = XImage.FromStream(stream);
+
+                                double pageWidth = page.Width.Point;
+                                double pageHeight = page.Height.Point;
+                                double imageWidth = rezultatView.Width;
+                                double imageHeight = rezultatView.Height;
+
+                                double scaleFactor = Math.Min(pageWidth / imageWidth, pageHeight / imageHeight);
+                                double finalWidth = imageWidth * scaleFactor;
+                                double finalHeight = imageHeight * scaleFactor;
+
+                                double x = (pageWidth - finalWidth) / 2;
+                                double y = (pageHeight - finalHeight) / 2;
+
+                                gfx.DrawImage(xImage, x, y, finalWidth, finalHeight);
+                            }
+
+                            document.Save(saveDialog.FileName);
+                            MessageBox.Show("PDF-ul a fost salvat cu succes!", "Succes",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        if (item.Tip == "Consultatie")
+                        {
+                            var consultatie = new ConsultatieModel().GetConsultatieByID(item.IdItem);
+                            string id_medic = consultatie.IdDoctor.ToString();
+                            int im = int.Parse(id_medic);
+                            MediciModel medic = _medicModel.GetMedicById(im);
+                            var rezultatWindow = new VizualizareDiagnosticWindow(consultatie, medic);
+                            rezultatWindow.Width = 900;
+                            rezultatWindow.Height = 850;
+
+                            rezultatWindow.WindowStyle = WindowStyle.None;
+                            rezultatWindow.WindowState = WindowState.Normal;
+                            rezultatWindow.ShowInTaskbar = false;
+                            rezultatWindow.AllowsTransparency = true;
+                            rezultatWindow.Background = Brushes.White;
+
+                            rezultatWindow.Show();
+
+                            rezultatWindow.Measure(new Size(rezultatWindow.Width, rezultatWindow.Height));
+                            rezultatWindow.Arrange(new Rect(0, 0, rezultatWindow.Width, rezultatWindow.Height));
+                            rezultatWindow.UpdateLayout();
+
+                            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+                            var document = new PdfDocument();
+                            var page = document.AddPage();
+                            page.Width = XUnit.FromMillimeter(210);
+                            page.Height = XUnit.FromMillimeter(297);
+                            var gfx = XGraphics.FromPdfPage(page);
+
+                            var dpi = 300.0;
+                            var scale = dpi / 96.0;
+                            var renderBitmap = new RenderTargetBitmap(
+                                (int)(rezultatWindow.Width * scale),
+                                (int)(rezultatWindow.Height * scale),
+                                dpi,
+                                dpi,
+                                PixelFormats.Pbgra32);
+                            renderBitmap.Render(rezultatWindow);
+
+                            var encoder = new PngBitmapEncoder();
+                            encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
+
+                            using (var stream = new MemoryStream())
+                            {
+                                encoder.Save(stream);
+                                stream.Position = 0;
+                                var xImage = XImage.FromStream(stream);
+
+                                double pageWidth = page.Width.Point;
+                                double pageHeight = page.Height.Point;
+                                double imageWidth = rezultatWindow.Width;
+                                double imageHeight = rezultatWindow.Height;
+                                double scaleFactor = Math.Min(pageWidth / imageWidth, pageHeight / imageHeight);
+                                double finalWidth = imageWidth * scaleFactor;
+                                double finalHeight = imageHeight * scaleFactor;
+
+                                double x = (pageWidth - finalWidth) / 2;
+                                double y = (pageHeight - finalHeight) / 2;
+
+                                gfx.DrawImage(xImage, x, y, finalWidth, finalHeight);
+                            }
+
+                            document.Save(saveDialog.FileName);
+
+                            rezultatWindow.Close();
+
+                            MessageBox.Show("PDF-ul a fost salvat cu succes!", "Succes",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Eroare la salvarea PDF-ului: {ex.Message}", "Eroare",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
     }

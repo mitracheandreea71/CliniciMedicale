@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Project.Commands
 {
-    public class ViewChangeMessage
+    public class ViewChangeMessage<T>
     {
         public string NewView { get; set; }
-        public ConsultatieModel Consultatie { get; set; }
+        public T Model { get; set; }
 
         public MediciModel Medic { get; set; }
 
-        public ViewChangeMessage(string newView, ConsultatieModel consultatie,MediciModel medic)
+        public ViewChangeMessage(string newView, T consultatie,MediciModel medic)
         {
             NewView = newView;
-            Consultatie = consultatie;
+            Model = consultatie;
             Medic = medic;
         }
     }

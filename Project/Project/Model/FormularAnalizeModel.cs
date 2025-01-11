@@ -12,7 +12,7 @@ using System.Windows.Navigation;
 
 namespace Project.Model
 {
-    internal class FormularAnalizeModel
+    public class FormularAnalizeModel
     {
         public int IDFormular { get; set; }
         public string TipAnalize { get; set; }

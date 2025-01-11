@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Model
 {
-    internal class PacientModel
+    public class PacientModel
     {
         public int IDPacient {  get; set; }
         public string Nume {  get; set; }

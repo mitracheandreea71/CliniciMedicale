@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace Project.ViewModel
 {
-    internal class AdaugaRezAnalizeViewModel : BaseViewModel
+    public class AdaugaRezAnalizeViewModel : BaseViewModel
     {
         private BuletinAnalizeModel _buletin;
         private MediciModel _medic;
