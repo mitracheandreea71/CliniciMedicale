@@ -126,6 +126,49 @@ namespace Project.Model
             return medici;
         }
 
+        public ObservableCollection<MediciModel> GetAllAngajati()
+        {
+            ObservableCollection<MediciModel> angajati = new ObservableCollection<MediciModel>();
+
+            var functiiMedici = _context.Functies.ToList();
+
+            foreach (var functie in functiiMedici)
+            {
+                var programTure = _context.Incadrare_Departaments
+                    .Where(i => i.id_angajat == functie.Angajat.id_angajat)
+                    .Select(i => new
+                    {
+                        Intrare = i.intrare_tura,
+                        Iesire = i.iesire_tura
+                    })
+                    .ToList();
+
+                string ProgramMedic = string.Join(", ", programTure.Select(t => $"Program: {t.Intrare} - {t.Iesire}"));
+
+                angajati.Add(new MediciModel
+                {
+                    IdAngajat = functie.Angajat.id_angajat,
+                    Titulatura = functie.Angajat.titulatura ?? string.Empty,
+                    Nume = functie.Angajat.nume ?? string.Empty,
+                    Prenume = functie.Angajat.prenume ?? string.Empty,
+                    Username = functie.Angajat.username ?? string.Empty,
+                    Parola = functie.Angajat.parola ?? string.Empty,
+                    Email = functie.Angajat.email ?? string.Empty,
+                    Telefon = functie.Angajat.telefon ?? string.Empty,
+                    Sectie = functie.Angajat.specialitate ?? string.Empty,
+                    Rating = (double?)(functie.Angajat.rating ?? default(decimal)),
+                    CaleImagine = functie.Angajat.imagine_cale ?? string.Empty,
+                    Program = ProgramMedic,
+                    Functie = functie.nume_functie ?? string.Empty,
+                    DataIncadrare = functie.data_incadrare?.ToString() ?? string.Empty,
+                    IdClinica = functie.id_clinica
+                });
+            }
+
+            return angajati;
+        }
+
+
         public ObservableCollection<MediciModel> GetAllMediciPentruDepartament(string departament)
         {
             var medici = from angajat in _context.Angajats
@@ -285,6 +328,25 @@ namespace Project.Model
             return medic?.id_angajat; 
         }
 
+
+        public int? GetMedicIdByNumeCompletFaraTitulatura(string numeComplet)
+        {
+            if (string.IsNullOrEmpty(numeComplet))
+                return null;
+
+            var parts = numeComplet.Trim().Split(' ');
+
+
+            int indexNume = parts.Length - 2;
+            string nume = parts[indexNume];
+            string prenume = string.Join(" ", parts.Skip(indexNume + 1));
+
+            var medic = _context.Angajats
+                .FirstOrDefault(a => a.nume == nume &&
+                                     a.prenume == prenume);
+
+            return medic?.id_angajat;
+        }
         public string getMedicDepartament(int medicId)
         {
             var incadrare_departament = _context.Incadrare_Departaments.Where(d => d.id_angajat == medicId).ToList().First();

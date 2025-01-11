@@ -91,14 +91,23 @@
     <Compile Include="Model\PacientModel.cs" />
     <Compile Include="Model\RezultatAnalizeModel.cs" />
     <Compile Include="Model\VizualizareDiagnosticViewModel.cs" />
+    <Compile Include="ViewModel\AddClinicViewModel.cs" />
+    <Compile Include="ViewModel\AddDepartmentViewModel.cs" />
     <Compile Include="ViewModel\AddDiagnosticViewModel.cs" />
+    <Compile Include="ViewModel\AddEmployeeViewModel.cs" />
+    <Compile Include="ViewModel\AdminViewModel.cs" />
     <Compile Include="ViewModel\AnalizeMoreViewModel.cs" />
     <Compile Include="ViewModel\AnalizeRezultatViewModel.cs" />
     <Compile Include="ViewModel\AnalizeViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CliniciMoreViewModel.cs" />
     <Compile Include="ViewModel\CliniciViewModel.cs" />
+    <Compile Include="ViewModel\DeleteClinicViewModel.cs" />
+    <Compile Include="ViewModel\DeleteDepartmentViewModel.cs" />
+    <Compile Include="ViewModel\DeleteEmployeeViewModel.cs" />
+    <Compile Include="ViewModel\DeletePatientViewModel.cs" />
     <Compile Include="ViewModel\EditProgramareMedicViewModel.cs" />
+    <Compile Include="ViewModel\ExtendEmployeeContractViewModel.cs" />
     <Compile Include="ViewModel\IstoricMoreViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
@@ -114,8 +123,17 @@
     <Compile Include="ViewModel\SolicitaProgramareClinicaViewModel.cs" />
     <Compile Include="ViewModel\SolicitaProgramareDepartamentSiMedicViewModel.cs" />
     <Compile Include="ViewModel\SolicitaProgramareViewModel.cs" />
+    <Compile Include="View\AddClinicView.xaml.cs">
+      <DependentUpon>AddClinicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddDepartmentView.xaml.cs">
+      <DependentUpon>AddDepartmentView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddDiagnosticView.xaml.cs">
       <DependentUpon>AddDiagnosticView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddEmployeeView.xaml.cs">
+      <DependentUpon>AddEmployeeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
@@ -138,8 +156,23 @@
     <Compile Include="View\CliniciView.xaml.cs">
       <DependentUpon>CliniciView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DeleteClinicView.xaml.cs">
+      <DependentUpon>DeleteClinicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeleteDepartmentView.xaml.cs">
+      <DependentUpon>DeleteDepartmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeleteEmployeeView.xaml.cs">
+      <DependentUpon>DeleteEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeletePatientView.xaml.cs">
+      <DependentUpon>DeletePatientView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EditProgramareMedicView.xaml.cs">
       <DependentUpon>EditProgramareMedicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExtendEmployeeContractView.xaml.cs">
+      <DependentUpon>ExtendEmployeeContractView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\IstoricMoreView.xaml.cs">
       <DependentUpon>IstoricMoreView.xaml</DependentUpon>
@@ -207,7 +240,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddClinicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddDepartmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddDiagnosticView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddEmployeeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,7 +284,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\DeleteClinicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeleteDepartmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeleteEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeletePatientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\EditProgramareMedicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ExtendEmployeeContractView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -419,6 +484,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\consultatie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\adminIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

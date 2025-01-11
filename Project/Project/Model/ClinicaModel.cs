@@ -106,5 +106,25 @@ namespace Project.Model
             }
             return -1;
         }
+
+        public void AddClinic(ClinicaModel clinic)
+        {
+            var newClinic = new Clinica
+            {
+                nume_clinica = clinic.NumeClinica,
+                judet = clinic.Judet,
+                oras = clinic.Oras,
+                adresa = clinic.Adresa,
+                program = clinic.Program,
+                nr_contact = clinic.NrContact,
+                email = clinic.Email,
+                CIF = clinic.CIF,
+                IBAN = clinic.IBAN,
+                Banca = clinic.Banca
+            };
+
+            _context.Clinicas.InsertOnSubmit(newClinic);
+            _context.SubmitChanges();
+        }
     }
 }

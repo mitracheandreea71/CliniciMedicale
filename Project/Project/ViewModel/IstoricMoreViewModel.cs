@@ -154,8 +154,6 @@ namespace Project.ViewModel
                 MediciModel medic = _medicModel.GetMedicById(im);
                 var vizualizareDW = new VizualizareDiagnosticWindow(consultatie,medic);
                 vizualizareDW.Show();
-
-               // MessageBox.Show($"Consultația pentru pacientul {idPacient} este validată.", "Informație", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
