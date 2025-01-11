@@ -35,6 +35,37 @@ namespace Project.Model
         {
             get => DataRecoltare.ToString("HH:mm");
         }
+        public ObservableCollection<BuletinAnalizeModel> GetBuletineAnalizaByClinicaId(int idClinica)
+        {
+            ObservableCollection<BuletinAnalizeModel> buletineAnalize=new ObservableCollection<BuletinAnalizeModel>();
+            var id_sefilab = from clinica in _context.Clinicas
+                             join functie in _context.Functies on clinica.id_clinica equals functie.id_clinica
+                             where functie.nume_functie == "Sef Lab" && clinica.id_clinica == idClinica
+                             select functie.id_angajat;
+
+            foreach (var id in id_sefilab)
+            {
+                var buletine = _context.Buletin_Analizes.Where(ba => ba.id_seflab == id);
+                foreach (var buletin in buletine)
+                {
+                    BuletinAnalizeModel buletinNou = new BuletinAnalizeModel
+                    {
+                        IDBuletin = buletin.id_buletin,
+                        DataRecoltare = (DateTime)buletin.data_recoltare,
+                        Pacient = (new PacientModel()).GetPacientByID((int)buletin.id_pacient),
+                        FormularAnalize = (new FormularAnalizeModel()).GetFormularByBuletinAnalizeID(buletin.id_buletin),
+                        RezultateAnalize = (new RezultatAnalizeModel()).GetRezultateForBuletin(buletin.id_buletin)
+                    };
+                    var sefLab = _context.Angajats.FirstOrDefault(angajat => angajat.id_angajat == buletin.id_seflab);
+                    if (sefLab != null)
+                    {
+                        buletinNou.NumeSefLab = $"{sefLab.titulatura} {sefLab.nume} {sefLab.prenume}";
+                    }
+                    buletineAnalize.Add(buletinNou);
+                }
+            }
+            return buletineAnalize;
+        }
         public BuletinAnalizeModel GetBuletinAnalizeByID(int idBuletin,int idpacient)
         { 
             BuletinAnalizeModel buletinAnalize = new BuletinAnalizeModel ();

@@ -22,6 +22,7 @@ namespace Project.ViewModel
         private bool _loginSucceeded;
 
         private MediciModel _medic;
+        private AsistentiModel _asistent;
         public bool LoginSucceeded
         {
             get => _loginSucceeded;
@@ -39,6 +40,15 @@ namespace Project.ViewModel
             {
                 _medic = value;
                 OnPropertyChanged(nameof(Medic));
+            }
+        }
+        public AsistentiModel Asistent
+        {
+            get => _asistent;
+            set
+            {
+                _asistent = value;
+                OnPropertyChanged(nameof(Asistent));
             }
         }
         public string Email
@@ -88,8 +98,8 @@ namespace Project.ViewModel
             else
             {
                 var mediciModel = new MediciModel();
-                var medici = mediciModel.GetAllAngajati();
-                var user = medici.FirstOrDefault(u => u.Email == Email && u.Parola == Parola);
+                var angajati = mediciModel.GetAllAngajati();
+                var user = angajati.FirstOrDefault(u => u.Email == Email && u.Parola == Parola);
                 if (user != null)
                 {
                     if (user.Titulatura.IndexOf("Dr.", StringComparison.OrdinalIgnoreCase) >= 0)
@@ -100,6 +110,7 @@ namespace Project.ViewModel
                     else if (user.Titulatura.IndexOf("Asist.", StringComparison.OrdinalIgnoreCase) >= 0)
                     {
                         Role = "Asistent";
+                        _asistent = new AsistentiModel().GetAsistentById(user.IdAngajat);
                     }
                     else if (user.Titulatura.IndexOf("Admin", StringComparison.OrdinalIgnoreCase) >= 0)
                     {

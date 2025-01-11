@@ -34,7 +34,31 @@ namespace Project.Model
         { 
             _context = new CliniciDataContext();
         }
-
+        public ClinicaModel GetClinicaByMedicId(int medicId)
+        { 
+            var functie = _context.Functies.Where(f => f.id_angajat == medicId).FirstOrDefault();
+            if (functie == null)
+                return null;
+            var clinica = _context.Clinicas.Where(c => c.id_clinica == functie.id_clinica).FirstOrDefault();
+            if (clinica == null)
+                return null;
+            ClinicaModel clinicaRet = new ClinicaModel
+            {
+                ClinicaID = clinica.id_clinica,
+                NumeClinica = clinica.nume_clinica,
+                Judet = clinica.judet,
+                Oras = clinica.oras,
+                Adresa = clinica.adresa,
+                Program = clinica.program,
+                NrContact = clinica.nr_contact,
+                Email = clinica.email,
+                CIF = clinica.CIF,
+                IBAN = clinica.IBAN,
+                Banca = clinica.Banca,
+                CaleImagine = clinica.cale_imagine
+            };
+            return clinicaRet;
+        }
         public ObservableCollection<ClinicaModel> GetAllClinici()
         {
             ObservableCollection<ClinicaModel> clinici = new ObservableCollection<ClinicaModel>();

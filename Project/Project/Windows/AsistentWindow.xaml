@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.View"
         mc:Ignorable="d"
-        Title="AsistentWindow" Height="450" Width="800">
+        Title="AsistentWindow" Height="500" Width="800">
     <Grid>
-        
+        <ContentControl Content="{Binding CurrentView}" HorizontalAlignment="Center" Height="484" VerticalAlignment="Center" Width="800"/>
+
     </Grid>
 </Window>
