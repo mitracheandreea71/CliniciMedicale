@@ -160,8 +160,5 @@ namespace Project.ViewModel
                 MessageBox.Show("Doar rezultatele analizelor sau consultațiilor pot fi vizualizate.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-
-
     }
 }
