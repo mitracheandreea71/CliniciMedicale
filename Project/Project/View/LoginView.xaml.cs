@@ -50,7 +50,7 @@ namespace Project.View
                             newWindow = new MedicWindow(viewModel.Medic);
                             break;
                         case "Asistent":
-                            newWindow = new AsistentWindow();
+                            newWindow = new AsistentWindow(viewModel.Asistent);
                             break;
                         case "Administrator":
                             newWindow = new AdminWindow();

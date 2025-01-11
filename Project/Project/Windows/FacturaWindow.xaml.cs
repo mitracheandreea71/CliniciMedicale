@@ -14,17 +14,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Project.View
+namespace Project.Windows
 {
     /// <summary>
-    /// Interaction logic for AsistentWindow.xaml
+    /// Interaction logic for FacturaWindow.xaml
     /// </summary>
-    public partial class AsistentWindow : Window
+    public partial class FacturaWindow : Window
     {
-        public AsistentWindow(AsistentiModel asistent)
+        public FacturaWindow(object obj)
         {
             InitializeComponent();
-            DataContext = new AsistentWindowViewModel(asistent);
+            if(obj is ConsultatieModel consultatie)
+                DataContext = new FacturaWindowViewModel<ConsultatieModel>(consultatie);
+            if(obj is BuletinAnalizeModel buletin)
+                DataContext = new FacturaWindowViewModel<BuletinAnalizeModel>(buletin);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Project.Commands
 
         public MediciModel Medic { get; set; }
 
-        public ViewChangeMessage(string newView, T consultatie,MediciModel medic)
+        public ViewChangeMessage(string newView, T consultatie,MediciModel medic = null)
         {
             NewView = newView;
             Model = consultatie;

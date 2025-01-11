@@ -12,19 +12,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Project.View
 {
     /// <summary>
-    /// Interaction logic for AsistentWindow.xaml
+    /// Interaction logic for ViewAsigurariAsistView.xaml
     /// </summary>
-    public partial class AsistentWindow : Window
+    public partial class ViewAsigurariAsistView : UserControl
     {
-        public AsistentWindow(AsistentiModel asistent)
+        public ViewAsigurariAsistView(AsistentiModel asistent)
         {
             InitializeComponent();
-            DataContext = new AsistentWindowViewModel(asistent);
+            DataContext = new ViewAsigurariAsistViewModel(asistent);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project.Model
 {
-    internal class AsistentiModel
+    public class AsistentiModel
     {
 
 
@@ -45,6 +45,49 @@ namespace Project.Model
             }
             return asistent.id_angajat;
         }
+
+        public AsistentiModel GetAsistentById(int idAsistent)
+        {
+            var asistent = _context.Angajats
+                .FirstOrDefault(a => a.id_angajat == idAsistent);
+
+            if (asistent != null)
+            {
+                var programTure = _context.Incadrare_Departaments
+                    .Where(i => i.id_angajat == asistent.id_angajat)
+                    .Select(i => new
+                    {
+                        Intrare = i.intrare_tura,
+                        Iesire = i.iesire_tura
+                    })
+                    .ToList();
+
+                string ProgramAsistent = string.Join(", ", programTure.Select(t => $"Program: {t.Intrare} - {t.Iesire}"));
+
+                var FunctieAsistent = _context.Functies
+                    .FirstOrDefault(f => f.id_angajat == asistent.id_angajat);
+
+                return new AsistentiModel
+                {
+                    IdAngajat = asistent.id_angajat,
+                    Titulatura = asistent.titulatura,
+                    Nume = asistent.nume,
+                    Prenume = asistent.prenume,
+                    Username = asistent.username,
+                    Parola = asistent.parola,
+                    Email = asistent.email,
+                    Telefon = asistent.telefon,
+                    Sectie = asistent.specialitate,
+                    Program = ProgramAsistent,
+                    Functie = FunctieAsistent?.nume_functie,
+                    DataIncadrare = FunctieAsistent?.data_incadrare.ToString(),
+                    IdClinica = FunctieAsistent?.id_clinica
+                };
+            }
+
+            return null;
+        }
+
         public ObservableCollection<AsistentiModel> GetAllAsistentiPentruDepartament(string departament)
         {
             var asistenti = from angajat in _context.Angajats

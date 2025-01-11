@@ -157,11 +157,13 @@
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\ChangeViewAction.cs" />
     <Compile Include="Model\AnalizeModel.cs" />
+    <Compile Include="Model\AsigurareModel.cs" />
     <Compile Include="Model\AsistentiModel.cs" />
     <Compile Include="Model\BuletinAnalizeModel.cs" />
     <Compile Include="Model\ClinicaModel.cs" />
     <Compile Include="Model\ConsultatieModel.cs" />
     <Compile Include="Model\DiagnosticModel.cs" />
+    <Compile Include="Model\FacturaModel.cs" />
     <Compile Include="Model\FormularAnalizeModel.cs" />
     <Compile Include="Model\IncadrareDepartamentModel.cs" />
     <Compile Include="Model\MediciModel.cs" />
@@ -177,6 +179,8 @@
     <Compile Include="ViewModel\AnalizeMoreViewModel.cs" />
     <Compile Include="ViewModel\AnalizeRezultatViewModel.cs" />
     <Compile Include="ViewModel\AnalizeViewModel.cs" />
+    <Compile Include="ViewModel\AsistentHomeViewModel.cs" />
+    <Compile Include="ViewModel\AsistentWindowViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CliniciMoreViewModel.cs" />
     <Compile Include="ViewModel\CliniciViewModel.cs" />
@@ -186,6 +190,7 @@
     <Compile Include="ViewModel\DeletePatientViewModel.cs" />
     <Compile Include="ViewModel\EditProgramareMedicViewModel.cs" />
     <Compile Include="ViewModel\ExtendEmployeeContractViewModel.cs" />
+    <Compile Include="ViewModel\FacturaWindowViewModel.cs" />
     <Compile Include="ViewModel\IstoricMoreViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
@@ -201,7 +206,10 @@
     <Compile Include="ViewModel\SolicitaProgramareClinicaViewModel.cs" />
     <Compile Include="ViewModel\SolicitaProgramareDepartamentSiMedicViewModel.cs" />
     <Compile Include="ViewModel\SolicitaProgramareViewModel.cs" />
+    <Compile Include="ViewModel\ViewAnalizeAsistViewModel.cs" />
     <Compile Include="ViewModel\ViewAnalizeMedicViewModel.cs" />
+    <Compile Include="ViewModel\ViewAsigurariAsistViewModel.cs" />
+    <Compile Include="ViewModel\ViewProgramariAsistViewModel.cs" />
     <Compile Include="View\AdaugaRezAnalizeView.xaml.cs">
       <DependentUpon>AdaugaRezAnalizeView.xaml</DependentUpon>
     </Compile>
@@ -228,6 +236,9 @@
     </Compile>
     <Compile Include="View\AnalizeView.xaml.cs">
       <DependentUpon>AnalizeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AsistentHomeView.xaml.cs">
+      <DependentUpon>AsistentHomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CliniciMoreView.xaml.cs">
       <DependentUpon>CliniciMoreView.xaml</DependentUpon>
@@ -277,14 +288,26 @@
     <Compile Include="View\ProgramariMedicView.xaml.cs">
       <DependentUpon>ProgramariMedicView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewAnalizeAsistView.xaml.cs">
+      <DependentUpon>ViewAnalizeAsistView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewAnalizeMedicView.xaml.cs">
       <DependentUpon>ViewAnalizeMedicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewAsigurariAsistView.xaml.cs">
+      <DependentUpon>ViewAsigurariAsistView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewProgramariAsistView.xaml.cs">
+      <DependentUpon>ViewProgramariAsistView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\VizualizareDiagnosticView.xaml.cs">
       <DependentUpon>VizualizareDiagnosticView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AsistentWindow.xaml.cs">
       <DependentUpon>AsistentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FacturaWindow.xaml.cs">
+      <DependentUpon>FacturaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MedicWindow.xaml.cs">
       <DependentUpon>MedicWindow.xaml</DependentUpon>
@@ -361,6 +384,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AsistentHomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CliniciMoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -425,9 +452,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ViewAnalizeAsistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ViewAnalizeMedicView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewAsigurariAsistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewProgramariAsistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\VizualizareDiagnosticView.xaml">
       <SubType>Designer</SubType>
@@ -436,6 +475,10 @@
     <Page Include="Windows\AsistentWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\FacturaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\MedicWindow.xaml">
       <SubType>Designer</SubType>
@@ -583,6 +626,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\hadi_rahimia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
