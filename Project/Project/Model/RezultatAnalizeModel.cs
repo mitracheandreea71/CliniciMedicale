@@ -7,17 +7,19 @@ using System.Linq;
 using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
 
 namespace Project.Model
 {
-    internal class RezultatAnalizeModel
+    public class RezultatAnalizeModel : INotifyPropertyChanged
     {
+        public int IdRezultat { get; set; }
         public AnalizeModel TipAnalize { get; set; }
 
-        public string ValoriRezultate { get; set; }
+        public string _valoriRezultate { get; set; }
 
         public CliniciDataContext _context;
 
@@ -26,6 +28,36 @@ namespace Project.Model
             TipAnalize = null;
             ValoriRezultate = null;
             _context = new CliniciDataContext();
+        }
+
+        public string ValoriRezultate
+        {
+            get => _valoriRezultate;
+            set
+            {
+                if (_valoriRezultate != value)
+                {
+                    _valoriRezultate = value;
+                    OnPropertyChanged(nameof(ValoriRezultate));
+                    SaveChanges();
+                }
+            }
+        }
+        private void SaveChanges()
+        {
+            try
+            {
+                var rezultatInDB = _context.Rezultat_Analizes.FirstOrDefault(r => r.id_rezultat == IdRezultat);
+                if (rezultatInDB != null)
+                {
+                    rezultatInDB.valori_rezultate = ValoriRezultate;
+                    _context.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la salvarea modificarii: {ex.Message}", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public ObservableCollection<RezultatAnalizeModel> GetRezultateForBuletin(int buletinID)
@@ -45,10 +77,18 @@ namespace Project.Model
                 rezultat.TipAnalize.DenumireAnaliza = analiza.denumire_analiza;
                 rezultat.TipAnalize.ValoriReferinta = analiza.valori_referinta;
                 rezultat.TipAnalize.UnitateMasura = analiza.unitate_masura;
+                rezultat.IdRezultat = iterator.id_rezultat;
                 rezultate.Add(rezultat);
             }
 
             return rezultate;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

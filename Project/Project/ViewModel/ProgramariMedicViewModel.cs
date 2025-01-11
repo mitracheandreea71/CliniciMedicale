@@ -25,7 +25,7 @@ namespace Project.ViewModel
         { 
             _medic = medic;
             _consultatii = new ConsultatieModel().GetAllConsultatiiForMedic(_medic.IdAngajat);
-            showEditView = new BaseCommand(c => { EventAggregator.Instance.Publish(new ViewChangeMessage("EditProgramare", c as ConsultatieModel,_medic)); });
+            showEditView = new BaseCommand(c => { EventAggregator.Instance.Publish(new ViewChangeMessage<ConsultatieModel>("EditProgramare", c as ConsultatieModel,_medic)); });
             showAddDiagnosticView = new BaseCommand(c => verifyDate(c as ConsultatieModel));
         }
 
@@ -36,7 +36,7 @@ namespace Project.ViewModel
                 MessageBox.Show($"Nu poti adauga un diagnostic inca", "Ups...Ceva nu a mers bine", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            EventAggregator.Instance.Publish(new ViewChangeMessage("AddDiagnostic", consultatie, _medic));
+            EventAggregator.Instance.Publish(new ViewChangeMessage<ConsultatieModel>("AddDiagnostic", consultatie, _medic));
         }
 
         public ConsultatieModel Consultatie
