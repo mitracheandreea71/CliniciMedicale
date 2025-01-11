@@ -9,9 +9,6 @@ using Project.Commands;
 using Project.Windows;
 using System.Windows;
 using System.Diagnostics.Contracts;
-using System.Windows;
-using Project.Model;
-using Project.Commands;
 using Project.View;
 
 
@@ -91,7 +88,7 @@ namespace Project.ViewModel
             else
             {
                 var mediciModel = new MediciModel();
-                var medici = mediciModel.GetAllMedici();
+                var medici = mediciModel.GetAllAngajati();
                 var user = medici.FirstOrDefault(u => u.Email == Email && u.Parola == Parola);
                 if (user != null)
                 {

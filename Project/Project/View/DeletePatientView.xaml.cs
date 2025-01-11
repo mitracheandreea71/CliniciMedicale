@@ -11,19 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Project.View
 {
     /// <summary>
-    /// Interaction logic for AdminWindow.xaml
+    /// Interaction logic for DeletePatientView.xaml
     /// </summary>
-    public partial class AdminWindow : Window
+    public partial class DeletePatientView : UserControl
     {
-        public AdminWindow()
+        public DeletePatientView()
         {
             InitializeComponent();
-            DataContext = new AdminViewModel();
+            DataContext = new DeletePatientViewModel();
         }
     }
 }
