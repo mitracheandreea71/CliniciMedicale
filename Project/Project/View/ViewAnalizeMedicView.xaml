@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Project.View.ViewAnalizeMedicView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Project.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Rectangle Width="420" VerticalAlignment="Top" Stroke="White" RadiusY="15" RadiusX="15" Margin="188,6,0,0" Height="69" HorizontalAlignment="Left" Fill="#FF73060D"/>
+        <DatePicker HorizontalAlignment="Left" Margin="333,40,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="203,20,0,0" TextWrapping="Wrap" Text="Selectati data in care doriti sa vedeti programarile" VerticalAlignment="Top" Width="390" FontFamily="Arial Black" TextAlignment="Center" FontSize="14" Foreground="#FFF9F9F9"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,173,0,0">
+            <ItemsControl ItemsSource="{Binding Analize}" Height="401" Margin="0,0,0,0">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="96">
+                            <Rectangle Stroke="#FFE4E4E4" RadiusY="15" RadiusX="15" Margin="4,11,33,1" Height="84" Fill="White"/>
+                            <TextBlock TextWrapping="Wrap" Text="Data: " Margin="12,62,753,15" FontFamily="Arial Black" FontSize="16" TextAlignment="Center"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Data}" Margin="2,62,540,15" FontFamily="Arial" FontSize="16" TextAlignment="Center"/>
+                            <TextBlock TextWrapping="Wrap" Text="Pacient: " Margin="12,26,759,47" FontFamily="Arial Black" FontSize="16" TextAlignment="Center"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding NumePacient}" Margin="96,26,652,47" FontFamily="Arial" FontSize="16" TextAlignment="Center"/>
+                            <Rectangle HorizontalAlignment="Left" Margin="313,18,0,6" Stroke="#FFE4E4E4" Width="2" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextWrapping="Wrap" Text="Ora: " Margin="226,42,381,15" FontFamily="Arial Black" FontSize="16" TextAlignment="Center"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Ora}" Margin="326,42,401,15" FontFamily="Arial" FontSize="16" TextAlignment="Center"/>
+                            <Rectangle HorizontalAlignment="Left" Margin="624,18,0,6" Stroke="#FFE4E4E4" Width="2" RenderTransformOrigin="0.5,0.5"/>
+                            <Button Content="Adauga rezultate" Style="{StaticResource RoundedButtonStyle }" Command="{Binding DataContext.showAddRezultatAnalizeView, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" HorizontalAlignment="Left" Height="28" Margin="666,37,0,0" VerticalAlignment="Top" Width="145" FontFamily="Arial" FontSize="14"/>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
