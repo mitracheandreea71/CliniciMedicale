@@ -23,6 +23,7 @@ namespace Project
         public int id_asigurator { get; set; }
         public string nume_asigurator { get; set; }
         public string nume_asigurare { get; set; }
+        public string activ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asigurare> Asigurares { get; set; }

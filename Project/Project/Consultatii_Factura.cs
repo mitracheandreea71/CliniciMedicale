@@ -17,6 +17,7 @@ namespace Project
         public int id_serviciu { get; set; }
         public Nullable<int> id_factura { get; set; }
         public Nullable<int> id_consultatie { get; set; }
+        public string activ { get; set; }
     
         public virtual Consultatie Consultatie { get; set; }
         public virtual Factura Factura { get; set; }

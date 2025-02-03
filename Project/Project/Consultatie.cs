@@ -28,6 +28,7 @@ namespace Project
         public Nullable<System.DateTime> data_consultatie { get; set; }
         public string ora { get; set; }
         public Nullable<decimal> pret { get; set; }
+        public string activ { get; set; }
     
         public virtual Angajat Angajat { get; set; }
         public virtual Angajat Angajat1 { get; set; }

@@ -23,6 +23,7 @@ namespace Project.ViewModel
 
         private MediciModel _medic;
         private AsistentiModel _asistent;
+        private PacientModel _pacient;
         public bool LoginSucceeded
         {
             get => _loginSucceeded;
@@ -30,6 +31,16 @@ namespace Project.ViewModel
             {
                 _loginSucceeded = value;
                 OnPropertyChanged(nameof(LoginSucceeded));
+            }
+        }
+
+        public PacientModel Pacient
+        {
+            get => _pacient;
+            set
+            {
+                _pacient = value;
+                OnPropertyChanged(nameof(Pacient));
             }
         }
 
@@ -102,6 +113,11 @@ namespace Project.ViewModel
                 var user = angajati.FirstOrDefault(u => u.Email == Email && u.Parola == Parola);
                 if (user != null)
                 {
+                    if (user.Activ == "OFF")
+                    {
+                        MessageBox.Show("Contul este dezactivat", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
                     if (user.Titulatura.IndexOf("Dr.", StringComparison.OrdinalIgnoreCase) >= 0)
                     {
                         Role = "Medic";
@@ -118,12 +134,23 @@ namespace Project.ViewModel
                     }
                     
                     LoginSucceeded = true;
-                   
+                    return;
+                }
+                var pacient = new PacientModel().GetPacientForEmailAndPasswd(Email, Parola);
+                if (pacient != null) {
+                    if (pacient.Activ == "OFF")
+                    {
+                        MessageBox.Show("Contul este dezactivat", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                    Pacient = pacient;
+                    Role = "Pacient";
+                    LoginSucceeded = true;
+                    return;
                 }
                 else
                 {
                     MessageBox.Show("E-mail sau parola incorecta", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-
                 }
             }
           

@@ -33,7 +33,7 @@ namespace Project.Model
         public string Functie { get; set; }
         public string DataIncadrare { get; set; }
         public int? IdClinica { get; set; }
-
+        public string Activ { get; set; }
 
         private readonly CliniciEntities _context;
 
@@ -79,7 +79,8 @@ namespace Project.Model
                     Program = ProgramMedic,
                     Functie = FunctieMedic.nume_functie,
                     DataIncadrare = FunctieMedic.data_incadrare.ToString(),
-                    IdClinica = FunctieMedic.id_clinica
+                    IdClinica = FunctieMedic.id_clinica,
+                    Activ =  medic.activ
                 };
             }
 
@@ -118,7 +119,8 @@ namespace Project.Model
                         Program = ProgramMedic,
                         Functie = functie.nume_functie,
                         DataIncadrare = functie.data_incadrare.ToString(),
-                        IdClinica = functie.id_clinica
+                        IdClinica = functie.id_clinica,
+                        Activ = functie.Angajat.activ
                     }
                     );
             }
@@ -161,7 +163,8 @@ namespace Project.Model
                     Program = ProgramMedic,
                     Functie = functie.nume_functie ?? string.Empty,
                     DataIncadrare = functie.data_incadrare?.ToString() ?? string.Empty,
-                    IdClinica = functie.id_clinica
+                    IdClinica = functie.id_clinica,
+                    Activ = functie.Angajat.activ
                 });
             }
 
@@ -207,7 +210,8 @@ namespace Project.Model
                         Program = ProgramMedic,
                         Functie = FunctieMedic.nume_functie,
                         DataIncadrare = FunctieMedic.data_incadrare.ToString(),
-                        IdClinica = FunctieMedic.id_clinica
+                        IdClinica = FunctieMedic.id_clinica,
+                        Activ = FunctieMedic.activ,
                     }
                     );
             }
@@ -251,7 +255,8 @@ namespace Project.Model
                         Program = ProgramMedic,
                         Functie = FunctieMedic.nume_functie,
                         DataIncadrare = FunctieMedic.data_incadrare.ToString(),
-                        IdClinica = FunctieMedic.id_clinica
+                        IdClinica = FunctieMedic.id_clinica,
+                        Activ = FunctieMedic.activ
                     }
                     );
             }
@@ -296,7 +301,8 @@ namespace Project.Model
                         Program = ProgramMedic,
                         Functie = FunctieMedic.nume_functie,
                         DataIncadrare = FunctieMedic.data_incadrare.ToString(),
-                        IdClinica = FunctieMedic.id_clinica
+                        IdClinica = FunctieMedic.id_clinica,
+                        Activ = FunctieMedic.activ
                     }
                     );
             }

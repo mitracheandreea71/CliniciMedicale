@@ -19,6 +19,7 @@ namespace Project
         public string diagnostic1 { get; set; }
         public string observatii { get; set; }
         public string tratament { get; set; }
+        public string activ { get; set; }
     
         public virtual Consultatie Consultatie { get; set; }
     }

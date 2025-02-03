@@ -35,6 +35,7 @@ namespace Project
         public Nullable<decimal> rating { get; set; }
         public string imagine_cale { get; set; }
         public string titulatura { get; set; }
+        public string activ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Incadrare_Departament> Incadrare_Departament { get; set; }

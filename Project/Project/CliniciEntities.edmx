@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CliniciMedicaleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CliniciMedicaleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Analize">
           <Key>
             <PropertyRef Name="id_analiza" />
@@ -13,6 +13,7 @@
           <Property Name="denumire_analiza" Type="varchar" MaxLength="50" />
           <Property Name="valori_referinta" Type="varchar" MaxLength="50" />
           <Property Name="unitate_masura" Type="varchar" MaxLength="50" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Analize_Factura">
           <Key>
@@ -21,6 +22,7 @@
           <Property Name="id_serviciu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_factura" Type="int" />
           <Property Name="id_analize" Type="int" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Angajat">
           <Key>
@@ -37,6 +39,7 @@
           <Property Name="rating" Type="decimal" Precision="4" Scale="2" />
           <Property Name="imagine_cale" Type="varchar" MaxLength="255" />
           <Property Name="titulatura" Type="varchar" MaxLength="100" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Apartenenta_Formular">
           <Key>
@@ -45,6 +48,7 @@
           </Key>
           <Property Name="id_formular" Type="int" Nullable="false" />
           <Property Name="id_analiza" Type="int" Nullable="false" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Asigurare">
           <Key>
@@ -55,6 +59,7 @@
           <Property Name="id_pacient" Type="int" />
           <Property Name="data_asigurare" Type="date" />
           <Property Name="data_expirare" Type="date" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Asigurari">
           <Key>
@@ -63,6 +68,7 @@
           <Property Name="id_asigurator" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nume_asigurator" Type="varchar" MaxLength="100" />
           <Property Name="nume_asigurare" Type="varchar" MaxLength="100" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Buletin_Analize">
           <Key>
@@ -73,6 +79,7 @@
           <Property Name="id_pacient" Type="int" />
           <Property Name="data_recoltare" Type="date" />
           <Property Name="id_seflab" Type="int" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Clinica">
           <Key>
@@ -90,6 +97,7 @@
           <Property Name="IBAN" Type="varchar" MaxLength="30" />
           <Property Name="Banca" Type="varchar" MaxLength="100" />
           <Property Name="cale_imagine" Type="nvarchar" MaxLength="255" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Consultatie">
           <Key>
@@ -102,6 +110,7 @@
           <Property Name="data_consultatie" Type="date" />
           <Property Name="ora" Type="varchar" MaxLength="6" />
           <Property Name="pret" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Consultatii_Factura">
           <Key>
@@ -110,6 +119,7 @@
           <Property Name="id_serviciu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_factura" Type="int" />
           <Property Name="id_consultatie" Type="int" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Departament">
           <Key>
@@ -118,6 +128,7 @@
           <Property Name="id_departament" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_clinica" Type="int" />
           <Property Name="denumire" Type="varchar" MaxLength="200" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Diagnostic">
           <Key>
@@ -128,6 +139,7 @@
           <Property Name="diagnostic" Type="varchar" MaxLength="2000" />
           <Property Name="observatii" Type="varchar" MaxLength="2000" />
           <Property Name="tratament" Type="varchar" MaxLength="1000" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Factura">
           <Key>
@@ -137,6 +149,7 @@
           <Property Name="id_pacient" Type="int" />
           <Property Name="id_clinica" Type="int" />
           <Property Name="modalitate_plata" Type="varchar" MaxLength="20" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Formular_Analize">
           <Key>
@@ -148,6 +161,7 @@
           <Property Name="decontabile" Type="varchar" MaxLength="10" />
           <Property Name="nume_formular" Type="varchar" MaxLength="100" />
           <Property Name="cale_imagine" Type="varchar" MaxLength="255" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Functie">
           <Key>
@@ -159,6 +173,7 @@
           <Property Name="nume_functie" Type="varchar" MaxLength="40" />
           <Property Name="data_incadrare" Type="date" />
           <Property Name="data_expirare_contract" Type="date" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Incadrare_Departament">
           <Key>
@@ -169,6 +184,7 @@
           <Property Name="id_angajat" Type="int" />
           <Property Name="intrare_tura" Type="varchar" MaxLength="6" />
           <Property Name="iesire_tura" Type="varchar" MaxLength="6" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="Pacient">
           <Key>
@@ -179,6 +195,10 @@
           <Property Name="prenume" Type="varchar" MaxLength="50" />
           <Property Name="judet" Type="varchar" MaxLength="20" />
           <Property Name="adresa" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="parola" Type="varchar" MaxLength="255" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
+          <Property Name="CNP" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="Rezultat_Analize">
           <Key>
@@ -188,6 +208,7 @@
           <Property Name="id_buletin_analize" Type="int" />
           <Property Name="id_analiza" Type="int" />
           <Property Name="valori_rezultate" Type="varchar" MaxLength="50" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -635,8 +656,7 @@
             <End Role="Consultatii_Factura" EntitySet="Consultatii_Factura" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CliniciMedicaleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -650,6 +670,7 @@
           <Property Name="unitate_masura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Rezultat_Analize" Relationship="Self.FK_Analiza_Rezultat" FromRole="Analize" ToRole="Rezultat_Analize" />
           <NavigationProperty Name="Formular_Analize" Relationship="Self.Apartenenta_Formular" FromRole="Analize" ToRole="Formular_Analize" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Analize_Factura">
           <Key>
@@ -660,6 +681,7 @@
           <Property Name="id_analize" Type="Int32" />
           <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_Analize" FromRole="Analize_Factura" ToRole="Factura" />
           <NavigationProperty Name="Buletin_Analize" Relationship="Self.FK_Serviciu_Analize" FromRole="Analize_Factura" ToRole="Buletin_Analize" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Angajat">
           <Key>
@@ -681,6 +703,7 @@
           <NavigationProperty Name="Consultaties" Relationship="Self.FK_Asistent" FromRole="Angajat" ToRole="Consultatie" />
           <NavigationProperty Name="Consultaties1" Relationship="Self.FK_Doctor" FromRole="Angajat" ToRole="Consultatie" />
           <NavigationProperty Name="Buletin_Analize" Relationship="Self.FK_SEF_LABORATOR" FromRole="Angajat" ToRole="Buletin_Analize" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Asigurare">
           <Key>
@@ -693,6 +716,7 @@
           <Property Name="data_expirare" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Asigurari" Relationship="Self.FK_Asiguratori" FromRole="Asigurare" ToRole="Asigurari" />
           <NavigationProperty Name="Pacient" Relationship="Self.FK_Pacient_Asigurat" FromRole="Asigurare" ToRole="Pacient" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Asigurari">
           <Key>
@@ -702,6 +726,7 @@
           <Property Name="nume_asigurator" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="nume_asigurare" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Asigurares" Relationship="Self.FK_Asiguratori" FromRole="Asigurari" ToRole="Asigurare" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Buletin_Analize">
           <Key>
@@ -717,6 +742,7 @@
           <NavigationProperty Name="Rezultat_Analize" Relationship="Self.FK_Buletin_Analize" FromRole="Buletin_Analize" ToRole="Rezultat_Analize" />
           <NavigationProperty Name="Formular_Analize" Relationship="Self.FK_Formular_Analize" FromRole="Buletin_Analize" ToRole="Formular_Analize" />
           <NavigationProperty Name="Pacient" Relationship="Self.FK_Pacient_Analiza" FromRole="Buletin_Analize" ToRole="Pacient" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Clinica">
           <Key>
@@ -737,6 +763,7 @@
           <NavigationProperty Name="Departaments" Relationship="Self.FK_CLINICA" FromRole="Clinica" ToRole="Departament" />
           <NavigationProperty Name="Facturas" Relationship="Self.FK_Clinica_Factura" FromRole="Clinica" ToRole="Factura" />
           <NavigationProperty Name="Functies" Relationship="Self.FK_Clinica_Functie" FromRole="Clinica" ToRole="Functie" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Consultatie">
           <Key>
@@ -754,6 +781,7 @@
           <NavigationProperty Name="Diagnostics" Relationship="Self.FK_Consultatie" FromRole="Consultatie" ToRole="Diagnostic" />
           <NavigationProperty Name="Pacient" Relationship="Self.FK_Pacient" FromRole="Consultatie" ToRole="Pacient" />
           <NavigationProperty Name="Consultatii_Factura" Relationship="Self.FK_Serviciu_Consultatie" FromRole="Consultatie" ToRole="Consultatii_Factura" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Consultatii_Factura">
           <Key>
@@ -764,6 +792,7 @@
           <Property Name="id_consultatie" Type="Int32" />
           <NavigationProperty Name="Consultatie" Relationship="Self.FK_Serviciu_Consultatie" FromRole="Consultatii_Factura" ToRole="Consultatie" />
           <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_Consultatii" FromRole="Consultatii_Factura" ToRole="Factura" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Departament">
           <Key>
@@ -774,6 +803,7 @@
           <Property Name="denumire" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Clinica" Relationship="Self.FK_CLINICA" FromRole="Departament" ToRole="Clinica" />
           <NavigationProperty Name="Incadrare_Departament" Relationship="Self.FK_DEPARTAMENT" FromRole="Departament" ToRole="Incadrare_Departament" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Diagnostic">
           <Key>
@@ -785,6 +815,7 @@
           <Property Name="observatii" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="tratament" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Consultatie" Relationship="Self.FK_Consultatie" FromRole="Diagnostic" ToRole="Consultatie" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Factura">
           <Key>
@@ -798,6 +829,7 @@
           <NavigationProperty Name="Clinica" Relationship="Self.FK_Clinica_Factura" FromRole="Factura" ToRole="Clinica" />
           <NavigationProperty Name="Consultatii_Factura" Relationship="Self.FK_Factura_Consultatii" FromRole="Factura" ToRole="Consultatii_Factura" />
           <NavigationProperty Name="Pacient" Relationship="Self.FK_Pacient_Factura" FromRole="Factura" ToRole="Pacient" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Formular_Analize">
           <Key>
@@ -811,6 +843,7 @@
           <Property Name="cale_imagine" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Buletin_Analize" Relationship="Self.FK_Formular_Analize" FromRole="Formular_Analize" ToRole="Buletin_Analize" />
           <NavigationProperty Name="Analizes" Relationship="Self.Apartenenta_Formular" FromRole="Formular_Analize" ToRole="Analize" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Functie">
           <Key>
@@ -824,6 +857,7 @@
           <Property Name="data_expirare_contract" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Angajat" Relationship="Self.FK_Angajat_Functie" FromRole="Functie" ToRole="Angajat" />
           <NavigationProperty Name="Clinica" Relationship="Self.FK_Clinica_Functie" FromRole="Functie" ToRole="Clinica" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Incadrare_Departament">
           <Key>
@@ -836,6 +870,7 @@
           <Property Name="iesire_tura" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Angajat" Relationship="Self.FK_ANGAJAT" FromRole="Incadrare_Departament" ToRole="Angajat" />
           <NavigationProperty Name="Departament" Relationship="Self.FK_DEPARTAMENT" FromRole="Incadrare_Departament" ToRole="Departament" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Pacient">
           <Key>
@@ -850,6 +885,10 @@
           <NavigationProperty Name="Buletin_Analize" Relationship="Self.FK_Pacient_Analiza" FromRole="Pacient" ToRole="Buletin_Analize" />
           <NavigationProperty Name="Consultaties" Relationship="Self.FK_Pacient" FromRole="Pacient" ToRole="Consultatie" />
           <NavigationProperty Name="Facturas" Relationship="Self.FK_Pacient_Factura" FromRole="Pacient" ToRole="Factura" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="parola" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="CNP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Rezultat_Analize">
           <Key>
@@ -861,6 +900,7 @@
           <Property Name="valori_rezultate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Analize" Relationship="Self.FK_Analiza_Rezultat" FromRole="Rezultat_Analize" ToRole="Analize" />
           <NavigationProperty Name="Buletin_Analize" Relationship="Self.FK_Buletin_Analize" FromRole="Rezultat_Analize" ToRole="Buletin_Analize" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1302,6 +1342,7 @@
           <EntitySetMapping Name="Analizes">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Analize">
               <MappingFragment StoreEntitySet="Analize">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_analiza" ColumnName="id_analiza" />
                 <ScalarProperty Name="denumire_analiza" ColumnName="denumire_analiza" />
                 <ScalarProperty Name="valori_referinta" ColumnName="valori_referinta" />
@@ -1312,6 +1353,7 @@
           <EntitySetMapping Name="Analize_Factura">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Analize_Factura">
               <MappingFragment StoreEntitySet="Analize_Factura">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_serviciu" ColumnName="id_serviciu" />
                 <ScalarProperty Name="id_factura" ColumnName="id_factura" />
                 <ScalarProperty Name="id_analize" ColumnName="id_analize" />
@@ -1321,6 +1363,7 @@
           <EntitySetMapping Name="Angajats">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Angajat">
               <MappingFragment StoreEntitySet="Angajat">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_angajat" ColumnName="id_angajat" />
                 <ScalarProperty Name="nume" ColumnName="nume" />
                 <ScalarProperty Name="prenume" ColumnName="prenume" />
@@ -1338,6 +1381,7 @@
           <EntitySetMapping Name="Asigurares">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Asigurare">
               <MappingFragment StoreEntitySet="Asigurare">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_asigurare" ColumnName="id_asigurare" />
                 <ScalarProperty Name="id_asigurator" ColumnName="id_asigurator" />
                 <ScalarProperty Name="id_pacient" ColumnName="id_pacient" />
@@ -1349,6 +1393,7 @@
           <EntitySetMapping Name="Asiguraris">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Asigurari">
               <MappingFragment StoreEntitySet="Asigurari">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_asigurator" ColumnName="id_asigurator" />
                 <ScalarProperty Name="nume_asigurator" ColumnName="nume_asigurator" />
                 <ScalarProperty Name="nume_asigurare" ColumnName="nume_asigurare" />
@@ -1358,6 +1403,7 @@
           <EntitySetMapping Name="Buletin_Analize">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Buletin_Analize">
               <MappingFragment StoreEntitySet="Buletin_Analize">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_buletin" ColumnName="id_buletin" />
                 <ScalarProperty Name="id_formular_analize" ColumnName="id_formular_analize" />
                 <ScalarProperty Name="id_pacient" ColumnName="id_pacient" />
@@ -1369,6 +1415,7 @@
           <EntitySetMapping Name="Clinicas">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Clinica">
               <MappingFragment StoreEntitySet="Clinica">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_clinica" ColumnName="id_clinica" />
                 <ScalarProperty Name="nume_clinica" ColumnName="nume_clinica" />
                 <ScalarProperty Name="judet" ColumnName="judet" />
@@ -1387,6 +1434,7 @@
           <EntitySetMapping Name="Consultaties">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Consultatie">
               <MappingFragment StoreEntitySet="Consultatie">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_consultatie" ColumnName="id_consultatie" />
                 <ScalarProperty Name="id_doctor" ColumnName="id_doctor" />
                 <ScalarProperty Name="id_asistent" ColumnName="id_asistent" />
@@ -1400,6 +1448,7 @@
           <EntitySetMapping Name="Consultatii_Factura">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Consultatii_Factura">
               <MappingFragment StoreEntitySet="Consultatii_Factura">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_serviciu" ColumnName="id_serviciu" />
                 <ScalarProperty Name="id_factura" ColumnName="id_factura" />
                 <ScalarProperty Name="id_consultatie" ColumnName="id_consultatie" />
@@ -1409,6 +1458,7 @@
           <EntitySetMapping Name="Departaments">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Departament">
               <MappingFragment StoreEntitySet="Departament">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_departament" ColumnName="id_departament" />
                 <ScalarProperty Name="id_clinica" ColumnName="id_clinica" />
                 <ScalarProperty Name="denumire" ColumnName="denumire" />
@@ -1418,6 +1468,7 @@
           <EntitySetMapping Name="Diagnostics">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Diagnostic">
               <MappingFragment StoreEntitySet="Diagnostic">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_diagnostic" ColumnName="id_diagnostic" />
                 <ScalarProperty Name="id_consultatie" ColumnName="id_consultatie" />
                 <ScalarProperty Name="diagnostic1" ColumnName="diagnostic" />
@@ -1429,6 +1480,7 @@
           <EntitySetMapping Name="Facturas">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Factura">
               <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_factura" ColumnName="id_factura" />
                 <ScalarProperty Name="id_pacient" ColumnName="id_pacient" />
                 <ScalarProperty Name="id_clinica" ColumnName="id_clinica" />
@@ -1439,6 +1491,7 @@
           <EntitySetMapping Name="Formular_Analize">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Formular_Analize">
               <MappingFragment StoreEntitySet="Formular_Analize">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_formular" ColumnName="id_formular" />
                 <ScalarProperty Name="tip_analize" ColumnName="tip_analize" />
                 <ScalarProperty Name="pret" ColumnName="pret" />
@@ -1451,6 +1504,7 @@
           <EntitySetMapping Name="Functies">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Functie">
               <MappingFragment StoreEntitySet="Functie">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_functie" ColumnName="id_functie" />
                 <ScalarProperty Name="id_angajat" ColumnName="id_angajat" />
                 <ScalarProperty Name="id_clinica" ColumnName="id_clinica" />
@@ -1463,6 +1517,7 @@
           <EntitySetMapping Name="Incadrare_Departament">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Incadrare_Departament">
               <MappingFragment StoreEntitySet="Incadrare_Departament">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_incadrare" ColumnName="id_incadrare" />
                 <ScalarProperty Name="id_departament" ColumnName="id_departament" />
                 <ScalarProperty Name="id_angajat" ColumnName="id_angajat" />
@@ -1474,6 +1529,10 @@
           <EntitySetMapping Name="Pacients">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Pacient">
               <MappingFragment StoreEntitySet="Pacient">
+                <ScalarProperty Name="CNP" ColumnName="CNP" />
+                <ScalarProperty Name="activ" ColumnName="activ" />
+                <ScalarProperty Name="parola" ColumnName="parola" />
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="id_pacient" ColumnName="id_pacient" />
                 <ScalarProperty Name="nume" ColumnName="nume" />
                 <ScalarProperty Name="prenume" ColumnName="prenume" />
@@ -1485,6 +1544,7 @@
           <EntitySetMapping Name="Rezultat_Analize">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Rezultat_Analize">
               <MappingFragment StoreEntitySet="Rezultat_Analize">
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_rezultat" ColumnName="id_rezultat" />
                 <ScalarProperty Name="id_buletin_analize" ColumnName="id_buletin_analize" />
                 <ScalarProperty Name="id_analiza" ColumnName="id_analiza" />

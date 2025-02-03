@@ -34,6 +34,7 @@ namespace Project
         public string IBAN { get; set; }
         public string Banca { get; set; }
         public string cale_imagine { get; set; }
+        public string activ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Departament> Departaments { get; set; }

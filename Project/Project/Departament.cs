@@ -23,6 +23,7 @@ namespace Project
         public int id_departament { get; set; }
         public Nullable<int> id_clinica { get; set; }
         public string denumire { get; set; }
+        public string activ { get; set; }
     
         public virtual Clinica Clinica { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
