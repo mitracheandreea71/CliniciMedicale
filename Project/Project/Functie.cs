@@ -20,6 +20,7 @@ namespace Project
         public string nume_functie { get; set; }
         public Nullable<System.DateTime> data_incadrare { get; set; }
         public Nullable<System.DateTime> data_expirare_contract { get; set; }
+        public string activ { get; set; }
     
         public virtual Angajat Angajat { get; set; }
         public virtual Clinica Clinica { get; set; }

@@ -19,6 +19,7 @@ namespace Project
         public Nullable<int> id_pacient { get; set; }
         public Nullable<System.DateTime> data_asigurare { get; set; }
         public Nullable<System.DateTime> data_expirare { get; set; }
+        public string activ { get; set; }
     
         public virtual Asigurari Asigurari { get; set; }
         public virtual Pacient Pacient { get; set; }

@@ -25,6 +25,7 @@ namespace Project
         public Nullable<int> id_pacient { get; set; }
         public Nullable<int> id_clinica { get; set; }
         public string modalitate_plata { get; set; }
+        public string activ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Analize_Factura> Analize_Factura { get; set; }

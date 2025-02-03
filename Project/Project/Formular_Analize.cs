@@ -27,6 +27,7 @@ namespace Project
         public string decontabile { get; set; }
         public string nume_formular { get; set; }
         public string cale_imagine { get; set; }
+        public string activ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Buletin_Analize> Buletin_Analize { get; set; }

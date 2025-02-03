@@ -25,6 +25,7 @@ namespace Project
         public string denumire_analiza { get; set; }
         public string valori_referinta { get; set; }
         public string unitate_masura { get; set; }
+        public string activ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rezultat_Analize> Rezultat_Analize { get; set; }

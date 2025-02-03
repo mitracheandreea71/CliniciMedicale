@@ -23,22 +23,14 @@ namespace Project.ViewModel
             }
         }
 
-        public ICommand ShowMediciMoreView { get; }
-        public ICommand ShowPaginaPrincipalaView { get; }
-        public ICommand ShowCliniciMoreView { get; }
-        public ICommand ShowAnalizeMoreView { get; }
-        public ICommand ShowRezultateAnalize { get; }
-        public ICommand ShowIstoricMoreView { get; }
+        public ICommand LogheazaUser { get; }
+        public ICommand InregistreazaUser { get; }
         public MainWindowViewModel()
         {
-            CurrentView = new PaginaPrincipalaView();
+            CurrentView = new LoginView();
 
-            ShowMediciMoreView = new BaseCommand(_ => CurrentView = new MediciMoreView());
-            ShowPaginaPrincipalaView = new BaseCommand(_ => CurrentView = new PaginaPrincipalaView());
-            ShowCliniciMoreView = new BaseCommand(_ => CurrentView = new CliniciMoreView());
-            ShowAnalizeMoreView = new BaseCommand(_ => CurrentView = new AnalizeMoreView());
-            ShowRezultateAnalize = new BaseCommand(_ => CurrentView = new AnalizeView());
-            ShowIstoricMoreView = new BaseCommand(_ => CurrentView = new IstoricMoreView());
+            LogheazaUser = new BaseCommand(_ => CurrentView = new MediciMoreView());
+            InregistreazaUser = new BaseCommand(_ => CurrentView = new PaginaPrincipalaView());
         }
     }
 }

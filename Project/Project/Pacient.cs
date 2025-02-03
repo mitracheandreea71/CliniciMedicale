@@ -28,6 +28,10 @@ namespace Project
         public string prenume { get; set; }
         public string judet { get; set; }
         public string adresa { get; set; }
+        public string email { get; set; }
+        public string parola { get; set; }
+        public string activ { get; set; }
+        public string CNP { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asigurare> Asigurares { get; set; }

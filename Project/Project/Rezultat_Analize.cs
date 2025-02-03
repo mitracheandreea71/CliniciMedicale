@@ -18,6 +18,7 @@ namespace Project
         public Nullable<int> id_buletin_analize { get; set; }
         public Nullable<int> id_analiza { get; set; }
         public string valori_rezultate { get; set; }
+        public string activ { get; set; }
     
         public virtual Analize Analize { get; set; }
         public virtual Buletin_Analize Buletin_Analize { get; set; }

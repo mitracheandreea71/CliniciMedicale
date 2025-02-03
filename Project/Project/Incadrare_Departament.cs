@@ -19,6 +19,7 @@ namespace Project
         public Nullable<int> id_angajat { get; set; }
         public string intrare_tura { get; set; }
         public string iesire_tura { get; set; }
+        public string activ { get; set; }
     
         public virtual Angajat Angajat { get; set; }
         public virtual Departament Departament { get; set; }
