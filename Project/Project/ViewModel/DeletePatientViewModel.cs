@@ -15,11 +15,11 @@ namespace Project.ViewModel
 
         public ICommand DeletePatientCommand { get; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public DeletePatientViewModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             DeletePatientCommand = new BaseCommand(DeletePatient);
         }
 
@@ -41,44 +41,44 @@ namespace Project.ViewModel
                 }
 
                 var asigurariToDelete = _context.Asigurares.Where(a => a.id_pacient == patientToDelete.id_pacient).ToList();
-                _context.Asigurares.DeleteAllOnSubmit(asigurariToDelete);
+                _context.Asigurares.RemoveRange(asigurariToDelete);
 
-                var buletineToDelete = _context.Buletin_Analizes.Where(b => b.id_pacient == patientToDelete.id_pacient).ToList();
+                var buletineToDelete = _context.Buletin_Analize.Where(b => b.id_pacient == patientToDelete.id_pacient).ToList();
 
                 foreach (var buletin in buletineToDelete)
                 {
-                    var rezultateToDelete = _context.Rezultat_Analizes.Where(r => r.id_buletin_analize == buletin.id_buletin).ToList();
-                    _context.Rezultat_Analizes.DeleteAllOnSubmit(rezultateToDelete);
+                    var rezultateToDelete = _context.Rezultat_Analize.Where(r => r.id_buletin_analize == buletin.id_buletin).ToList();
+                    _context.Rezultat_Analize.RemoveRange(rezultateToDelete);
                 }
 
-                _context.Buletin_Analizes.DeleteAllOnSubmit(buletineToDelete);
+                _context.Buletin_Analize.RemoveRange(buletineToDelete);
 
                 var consultatiiToDelete = _context.Consultaties.Where(c => c.id_pacient == patientToDelete.id_pacient).ToList();
 
                 foreach (var consultatie in consultatiiToDelete)
                 {
                     var diagnosticeToDelete = _context.Diagnostics.Where(d => d.id_consultatie == consultatie.id_consultatie).ToList();
-                    _context.Diagnostics.DeleteAllOnSubmit(diagnosticeToDelete);
+                    _context.Diagnostics.RemoveRange(diagnosticeToDelete);
                 }
 
-                _context.Consultaties.DeleteAllOnSubmit(consultatiiToDelete);
+                _context.Consultaties.RemoveRange(consultatiiToDelete);
 
                 var facturiToDelete = _context.Facturas.Where(f => f.id_pacient == patientToDelete.id_pacient).ToList();
 
                 foreach (var factura in facturiToDelete)
                 {
-                    var consultatiiFacturiToDelete = _context.Consultatii_Facturas.Where(cf => cf.id_factura == factura.id_factura).ToList();
-                    _context.Consultatii_Facturas.DeleteAllOnSubmit(consultatiiFacturiToDelete);
+                    var consultatiiFacturiToDelete = _context.Consultatii_Factura.Where(cf => cf.id_factura == factura.id_factura).ToList();
+                    _context.Consultatii_Factura.RemoveRange(consultatiiFacturiToDelete);
 
-                    var analizeFacturiToDelete = _context.Analize_Facturas.Where(af => af.id_factura == factura.id_factura).ToList();
-                    _context.Analize_Facturas.DeleteAllOnSubmit(analizeFacturiToDelete);
+                    var analizeFacturiToDelete = _context.Analize_Factura.Where(af => af.id_factura == factura.id_factura).ToList();
+                    _context.Analize_Factura.RemoveRange(analizeFacturiToDelete);
                 }
 
-                _context.Facturas.DeleteAllOnSubmit(facturiToDelete);
+                _context.Facturas.RemoveRange(facturiToDelete);
 
-                _context.Pacients.DeleteOnSubmit(patientToDelete);
+                _context.Pacients.Remove(patientToDelete);
 
-                _context.SubmitChanges();
+                _context.SaveChanges();
 
                 MessageBox.Show("Pacientul și toate datele asociate au fost șterse cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
             }

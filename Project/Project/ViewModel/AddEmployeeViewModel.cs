@@ -79,11 +79,11 @@ namespace Project.ViewModel
 
         public ICommand SaveCommand { get; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public AddEmployeeViewModel()
         {
-            _context = new CliniciDataContext(); 
+            _context = new CliniciEntities(); 
 
             ClinicList = new ObservableCollection<string>();
             DepartmentList = new ObservableCollection<string>();
@@ -204,7 +204,7 @@ namespace Project.ViewModel
                     IdClinica = SelectedTitle == "Admin" ? null : _context.Clinicas.FirstOrDefault(c => c.nume_clinica == SelectedClinic)?.id_clinica
                 };
 
-                _context.Angajats.InsertOnSubmit(new Angajat
+                _context.Angajats.Add(new Angajat
                 {
                     titulatura = newEmployee.Titulatura,
                     nume = newEmployee.Nume,
@@ -217,11 +217,11 @@ namespace Project.ViewModel
                     imagine_cale = null,
                     rating = SelectedTitle == "Admin" ? (decimal?)null : 0
                 });
-                _context.SubmitChanges();
+                _context.SaveChanges();
 
                 int newEmployeeId = _context.Angajats.OrderByDescending(a => a.id_angajat).First().id_angajat;
 
-                _context.Functies.InsertOnSubmit(new Functie
+                _context.Functies.Add(new Functie
                 {
                     id_angajat = newEmployeeId,
                     id_clinica = newEmployee.IdClinica,
@@ -229,7 +229,7 @@ namespace Project.ViewModel
                     data_incadrare = StartDate,
                     data_expirare_contract = EndDate
                 });
-                _context.SubmitChanges();
+                _context.SaveChanges();
 
                 if (SelectedTitle != "Admin" && SelectedFunction != "Sef Lab")
                 {

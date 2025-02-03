@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="52575b695dc94466a7f27d7d238db379" Name="Diagram1">
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Analize" Width="1.5" PointX="1.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Analize_Factura" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Angajat" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Asigurare" Width="1.5" PointX="9" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Asigurari" Width="1.5" PointX="6.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Buletin_Analize" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Clinica" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Consultatie" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Consultatii_Factura" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Departament" Width="1.5" PointX="0.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Diagnostic" Width="1.5" PointX="8.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Factura" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Formular_Analize" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Functie" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Incadrare_Departament" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Pacient" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.Rezultat_Analize" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliniciMedicaleModel.sysdiagram" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Analiza_Rezultat" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Factura_Analize" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Serviciu_Analize" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_ANGAJAT" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Angajat_Functie" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Asistent" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_SEF_LABORATOR" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Asiguratori" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Pacient_Asigurat" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Buletin_Analize" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Formular_Analize" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Pacient_Analiza" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_CLINICA" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Clinica_Factura" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Clinica_Functie" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Consultatie" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Pacient" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Serviciu_Consultatie" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Factura_Consultatii" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_DEPARTAMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.FK_Pacient_Factura" ManuallyRouted="false" />
+        <AssociationConnector Association="CliniciMedicaleModel.Apartenenta_Formular" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

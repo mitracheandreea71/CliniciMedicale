@@ -40,11 +40,11 @@ namespace Project.ViewModel
 
         public ICommand DeleteDepartmentCommand { get; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public DeleteDepartmentViewModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
 
             ClinicList = new ObservableCollection<string>();
             DepartmentList = new ObservableCollection<string>();
@@ -140,19 +140,19 @@ namespace Project.ViewModel
                 {
                     // Delete from Functie
                     var functions = _context.Functies.Where(f => f.id_angajat == employee.id_angajat).ToList();
-                    _context.Functies.DeleteAllOnSubmit(functions);
+                    _context.Functies.RemoveRange(functions);
 
                     // Delete from Incadrare_Departament
-                    var incadrari = _context.Incadrare_Departaments.Where(i => i.id_angajat == employee.id_angajat).ToList();
-                    _context.Incadrare_Departaments.DeleteAllOnSubmit(incadrari);
+                    var incadrari = _context.Incadrare_Departament.Where(i => i.id_angajat == employee.id_angajat).ToList();
+                    _context.Incadrare_Departament.RemoveRange(incadrari);
 
                     // Delete from Angajat
-                    _context.Angajats.DeleteOnSubmit(employee);
+                    _context.Angajats.Remove(employee);
                 }
 
                 // Delete the department itself
-                _context.Departaments.DeleteOnSubmit(department);
-                _context.SubmitChanges();
+                _context.Departaments.Remove(department);
+                _context.SaveChanges();
 
                 MessageBox.Show("Department and associated employees deleted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 

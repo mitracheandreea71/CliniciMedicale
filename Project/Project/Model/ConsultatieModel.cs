@@ -22,11 +22,11 @@ namespace Project.Model
         public string Asistent { get; set; }
 
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public ConsultatieModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
 
         public string Data
@@ -69,7 +69,7 @@ namespace Project.Model
                 consult.data_consultatie = DataConsultatie;
                 consult.id_asistent = IdAsistent;
             }
-            _context.SubmitChanges();
+            _context.SaveChanges();
         }
 
         public ObservableCollection<ConsultatieModel> GetAllConsultatii()
@@ -111,8 +111,8 @@ namespace Project.Model
                 data_consultatie = this.DataConsultatie,
                 ora = this.Ora,
             };
-            _context.Consultaties.InsertOnSubmit(consultatieEntity);
-            _context.SubmitChanges();
+            _context.Consultaties.Add(consultatieEntity);
+            _context.SaveChanges();
 
 
             this.IdConsultatie = consultatieEntity.id_consultatie;
@@ -131,7 +131,7 @@ namespace Project.Model
             consultatieEntity.data_consultatie = this.DataConsultatie;
             consultatieEntity.ora = this.Ora;
             consultatieEntity.pret = this.Pret;
-            _context.SubmitChanges();
+            _context.SaveChanges();
         }
         public void StergeConsultatie(int idConsultatie)
         {
@@ -139,8 +139,8 @@ namespace Project.Model
             if (consultatieEntity == null)
                 throw new Exception("Consultația nu a fost găsită.");
 
-            _context.Consultaties.DeleteOnSubmit(consultatieEntity);
-            _context.SubmitChanges();
+            _context.Consultaties.Remove(consultatieEntity);
+            _context.SaveChanges();
         }
         public ObservableCollection<ConsultatieModel> GetAllConsultatiiForMedic(int medicID)
         {

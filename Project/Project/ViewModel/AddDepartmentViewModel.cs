@@ -38,11 +38,11 @@ namespace Project.ViewModel
 
         public ICommand AddDepartmentCommand { get; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public AddDepartmentViewModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             ClinicList = new ObservableCollection<string>();
 
             LoadClinicList();
@@ -94,13 +94,13 @@ namespace Project.ViewModel
                     return;
                 }
 
-                _context.Departaments.InsertOnSubmit(new Departament
+                _context.Departaments.Add(new Departament
                 {
                     denumire = DepartmentName,
                     id_clinica = clinicId
                 });
 
-                _context.SubmitChanges();
+                _context.SaveChanges();
 
                 MessageBox.Show("Department added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 

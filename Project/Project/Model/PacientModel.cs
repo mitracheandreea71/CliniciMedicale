@@ -14,11 +14,11 @@ namespace Project.Model
         public string Judet { get; set; }
         public string Adresa {  get; set; }
 
-        CliniciDataContext _context;
+        CliniciEntities _context;
 
         public PacientModel()
         { 
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
 
         public PacientModel GetPacientByID(int idPacient)

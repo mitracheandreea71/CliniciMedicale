@@ -15,16 +15,16 @@ namespace Project.Model
         public string intrare_tura { get; set; }
         public string iesire_tura { get; set; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public IncadrareDepartamentModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
 
         public IncadrareDepartamentModel GetByIdDepartament(int idIncadrare)
         {
-            var entity = _context.Incadrare_Departaments
+            var entity = _context.Incadrare_Departament
                                   .FirstOrDefault(i => i.id_incadrare == idIncadrare);
 
             if (entity == null)
@@ -42,7 +42,7 @@ namespace Project.Model
 
         public IncadrareDepartamentModel GetByIdMedic(int idMedic)
         {
-            var entity = _context.Incadrare_Departaments
+            var entity = _context.Incadrare_Departament
                                   .FirstOrDefault(i => i.id_angajat == idMedic);
 
             if (entity == null)
@@ -60,7 +60,7 @@ namespace Project.Model
 
         public ObservableCollection<IncadrareDepartamentModel> GetAll()
         {
-            var entities = _context.Incadrare_Departaments.ToList();
+            var entities = _context.Incadrare_Departament.ToList();
 
             ObservableCollection<IncadrareDepartamentModel> ret = new ObservableCollection<IncadrareDepartamentModel>();
 
@@ -91,15 +91,15 @@ namespace Project.Model
                 // Setează alte proprietăți dacă este necesar
             };
 
-            _context.Incadrare_Departaments.InsertOnSubmit(entity);
-            _context.SubmitChanges();
+            _context.Incadrare_Departament.Add(entity);
+            _context.SaveChanges();
 
             this.id_incadrare = entity.id_incadrare; 
         }
 
         public void ActualizeazaIncadrare()
         {
-            var entity = _context.Incadrare_Departaments
+            var entity = _context.Incadrare_Departament
                                   .FirstOrDefault(i => i.id_incadrare == this.id_incadrare);
 
             if (entity == null)
@@ -110,19 +110,19 @@ namespace Project.Model
             entity.intrare_tura = this.intrare_tura;
             entity.iesire_tura = this.iesire_tura;
            
-            _context.SubmitChanges();
+            _context.SaveChanges();
         }
 
         public void StergeIncadrare(int idIncadrare)
         {
-            var entity = _context.Incadrare_Departaments
+            var entity = _context.Incadrare_Departament
                                   .FirstOrDefault(i => i.id_incadrare == idIncadrare);
 
             if (entity == null)
                 throw new Exception("Înregistrarea nu a fost găsită.");
 
-            _context.Incadrare_Departaments.DeleteOnSubmit(entity);
-            _context.SubmitChanges();
+            _context.Incadrare_Departament.Remove(entity);
+            _context.SaveChanges();
         }
 
     }

@@ -67,14 +67,14 @@ namespace Project.ViewModel
 
         private readonly BuletinAnalizeModel _buletinAnalizeModel;
         private readonly ConsultatieModel _consultatieModel;
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
         private readonly MediciModel _medicModel;
         public IstoricMoreViewModel()
         {
             IstoricItems = new ObservableCollection<IstoricItem>();
             _buletinAnalizeModel = new BuletinAnalizeModel();
             _consultatieModel = new ConsultatieModel();
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             _medicModel = new MediciModel();
             VizualizareIstoricCommand = new BaseCommand(VizualizareIstoric, CanExecuteVizualizareIstoric);
             VizualizareRezultatCommand = new BaseCommand(VizualizareRezultat);

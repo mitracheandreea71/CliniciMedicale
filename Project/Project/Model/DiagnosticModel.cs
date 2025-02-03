@@ -15,10 +15,10 @@ namespace Project.Model
         public string? Observatii { get;set;}
         public string? Tratament { get;set;}
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
         public DiagnosticModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
 
         public DiagnosticModel? GetDiagnosticForConsultatie(int idConsultatie)
@@ -46,7 +46,7 @@ namespace Project.Model
                 diagFromDB.tratament = Tratament;
                 diagFromDB.id_consultatie = IdConsultatie;
 
-                _context.SubmitChanges();
+                _context.SaveChanges();
                 return;
             }
             var diagInDB = new Diagnostic()
@@ -56,8 +56,8 @@ namespace Project.Model
                 observatii = Observatii,
                 tratament = Tratament
             };
-            _context.Diagnostics.InsertOnSubmit(diagInDB);
-            _context.SubmitChanges();
+            _context.Diagnostics.Add(diagInDB);
+            _context.SaveChanges();
         }
 
     }

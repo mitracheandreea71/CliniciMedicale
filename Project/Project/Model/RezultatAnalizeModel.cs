@@ -21,13 +21,13 @@ namespace Project.Model
 
         public string _valoriRezultate { get; set; }
 
-        public CliniciDataContext _context;
+        public CliniciEntities _context;
 
         public RezultatAnalizeModel()
         {
             TipAnalize = null;
             ValoriRezultate = null;
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
 
         public string ValoriRezultate
@@ -47,11 +47,11 @@ namespace Project.Model
         {
             try
             {
-                var rezultatInDB = _context.Rezultat_Analizes.FirstOrDefault(r => r.id_rezultat == IdRezultat);
+                var rezultatInDB = _context.Rezultat_Analize.FirstOrDefault(r => r.id_rezultat == IdRezultat);
                 if (rezultatInDB != null)
                 {
                     rezultatInDB.valori_rezultate = ValoriRezultate;
-                    _context.SubmitChanges();
+                    _context.SaveChanges();
                 }
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace Project.Model
         {
             ObservableCollection<RezultatAnalizeModel> rezultate = new ObservableCollection<RezultatAnalizeModel>();
 
-            var rez = _context.Rezultat_Analizes.Where(ra => ra.id_buletin_analize == buletinID).ToList();
+            var rez = _context.Rezultat_Analize.Where(ra => ra.id_buletin_analize == buletinID).ToList();
 
             foreach (var iterator in rez)
             {

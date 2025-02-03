@@ -27,13 +27,13 @@ namespace Project.ViewModel
         private ObservableCollection<string> _availableHours;
         private string _selectedHour;
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
         public SolicitaProgramareViewModel(int medicID, string numeMedic)
         {
             _medicID = medicID;
             _numeMedic = numeMedic;
             AvailableHours = new ObservableCollection<string>();
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             TrimiteProgramareCommand = new BaseCommand(ExecuteTrimiteProgramare, CanExecuteTrimiteProgramare);
             LoadAvailableHours();
 
@@ -230,8 +230,8 @@ namespace Project.ViewModel
                         adresa = Adresa
                     };
 
-                    _context.Pacients.InsertOnSubmit(pacientNou);
-                    _context.SubmitChanges(); 
+                    _context.Pacients.Add(pacientNou);
+                    _context.SaveChanges(); 
 
                     pacientID = pacientNou.id_pacient; 
                 }
@@ -248,8 +248,8 @@ namespace Project.ViewModel
                     ora = this.SelectedHour
                 };
 
-                _context.Consultaties.InsertOnSubmit(consultatieNoua);
-                _context.SubmitChanges(); 
+                _context.Consultaties.Add(consultatieNoua);
+                _context.SaveChanges(); 
 
                 string message = $"Programare trimisă pentru {NumeMedic}.\n\n" +
                                  $"Pacient: {Nume} {Prenume}\n" +

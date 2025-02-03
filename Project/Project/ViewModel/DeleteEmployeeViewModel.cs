@@ -22,11 +22,11 @@ namespace Project.ViewModel
 
         public ICommand DeleteEmployeeCommand { get; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public DeleteEmployeeViewModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             DeleteEmployeeCommand = new BaseCommand(ExecuteDeleteEmployee);
         }
 
@@ -50,18 +50,18 @@ namespace Project.ViewModel
                 var functie = _context.Functies.FirstOrDefault(f => f.id_angajat == idAngajat);
                 if (functie != null)
                 {
-                    _context.Functies.DeleteOnSubmit(functie);
+                    _context.Functies.Remove(functie);
                 }
 
-                var incadrari = _context.Incadrare_Departaments.Where(i => i.id_angajat == idAngajat).ToList();
+                var incadrari = _context.Incadrare_Departament.Where(i => i.id_angajat == idAngajat).ToList();
                 if (incadrari.Any())
                 {
-                    _context.Incadrare_Departaments.DeleteAllOnSubmit(incadrari);
+                    _context.Incadrare_Departament.RemoveRange(incadrari);
                 }
                 var angajat = _context.Angajats.FirstOrDefault(a => a.id_angajat == idAngajat);
-                _context.Angajats.DeleteOnSubmit(angajat);
+                _context.Angajats.Remove(angajat);
 
-                _context.SubmitChanges();
+                _context.SaveChanges();
 
                 MessageBox.Show($"Employee '{EmployeeName}' deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 

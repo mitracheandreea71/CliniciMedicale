@@ -13,7 +13,7 @@ namespace Project.ViewModel
 {
     internal class SolicitaProgramareAnalizeClinicaViewModel : BaseViewModel
     {
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         private ObservableCollection<string> _clinici;
         private string _clinicaSelectata;
@@ -22,7 +22,7 @@ namespace Project.ViewModel
         public SolicitaProgramareAnalizeClinicaViewModel(string numeFormular)
         {
             NumeFormular = numeFormular;
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             Clinici = new ObservableCollection<string>();
             LoadClinici();
             MaiDeparteCommand = new BaseCommand(ExecuteMaiDeparte, CanExecuteMaiDeparte);

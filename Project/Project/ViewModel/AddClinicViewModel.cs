@@ -25,12 +25,12 @@ namespace Project.ViewModel
 
         public ICommand AddClinicCommand { get; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
         private readonly ClinicaModel _clinicaModel;
 
         public AddClinicViewModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             _clinicaModel = new ClinicaModel();
             AddClinicCommand = new BaseCommand(AddClinic);
         }

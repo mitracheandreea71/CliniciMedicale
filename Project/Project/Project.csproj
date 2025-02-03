@@ -118,6 +118,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Security.Cryptography.Pkcs, Version=8.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.Pkcs.8.0.1\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
@@ -149,13 +150,68 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Clinici.designer.cs">
+    <Compile Include="Analize.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Analize_Factura.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Angajat.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Asigurare.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Asigurari.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Buletin_Analize.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clinica.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CliniciEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Clinici.dbml</DependentUpon>
+      <DependentUpon>CliniciEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CliniciEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CliniciEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CliniciEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\ChangeViewAction.cs" />
+    <Compile Include="Consultatie.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Consultatii_Factura.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Departament.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostic.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Factura.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Formular_Analize.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Functie.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Incadrare_Departament.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\AnalizeModel.cs" />
     <Compile Include="Model\AsigurareModel.cs" />
     <Compile Include="Model\AsistentiModel.cs" />
@@ -169,7 +225,22 @@
     <Compile Include="Model\MediciModel.cs" />
     <Compile Include="Model\PacientModel.cs" />
     <Compile Include="Model\RezultatAnalizeModel.cs" />
-    <Compile Include="Model\VizualizareDiagnosticViewModel.cs" />
+    <Compile Include="ViewModel\VizualizareDiagnosticViewModel.cs" />
+    <Compile Include="Pacient.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rezultat_Analize.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>CliniciEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AdaugaRezAnalizeViewModel.cs" />
     <Compile Include="ViewModel\AddClinicViewModel.cs" />
     <Compile Include="ViewModel\AddDepartmentViewModel.cs" />
@@ -535,13 +606,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Clinici.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Clinici.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Clinici.dbml.layout">
-      <DependentUpon>Clinici.dbml</DependentUpon>
+    <EntityDeploy Include="CliniciEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CliniciEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CliniciEntities.edmx.diagram">
+      <DependentUpon>CliniciEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -557,6 +627,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logo.png" />
@@ -629,6 +700,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CliniciEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CliniciEntities.edmx</DependentUpon>
+      <LastGenOutput>CliniciEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CliniciEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CliniciEntities.edmx</DependentUpon>
+      <LastGenOutput>CliniciEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
