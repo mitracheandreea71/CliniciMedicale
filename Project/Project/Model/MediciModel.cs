@@ -89,7 +89,7 @@ namespace Project.Model
         {
             ObservableCollection<MediciModel> medici = new ObservableCollection<MediciModel>();
 
-            var functiiMedici = _context.Functies.Where(f => f.nume_functie == "Medic")
+            var functiiMedici = _context.Functies.Where(f => f.nume_functie == "Medic" || f.nume_functie=="Sef Lab")
                                                  .OrderByDescending(f => f.Angajat.rating);
 
             foreach (var functie in functiiMedici)
@@ -175,7 +175,7 @@ namespace Project.Model
                          join functie in _context.Functies on angajat.id_angajat equals functie.id_angajat
                          join incadrare in _context.Incadrare_Departaments on angajat.id_angajat equals incadrare.id_angajat
                          join specialitate in _context.Departaments on incadrare.id_departament equals specialitate.id_departament
-                         where functie.nume_functie == "Medic" && specialitate.denumire == departament
+                         where (functie.nume_functie == "Medic" || functie.nume_functie == "Sef Lab") && specialitate.denumire == departament
                          select angajat;
 
             ObservableCollection<MediciModel> mediciRet = new ObservableCollection<MediciModel>();
@@ -220,7 +220,7 @@ namespace Project.Model
             var medici = from angajat in _context.Angajats
                          join functie in _context.Functies on angajat.id_angajat equals functie.id_angajat
                          join clinica in _context.Clinicas on functie.id_clinica equals clinica.id_clinica
-                         where clinica.oras == oras
+                         where clinica.oras == oras && (functie.nume_functie == "Medic" || functie.nume_functie == "Sef Lab")
                          select angajat;
 
             ObservableCollection<MediciModel> mediciRet = new ObservableCollection<MediciModel>();
@@ -246,7 +246,7 @@ namespace Project.Model
                         Email = medic.email,
                         Telefon = medic.telefon,
                         Sectie = medic.specialitate,
-                        Rating = (double)medic.rating,
+                        Rating = medic.rating.HasValue ? (double)medic.rating.Value : 0.0,
                         CaleImagine = medic.imagine_cale,
                         Program = ProgramMedic,
                         Functie = FunctieMedic.nume_functie,
@@ -264,7 +264,7 @@ namespace Project.Model
             var medici = from angajat in _context.Angajats
                          join functie in _context.Functies on angajat.id_angajat equals functie.id_angajat
                          join clinica in _context.Clinicas on functie.id_clinica equals clinica.id_clinica
-                         where clinica.nume_clinica == locatie
+                         where clinica.nume_clinica == locatie && (functie.nume_functie=="Medic" || functie.nume_functie=="Sef Lab")
                          select angajat;
 
             ObservableCollection<MediciModel> mediciRet = new ObservableCollection<MediciModel>();
@@ -291,7 +291,7 @@ namespace Project.Model
                         Email = medic.email,
                         Telefon = medic.telefon,
                         Sectie = medic.specialitate,
-                        Rating = (double)medic.rating,
+                        Rating = medic.rating.HasValue ? (double)medic.rating.Value : 0.0,
                         CaleImagine = medic.imagine_cale,
                         Program = ProgramMedic,
                         Functie = FunctieMedic.nume_functie,
@@ -393,7 +393,7 @@ namespace Project.Model
                     Email = medic.email,
                     Telefon = medic.telefon,
                     Sectie = medic.specialitate,
-                    Rating = (double?)medic.rating,
+                    Rating = medic.rating.HasValue ? (double)medic.rating.Value : 0.0,
                     CaleImagine = medic.imagine_cale,
                     Program = ProgramMedic,
                     Functie = FunctieMedic?.nume_functie,

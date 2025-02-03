@@ -6,7 +6,8 @@
         xmlns:vm="clr-namespace:Project.ViewModel"
         xmlns:local="clr-namespace:Project.View"
         mc:Ignorable="d"
-        Title="MedicWindow" Height="700" Width="1200">
+        Title="MedicWindow" Height="700" Width="1200"
+        Icon="/Images/icon.ico">
 
     <Grid>
         <Grid Background="#FFE4E4E4">

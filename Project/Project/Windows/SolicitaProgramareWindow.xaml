@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.View"
         mc:Ignorable="d"
-        Title="Solicita Programare" Height="450" Width="800">
+        Title="Solicita Programare" Height="450" Width="800"
+        Icon="/Images/icon.ico">
 
 
 

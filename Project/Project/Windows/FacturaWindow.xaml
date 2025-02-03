@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Windows"
         mc:Ignorable="d"
-        Title="FacturaWindow" Height="700" Width="1100">
+        Title="FacturaWindow" Height="700" Width="1100"
+        Icon="/Images/icon.ico">
+    
     <Grid Background="White" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

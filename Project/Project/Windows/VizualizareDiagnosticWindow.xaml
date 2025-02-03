@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Windows"
         mc:Ignorable="d"
-        Title="VizualizareDiagnostic" Height="900" Width="850" >
-    
-    
+        Title="VizualizareDiagnostic" Height="900" Width="850" 
+        Icon="/Images/icon.ico">
+
     <Grid>
         <ContentControl x:Name="RezultateConsultatie" Content="{Binding}"/>
     </Grid>

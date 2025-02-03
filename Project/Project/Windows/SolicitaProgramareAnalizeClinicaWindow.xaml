@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.View"
         mc:Ignorable="d"
-        Title="SolicitaProgramareAnalizeClinicaWindow" Height="450" Width="800">
+        Title="SolicitaProgramareAnalizeClinicaWindow" Height="450" Width="800"
+        Icon="/Images/icon.ico">
    
     <Grid>
         <Image HorizontalAlignment="Left"  Source="/Images/Clinica.png" Height="493" VerticalAlignment="Top" Width="461" RenderTransformOrigin="0.5,0.5" Margin="339,0,0,0" />

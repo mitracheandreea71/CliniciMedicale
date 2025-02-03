@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using PdfSharp.Charting;
 using Project.Commands;
 using Project.Model;
 
@@ -139,7 +140,10 @@ namespace Project.ViewModel
                 int idClinica= _clinicaModel.GetIdByName(NumeClinica);
                 var sefLab = _context.Functies.FirstOrDefault(s => s.nume_functie == "Sef Lab" && s.id_clinica == idClinica);
 
-                int idSefLab = sefLab?.id_functie ?? -1;
+                int idSefLab = (int)sefLab.id_angajat;
+
+                TimeSpan hour = new TimeSpan(7, 0, 0);
+                DataProgramare = DataProgramare + hour;
 
                 var buletinAnalizeNou = new Buletin_Analize
                 {

@@ -9,7 +9,7 @@
     <Grid Background="#FFEDE7E7">
         <Button x:Name="BackBttn" Style="{StaticResource RoundedButtonStyle}" Command="{Binding DataContext.BackButton, RelativeSource={RelativeSource AncestorType=UserControl}}" Content="Back" HorizontalAlignment="Left" Margin="22,20,0,0" VerticalAlignment="Top" Height="36" Width="80" Background="#FF73060D" FontFamily="Arial"/>
         <Rectangle Width="420" VerticalAlignment="Top" Stroke="White" RadiusY="15" RadiusX="15" Margin="188,6,0,0" Height="69" HorizontalAlignment="Left" Fill="#FF73060D"/>
-        <DatePicker HorizontalAlignment="Left" Margin="333,40,0,0" VerticalAlignment="Top" Width="130"/>
+        <DatePicker SelectedDate="{Binding SelectedDate, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="333,40,0,0" VerticalAlignment="Top" Width="130"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="203,20,0,0" TextWrapping="Wrap" Text="Selectati data in care doriti sa vedeti programarile" VerticalAlignment="Top" Width="390" FontFamily="Arial Black" TextAlignment="Center" FontSize="14" Foreground="#FFF9F9F9"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,110,0,0">
             <ItemsControl ItemsSource="{Binding Programari}" Height="390" Margin="0,0,0,0">

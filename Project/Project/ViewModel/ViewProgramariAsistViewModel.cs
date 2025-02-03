@@ -18,11 +18,13 @@ using System.Windows.Media;
 
 namespace Project.ViewModel
 {
-    public class ViewProgramariAsistViewModel
+    public class ViewProgramariAsistViewModel : BaseViewModel
     {
         private AsistentiModel _asistent;
         private ObservableCollection<ConsultatieModel> _consultatii;
+        private ObservableCollection<ConsultatieModel> _consultatiiFiltrate;
 
+        private DateTime? _selectedDate;
         public ICommand EmiteFactura { get; }
         public ICommand SaveResultsAsPdf { get; }
         public ICommand BackButton { get; }
@@ -31,12 +33,61 @@ namespace Project.ViewModel
             _asistent = asistent;
             BackButton = new BaseCommand(c => { EventAggregator.Instance.Publish(new ViewChangeMessage<AsistentiModel>("HomePage", _asistent)); });
             _consultatii = (new ConsultatieModel()).GetAllConsultatiiForAsistent(_asistent.IdAngajat);
-            SaveResultsAsPdf = new BaseCommand(c => SaveAsPdf(c as ConsultatieModel));
-            EmiteFactura = new BaseCommand(c => SaveAsPdfFactura(c as ConsultatieModel));
+            SaveResultsAsPdf = new BaseCommand(c => verifyDateForSave(c as ConsultatieModel));
+            EmiteFactura = new BaseCommand(c => verifyDateForFactura(c as ConsultatieModel));
+        }
+        void verifyDateForFactura(ConsultatieModel buletin)
+        {
+            if (DateTime.Now < buletin.DataConsultatie)
+            {
+                MessageBox.Show($"Nu poti emita factura inca", "Ups...Ceva nu a mers bine", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            SaveAsPdfFactura(buletin);
+        }
+        void verifyDateForSave(ConsultatieModel buletin)
+        {
+            if (DateTime.Now < buletin.DataConsultatie)
+            {
+                MessageBox.Show($"Nu poti salva rezultatul inca", "Ups...Ceva nu a mers bine", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            SaveAsPdf(buletin);
+        }
+        public DateTime? SelectedDate
+        {
+            get => _selectedDate;
+            set
+            {
+                _selectedDate = value;
+                FiltreazaConsultatii();
+                OnPropertyChanged(nameof(SelectedDate));
+            }
+        }
+        public void FiltreazaConsultatii()
+        {
+            if (_selectedDate.HasValue)
+            {
+                string selectedDateString = _selectedDate.Value.ToString("yyyy-MM-dd");
+                _consultatiiFiltrate = new ObservableCollection<ConsultatieModel>(
+                    _consultatii.Where(b => b.DataConsultatie.Value.ToString("yyyy-MM-dd") == selectedDateString)
+                );
+            }
+            else
+            {
+                _consultatiiFiltrate = _consultatii;
+            }
+            OnPropertyChanged(nameof(Programari ));
         }
         public ObservableCollection<ConsultatieModel> Programari
         {
-            get => _consultatii;
+            get => _consultatiiFiltrate ?? _consultatii;
+            set
+            {
+                _consultatii = value;
+                FiltreazaConsultatii();
+                OnPropertyChanged(nameof(Programari));
+            }
         }
         private void SaveAsPdfFactura(object parameter)
         {
