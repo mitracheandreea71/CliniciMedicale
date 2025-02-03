@@ -29,6 +29,8 @@ namespace Project.ViewModel
             public string Data { get; set; } 
             public int IdItem { get; set; }
 
+            public int? Rating { get; set; }
+
             public string ImageSource
             {
                 get 
@@ -65,6 +67,9 @@ namespace Project.ViewModel
         public ICommand VizualizareRezultatCommand { get; }
         public ICommand SavePdfCommand { get; }
 
+        public ICommand SaveRatingCommand { get; }
+
+
         private readonly BuletinAnalizeModel _buletinAnalizeModel;
         private readonly ConsultatieModel _consultatieModel;
         private readonly CliniciEntities _context;
@@ -77,11 +82,16 @@ namespace Project.ViewModel
             _consultatieModel = new ConsultatieModel();
             _context = new CliniciEntities();
             _medicModel = new MediciModel();
+            SaveRatingCommand = new BaseCommand(SaveRating);
             VizualizareIstoricCommand = new BaseCommand(VizualizareIstoric, CanExecuteVizualizareIstoric);
             VizualizareRezultatCommand = new BaseCommand(VizualizareRezultat);
             SavePdfCommand = new BaseCommand(SaveAsPdf);
+<<<<<<< HEAD
             _pacient = pacient;
             _cnp = _pacient.IDPacient.ToString();
+=======
+
+>>>>>>> ee7b2c6 (Optiune rating)
         }
 
         private bool CanExecuteVizualizareIstoric(object parameter)
@@ -378,5 +388,54 @@ namespace Project.ViewModel
                 }
             }
         }
+
+        private void SaveRating(object parameter)
+        {
+            if (parameter is IstoricItem item && item.Tip == "Consultatie" && item.Rating.HasValue)
+            {
+                if (!item.Rating.HasValue || item.Rating.Value < 1 || item.Rating.Value > 10)
+                {
+                    MessageBox.Show("Introduceți un rating valid între 1 și 10.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                try
+                {
+                    var consultatie = _context.Consultaties.FirstOrDefault(c => c.id_consultatie == item.IdItem);
+                    if (consultatie == null)
+                    {
+                        MessageBox.Show("Consultația nu a fost găsită.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    var medic = _context.Angajats.FirstOrDefault(m => m.id_angajat == consultatie.id_doctor);
+                    if (medic == null)
+                    {
+                        MessageBox.Show("Medicul nu a fost găsit.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    if (!medic.rating.HasValue || medic.rating.Value == 0)
+                    {
+                        medic.rating = item.Rating.Value;
+                    }
+                    else
+                    {
+                        medic.rating = (medic.rating.Value + item.Rating.Value) / 2;
+                    }
+
+                    _context.SubmitChanges();
+                    MessageBox.Show("Ratingul a fost salvat cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Eroare la salvarea ratingului: {ex.Message}", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie să introduceți un rating valid pentru medic.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
     }
 }
