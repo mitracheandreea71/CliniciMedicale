@@ -15,6 +15,7 @@ namespace Project.Model
         private int _cantitate;
         private decimal _pretUnitar;
         private decimal _tvaProcent;
+        public string Activ { set; get; }
         public int Index
         {
             get => _index;

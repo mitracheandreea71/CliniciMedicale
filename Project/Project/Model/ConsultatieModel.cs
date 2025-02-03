@@ -21,6 +21,8 @@ namespace Project.Model
         public string Pacient { get; set;}
         public string Asistent { get; set; }
 
+        public string Activ { set; get; }
+
 
         private readonly CliniciEntities _context;
 
@@ -246,6 +248,32 @@ namespace Project.Model
 
             return consultatiiList;
         }
+
+        public List<string> GetOreProgramate(int medicID, DateTime data)
+        {
+            return _context.Consultaties
+                .Where(c => c.id_doctor == medicID &&
+                            c.data_consultatie.HasValue &&
+                            DbFunctions.TruncateTime(c.data_consultatie) == data.Date)
+                .Select(c => c.ora)
+                .ToList();
+        }
+
+        public void AdaugaConsultatie(int medicID, int pacientID, DateTime dataConsultatie, string ora)
+        {
+            var consultatie = new Consultatie
+            {
+                id_doctor = medicID,
+                id_pacient = pacientID,
+                data_consultatie = dataConsultatie,
+                ora = ora
+            };
+
+            _context.Consultaties.Add(consultatie);
+            _context.SaveChanges();
+        }
+
+
 
     }
 }

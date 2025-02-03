@@ -27,6 +27,8 @@ namespace Project.Model
         public string Departament { get; set; }
         public int? IdClinica { get; set; }
 
+        public string Activ { set; get; }
+
         private readonly CliniciEntities _context;
         public AsistentiModel()
         {

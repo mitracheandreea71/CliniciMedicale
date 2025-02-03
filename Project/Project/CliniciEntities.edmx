@@ -41,15 +41,6 @@
           <Property Name="titulatura" Type="varchar" MaxLength="100" />
           <Property Name="activ" Type="nvarchar" MaxLength="3" />
         </EntityType>
-        <EntityType Name="Apartenenta_Formular">
-          <Key>
-            <PropertyRef Name="id_formular" />
-            <PropertyRef Name="id_analiza" />
-          </Key>
-          <Property Name="id_formular" Type="int" Nullable="false" />
-          <Property Name="id_analiza" Type="int" Nullable="false" />
-          <Property Name="activ" Type="nvarchar" MaxLength="3" />
-        </EntityType>
         <EntityType Name="Asigurare">
           <Key>
             <PropertyRef Name="id_asigurare" />
@@ -195,10 +186,9 @@
           <Property Name="prenume" Type="varchar" MaxLength="50" />
           <Property Name="judet" Type="varchar" MaxLength="20" />
           <Property Name="adresa" Type="varchar" MaxLength="100" />
+          <Property Name="activ" Type="nvarchar" MaxLength="3" />
           <Property Name="email" Type="varchar" MaxLength="255" />
           <Property Name="parola" Type="varchar" MaxLength="255" />
-          <Property Name="activ" Type="nvarchar" MaxLength="3" />
-          <Property Name="CNP" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="Rezultat_Analize">
           <Key>
@@ -220,18 +210,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_Analiza">
-          <End Role="Analize" Type="Self.Analize" Multiplicity="1" />
-          <End Role="Apartenenta_Formular" Type="Self.Apartenenta_Formular" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Analize">
-              <PropertyRef Name="id_analiza" />
-            </Principal>
-            <Dependent Role="Apartenenta_Formular">
-              <PropertyRef Name="id_analiza" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Analiza_Rezultat">
           <End Role="Analize" Type="Self.Analize" Multiplicity="0..1" />
           <End Role="Rezultat_Analize" Type="Self.Rezultat_Analize" Multiplicity="*" />
@@ -400,18 +378,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Formular">
-          <End Role="Formular_Analize" Type="Self.Formular_Analize" Multiplicity="1" />
-          <End Role="Apartenenta_Formular" Type="Self.Apartenenta_Formular" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Formular_Analize">
-              <PropertyRef Name="id_formular" />
-            </Principal>
-            <Dependent Role="Apartenenta_Formular">
-              <PropertyRef Name="id_formular" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Formular_Analize">
           <End Role="Formular_Analize" Type="Self.Formular_Analize" Multiplicity="0..1" />
           <End Role="Buletin_Analize" Type="Self.Buletin_Analize" Multiplicity="*" />
@@ -543,7 +509,6 @@
           <EntitySet Name="Analize" EntityType="Self.Analize" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Analize_Factura" EntityType="Self.Analize_Factura" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Angajat" EntityType="Self.Angajat" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Apartenenta_Formular" EntityType="Self.Apartenenta_Formular" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Asigurare" EntityType="Self.Asigurare" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Asigurari" EntityType="Self.Asigurari" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Buletin_Analize" EntityType="Self.Buletin_Analize" Schema="dbo" store:Type="Tables" />
@@ -559,10 +524,6 @@
           <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rezultat_Analize" EntityType="Self.Rezultat_Analize" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Analiza" Association="Self.FK_Analiza">
-            <End Role="Analize" EntitySet="Analize" />
-            <End Role="Apartenenta_Formular" EntitySet="Apartenenta_Formular" />
-          </AssociationSet>
           <AssociationSet Name="FK_Analiza_Rezultat" Association="Self.FK_Analiza_Rezultat">
             <End Role="Analize" EntitySet="Analize" />
             <End Role="Rezultat_Analize" EntitySet="Rezultat_Analize" />
@@ -618,10 +579,6 @@
           <AssociationSet Name="FK_Factura_Consultatii" Association="Self.FK_Factura_Consultatii">
             <End Role="Factura" EntitySet="Factura" />
             <End Role="Consultatii_Factura" EntitySet="Consultatii_Factura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Formular" Association="Self.FK_Formular">
-            <End Role="Formular_Analize" EntitySet="Formular_Analize" />
-            <End Role="Apartenenta_Formular" EntitySet="Apartenenta_Formular" />
           </AssociationSet>
           <AssociationSet Name="FK_Formular_Analize" Association="Self.FK_Formular_Analize">
             <End Role="Formular_Analize" EntitySet="Formular_Analize" />
@@ -885,10 +842,9 @@
           <NavigationProperty Name="Buletin_Analize" Relationship="Self.FK_Pacient_Analiza" FromRole="Pacient" ToRole="Buletin_Analize" />
           <NavigationProperty Name="Consultaties" Relationship="Self.FK_Pacient" FromRole="Pacient" ToRole="Consultatie" />
           <NavigationProperty Name="Facturas" Relationship="Self.FK_Pacient_Factura" FromRole="Pacient" ToRole="Factura" />
+          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="parola" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="activ" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
-          <Property Name="CNP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Rezultat_Analize">
           <Key>
@@ -1529,10 +1485,9 @@
           <EntitySetMapping Name="Pacients">
             <EntityTypeMapping TypeName="CliniciMedicaleModel.Pacient">
               <MappingFragment StoreEntitySet="Pacient">
-                <ScalarProperty Name="CNP" ColumnName="CNP" />
-                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="parola" ColumnName="parola" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="activ" ColumnName="activ" />
                 <ScalarProperty Name="id_pacient" ColumnName="id_pacient" />
                 <ScalarProperty Name="nume" ColumnName="nume" />
                 <ScalarProperty Name="prenume" ColumnName="prenume" />
@@ -1563,14 +1518,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Apartenenta_Formular" TypeName="CliniciMedicaleModel.Apartenenta_Formular" StoreEntitySet="Apartenenta_Formular">
-            <EndProperty Name="Analize">
-              <ScalarProperty Name="id_analiza" ColumnName="id_analiza" />
-            </EndProperty>
-            <EndProperty Name="Formular_Analize">
-              <ScalarProperty Name="id_formular" ColumnName="id_formular" />
-            </EndProperty>
-          </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="CliniciMedicaleModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="CliniciMedicaleModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="CliniciMedicaleModel.Store.sp_dropdiagram" />

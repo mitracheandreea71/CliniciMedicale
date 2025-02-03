@@ -225,8 +225,6 @@
     <Compile Include="Model\MediciModel.cs" />
     <Compile Include="Model\PacientModel.cs" />
     <Compile Include="Model\RezultatAnalizeModel.cs" />
-    <Compile Include="ViewModel\HomePageWindowViewModel.cs" />
-    <Compile Include="ViewModel\InregistrareWindowViewModel.cs" />
     <Compile Include="ViewModel\VizualizareDiagnosticViewModel.cs" />
     <Compile Include="Pacient.cs">
       <DependentUpon>CliniciEntities.tt</DependentUpon>
@@ -343,6 +341,9 @@
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MedicHomeView.xaml.cs">
       <DependentUpon>MedicHomeView.xaml</DependentUpon>
     </Compile>
@@ -378,12 +379,6 @@
     </Compile>
     <Compile Include="Windows\FacturaWindow.xaml.cs">
       <DependentUpon>FacturaWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\HomePageWindow.xaml.cs">
-      <DependentUpon>HomePageWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\InregistrareWindow.xaml.cs">
-      <DependentUpon>InregistrareWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MedicWindow.xaml.cs">
       <DependentUpon>MedicWindow.xaml</DependentUpon>
@@ -504,6 +499,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MedicHomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -549,14 +548,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\FacturaWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\HomePageWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\InregistrareWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

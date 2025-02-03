@@ -16,6 +16,8 @@ namespace Project.Model
         public FormularAnalizeModel FormularAnalize { get; set; }
         public string NumeSefLab { get; set; }
 
+        public string Activ { set; get; }
+
         private CliniciEntities _context;
 
         public BuletinAnalizeModel()
@@ -148,6 +150,26 @@ namespace Project.Model
 
             return buletineAnalizeList;
         }
+        public void AddBuletinAnalize(int idFormular, int idPacient, DateTime dataProgramare, int idSefLab)
+        {
+            var buletinAnalizeNou = new Buletin_Analize
+            {
+                id_formular_analize = idFormular,
+                id_pacient = idPacient,
+                data_recoltare = dataProgramare,
+                id_seflab = idSefLab
+            };
 
+            _context.Buletin_Analize.Add(buletinAnalizeNou);
+            _context.SaveChanges();
+        }
+
+        public int? GetSefLabByClinicaId(int idClinica)
+        {
+            return _context.Functies
+                .Where(s => s.nume_functie == "Sef Lab" && s.id_clinica == idClinica)
+                .Select(s => (int?)s.id_angajat)
+                .FirstOrDefault();
+        }
     }
 }

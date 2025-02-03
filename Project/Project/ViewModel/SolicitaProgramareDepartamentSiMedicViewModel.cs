@@ -1,12 +1,8 @@
 ﻿using Project.Commands;
 using Project.Model;
 using Project.View;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -20,14 +16,16 @@ namespace Project.ViewModel
         private ObservableCollection<string> _medici;
         private string _medicSelectat;
         private readonly ClinicaModel _clinicaModel;
+        private readonly MediciModel _mediciModel;
+
         public ICommand MaiDeparteCommand { get; }
 
-        private readonly CliniciEntities _context;
         public SolicitaProgramareDepartamentSiMedicViewModel(string numeClinica)
         {
             _numeClinica = numeClinica;
-            _context = new CliniciEntities();
             _clinicaModel = new ClinicaModel();
+            _mediciModel = new MediciModel();
+
             Departamente = new ObservableCollection<string>();
             Medici = new ObservableCollection<string>();
 
@@ -62,7 +60,7 @@ namespace Project.ViewModel
             {
                 _departamentSelectat = value;
                 OnPropertyChanged(nameof(DepartamentSelectat));
-                LoadMedici(); 
+                LoadMedici();
             }
         }
 
@@ -88,10 +86,7 @@ namespace Project.ViewModel
 
         private void LoadDepartamente()
         {
-            var departamente = _context.Departaments
-                .Where(d => d.Clinica.nume_clinica == _numeClinica)
-                .Select(d => d.denumire )
-                .ToList();
+            var departamente = _clinicaModel.GetDepartamenteByClinica(_numeClinica);
 
             Departamente.Clear();
             foreach (var dep in departamente)
@@ -104,20 +99,8 @@ namespace Project.ViewModel
         {
             if (string.IsNullOrEmpty(DepartamentSelectat))
                 return;
-            int idClinica = _clinicaModel.GetIdByName(_numeClinica);
-            var medici = (from angajat in _context.Angajats
-                          join functie in _context.Functies
-                          on angajat.id_angajat equals functie.id_angajat 
-                          where angajat.specialitate == DepartamentSelectat
-                                && angajat.titulatura.Contains("Dr") 
-                                && functie.id_clinica == idClinica 
-                          select new
-                          {
-                              NumeComplet = angajat.titulatura + " " + angajat.nume + " " + angajat.prenume
-                          })
-              .ToList()
-              .Select(x => x.NumeComplet)
-              .ToList();
+
+            var medici = _mediciModel.GetMediciByDepartamentAndClinica(DepartamentSelectat, _numeClinica);
 
             Medici.Clear();
             foreach (var medic in medici)
@@ -130,15 +113,12 @@ namespace Project.ViewModel
         {
             if (string.IsNullOrEmpty(MedicSelectat))
             {
-                MessageBox.Show("Va rugam sa selectati un medic.", "Avertizare", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Vă rugăm să selectați un medic.", "Avertizare", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             string medicSelectat = parameter as string;
-
-            var mediciModel = new MediciModel();
-
-            int? idMedic = mediciModel.GetMedicIdByNumeComplet(medicSelectat);
+            int? idMedic = _mediciModel.GetMedicIdByNumeComplet(medicSelectat);
 
             if (idMedic.HasValue)
             {
@@ -154,7 +134,6 @@ namespace Project.ViewModel
 
         private void CloseCurrentWindow()
         {
-            
             foreach (var window in Application.Current.Windows)
             {
                 if (window is SolicitaProgramareDepartamentSiMedicWindow)
@@ -167,7 +146,7 @@ namespace Project.ViewModel
 
         private bool CanExecuteMaiDeparte(object parameter)
         {
-            return true;
+            return !string.IsNullOrEmpty(MedicSelectat);
         }
     }
 }

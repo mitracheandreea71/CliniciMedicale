@@ -31,7 +31,7 @@ namespace Project.ViewModel
 
             public string ImageSource
             {
-                get 
+                get
                 {
                     return Tip == "Analiza" ? "/Images/analiza.png" : "/Images/consultatie.png";
 
@@ -69,8 +69,7 @@ namespace Project.ViewModel
         private readonly ConsultatieModel _consultatieModel;
         private readonly CliniciEntities _context;
         private readonly MediciModel _medicModel;
-        public PacientModel _pacient;
-        public IstoricMoreViewModel(PacientModel pacient)
+        public IstoricMoreViewModel()
         {
             IstoricItems = new ObservableCollection<IstoricItem>();
             _buletinAnalizeModel = new BuletinAnalizeModel();
@@ -80,8 +79,6 @@ namespace Project.ViewModel
             VizualizareIstoricCommand = new BaseCommand(VizualizareIstoric, CanExecuteVizualizareIstoric);
             VizualizareRezultatCommand = new BaseCommand(VizualizareRezultat);
             SavePdfCommand = new BaseCommand(SaveAsPdf);
-            _pacient = pacient;
-            _cnp = _pacient.IDPacient.ToString();
         }
 
         private bool CanExecuteVizualizareIstoric(object parameter)

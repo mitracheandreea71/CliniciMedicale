@@ -26,6 +26,8 @@ namespace Project.Model
         public string Banca { get; set; }
         public string CaleImagine { get; set; }
 
+        public string Activ { get; set; }
+
         public List<string> ListaSpecializari { get; set; }
 
         private readonly CliniciEntities _context;
@@ -94,11 +96,127 @@ namespace Project.Model
             return clinici;
         }
 
+        public List<string> GetDepartmentsByClinic(string clinicName)
+        {
+            var clinicId = _context.Clinicas.FirstOrDefault(c => c.nume_clinica == clinicName)?.id_clinica;
+            if (clinicId == null) return new List<string>();
+
+            return _context.Departaments
+                .Where(d => d.id_clinica == clinicId)
+                .Select(d => d.denumire)
+                .ToList();
+        }
+
+        public bool AddDepartment(string clinicName, string departmentName)
+        {
+            try
+            {
+                using (var _context = new CliniciEntities())
+                {
+                    var clinic = _context.Clinicas.FirstOrDefault(c => c.nume_clinica == clinicName);
+                    if (clinic == null) return false;
+
+                    if (_context.Departaments.Any(d => d.denumire == departmentName && d.id_clinica == clinic.id_clinica))
+                    {
+                        return false;
+                    }
+
+                    var newDepartment = new Departament
+                    {
+                        denumire = departmentName,
+                        id_clinica = clinic.id_clinica
+                    };
+
+                    _context.Departaments.Add(newDepartment);
+                    _context.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool DeleteClinic(string clinicName)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(clinicName))
+                {
+                    return false;
+                }
+
+                var clinicToDeactivate = _context.Clinicas.FirstOrDefault(c => c.nume_clinica == clinicName);
+                if (clinicToDeactivate == null)
+                {
+                    return false;
+                }
+
+                clinicToDeactivate.activ = "OFF";
+
+                var departmentsToDeactivate = _context.Departaments
+                    .Where(d => d.id_clinica == clinicToDeactivate.id_clinica)
+                    .ToList();
+
+                foreach (var department in departmentsToDeactivate)
+                {
+                    department.activ = "OFF";
+
+                    var employeeAssignments = _context.Incadrare_Departament
+                        .Where(i => i.id_departament == department.id_departament)
+                        .ToList();
+
+                    foreach (var assignment in employeeAssignments)
+                    {
+                        var employeeFunction = _context.Functies.FirstOrDefault(f => f.id_angajat == assignment.id_angajat);
+                        if (employeeFunction != null)
+                        {
+                            employeeFunction.activ = "OFF";
+                        }
+
+                        var employee = _context.Angajats.FirstOrDefault(a => a.id_angajat == assignment.id_angajat);
+                        if (employee != null)
+                        {
+                            employee.activ = "OFF";
+                        }
+
+                        assignment.activ = "OFF";
+                    }
+                }
+
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public List<string> GetAllClinics()
+        {
+            return _context.Clinicas.Select(c => c.nume_clinica).ToList();
+        }
+
         public ClinicaModel GetClinicaById(int idClinica)
         {
             ClinicaModel clinica = (new ClinicaModel()).GetAllClinici().Where(c => c.ClinicaID == idClinica).First();
             return clinica;
         }
+
+        public bool DeleteDepartment(string clinicName, string departmentName)
+        {
+            var clinicId = _context.Clinicas.FirstOrDefault(c => c.nume_clinica == clinicName)?.id_clinica;
+            if (clinicId == null) return false;
+
+            var department = _context.Departaments.FirstOrDefault(d => d.denumire == departmentName && d.id_clinica == clinicId);
+            if (department == null) return false;
+
+            _context.Departaments.Remove(department);
+            _context.SaveChanges();
+            return true;
+        }
+
         public ObservableCollection<string> GetAllOrase()
         {
             var orase = _context.Clinicas.Select(Clinica => Clinica.oras)
@@ -131,6 +249,21 @@ namespace Project.Model
             return -1;
         }
 
+        public List<string> GetDepartamenteByClinica(string numeClinica)
+        {
+            return _context.Departaments
+                .Where(d => d.Clinica.nume_clinica == numeClinica)
+                .Select(d => d.denumire)
+                .ToList();
+        }
+
+        public int? GetClinicIdByName(string clinicName)
+        {
+            return _context.Clinicas
+                .Where(c => c.nume_clinica == clinicName)
+                .Select(c => (int?)c.id_clinica)
+                .FirstOrDefault();
+        }
         public void AddClinic(ClinicaModel clinic)
         {
             var newClinic = new Clinica
