@@ -15,6 +15,8 @@ namespace Project.ViewModel
     {
         private MediciModel _medic;
         private ObservableCollection<BuletinAnalizeModel> _buletine;
+        private ObservableCollection<BuletinAnalizeModel> _buletineFiltrate;
+        private DateTime? _selectedDate;
 
         public ICommand showAddRezultatAnalizeView { get; set; }
         public ViewAnalizeMedicViewModel(MediciModel medic)
@@ -34,8 +36,38 @@ namespace Project.ViewModel
             EventAggregator.Instance.Publish(new ViewChangeMessage<BuletinAnalizeModel>("AddRezAnalize",buletin, _medic));
         }
         public ObservableCollection<BuletinAnalizeModel> Analize
-        { 
-            get => _buletine;
+        {
+            get => _buletineFiltrate ?? _buletine;
+            set
+            {
+                _buletine = value;
+                OnPropertyChanged(nameof(Analize));
+            }
+        }
+        public DateTime? SelectedDate
+        {
+            get => _selectedDate;
+            set
+            {
+                _selectedDate = value;
+                FiltreazaAnalizele();
+                OnPropertyChanged(nameof(SelectedDate));
+            }
+        }
+        public void FiltreazaAnalizele()
+        {
+            if (_selectedDate.HasValue)
+            {
+                string selectedDateString = _selectedDate.Value.ToString("yyyy-MM-dd");
+                _buletineFiltrate = new ObservableCollection<BuletinAnalizeModel>(
+                    _buletine.Where(b => b.Data == selectedDateString)
+                );
+            }
+            else
+            {
+                _buletineFiltrate = _buletine;
+            }
+            OnPropertyChanged(nameof(Analize));
         }
     }
 }

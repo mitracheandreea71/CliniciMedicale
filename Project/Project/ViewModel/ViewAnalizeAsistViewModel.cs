@@ -22,20 +22,51 @@ namespace Project.ViewModel
         private AsistentiModel _asistent;
 
         private ObservableCollection<BuletinAnalizeModel> _buletine;
+        private ObservableCollection<BuletinAnalizeModel> _buletineFiltrate;
+        private DateTime? _selectedDate;
         public ICommand BackButton { get; }
         public ICommand SaveResultsAsPdf { get; }
         public ICommand EmiteFactura { get; }
+        public DateTime? SelectedDate
+        {
+            get => _selectedDate;
+            set
+            {
+                _selectedDate = value;
+                FiltreazaAnalizele();
+                OnPropertyChanged(nameof(SelectedDate));
+            }
+        }
+
         public ViewAnalizeAsistViewModel(AsistentiModel asistent)
         {
             _asistent = asistent;
             BackButton = new BaseCommand(c => { EventAggregator.Instance.Publish(new ViewChangeMessage<AsistentiModel>("HomePage", _asistent)); });
             _buletine = (new BuletinAnalizeModel()).GetBuletineAnalizaByClinicaId((int)_asistent.IdClinica);
-            SaveResultsAsPdf = new BaseCommand(c => SaveAsPdf(c as BuletinAnalizeModel));
-            EmiteFactura = new BaseCommand(c => SaveAsPdfFactura(c as BuletinAnalizeModel));
+            SaveResultsAsPdf = new BaseCommand(c => verifyDateForSave(c as BuletinAnalizeModel));
+            EmiteFactura = new BaseCommand(c => verifyDateForFactura(c as BuletinAnalizeModel));
+        }
+        void verifyDateForFactura(BuletinAnalizeModel buletin)
+        {
+            if (DateTime.Now < buletin.DataRecoltare)
+            {
+                MessageBox.Show($"Nu poti emite factura inca", "Ups...Ceva nu a mers bine", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            SaveAsPdfFactura(buletin);
+        }
+        void verifyDateForSave(BuletinAnalizeModel buletin)
+        {
+            if (DateTime.Now < buletin.DataRecoltare)
+            {
+                MessageBox.Show($"Nu poti salva rezultatul inca", "Ups...Ceva nu a mers bine", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            SaveAsPdf(buletin);
         }
         public ObservableCollection<BuletinAnalizeModel> Analize
         {
-            get => _buletine;
+            get => _buletineFiltrate ?? _buletine;
             set
             {
                 _buletine = value;
@@ -124,6 +155,21 @@ namespace Project.ViewModel
                     MessageBox.Show($"Eroare la salvarea PDF-ului: {ex.Message}", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+        public void FiltreazaAnalizele()
+        {
+            if (_selectedDate.HasValue)
+            {
+                string selectedDateString = _selectedDate.Value.ToString("yyyy-MM-dd");
+                _buletineFiltrate = new ObservableCollection<BuletinAnalizeModel>(
+                    _buletine.Where(b => b.Data == selectedDateString)
+                );
+            }
+            else
+            {
+                _buletineFiltrate = _buletine;
+            }
+            OnPropertyChanged(nameof(Analize));
         }
         private void SaveAsPdf(object parameter)
         {

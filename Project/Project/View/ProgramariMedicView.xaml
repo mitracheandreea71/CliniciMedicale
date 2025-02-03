@@ -8,7 +8,7 @@
              d:DesignHeight="600" d:DesignWidth="850">
     <Grid Background="White">
         <Rectangle Width="420" VerticalAlignment="Top" Stroke="White" RadiusY="15" RadiusX="15" Margin="188,6,0,0" Height="69" HorizontalAlignment="Left" Fill="#FF73060D"/>
-        <DatePicker HorizontalAlignment="Left" Margin="333,40,0,0" VerticalAlignment="Top" Width="130"/>
+        <DatePicker SelectedDate="{Binding SelectedDate, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="333,40,0,0" VerticalAlignment="Top" Width="130"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="203,20,0,0" TextWrapping="Wrap" Text="Selectati data in care doriti sa vedeti programarile" VerticalAlignment="Top" Width="390" FontFamily="Arial Black" TextAlignment="Center" FontSize="14" Foreground="#FFF9F9F9"/>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,173,0,-407">

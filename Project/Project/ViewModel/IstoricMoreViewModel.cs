@@ -16,6 +16,7 @@ using System.Windows.Media;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System.Windows.Controls;
+using System.Windows.Markup;
 
 
 namespace Project.ViewModel
@@ -129,6 +130,19 @@ namespace Project.ViewModel
         {
             if (parameter is IstoricItem item && item.Tip == "Analiza")
             {
+                DateTime now = DateTime.Now;
+                string data = item.Data.Replace('/', '-');
+                string[] parts = data.Split('-');
+
+                string newDate = $"{parts[1]}-{parts[0]}-{parts[2]}";
+                if (DateTime.TryParse(newDate, out DateTime parsedDate))
+                {
+                    if (parsedDate > DateTime.Now)
+                    {
+                        MessageBox.Show($"Nu poti sa vezi rezultatul inca", "Ups...Ceva nu a mers bine", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
                 int idBuletin = item.IdItem;
                 int idPacient = int.Parse(Cnp);
 
@@ -146,6 +160,21 @@ namespace Project.ViewModel
             }
             else if (parameter is IstoricItem consultatieItem && consultatieItem.Tip == "Consultatie")
             {
+                int index = consultatieItem.Data.IndexOf(" ");
+
+                string result = (index != -1) ? consultatieItem.Data.Substring(0, index) : consultatieItem.Data;
+                result = result.Replace('/', '-');
+                string[] parts = result.Split('-');
+
+                string newDate = $"{parts[1]}-{parts[0]}-{parts[2]}";
+                if (DateTime.TryParse(newDate, out DateTime parsedDate))
+                {
+                    if (parsedDate > DateTime.Now)
+                    {
+                        MessageBox.Show($"Nu poti sa vezi rezultatul inca", "Ups...Ceva nu a mers bine", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
                 int idConsultatie = consultatieItem.IdItem;
                 int idPacient = int.Parse(Cnp);
 
@@ -173,6 +202,26 @@ namespace Project.ViewModel
         {
             if (parameter is IstoricItem item)
             {
+                string result=item.Data;
+                if(item.Tip=="Consultatie")
+                {
+                    int index = item.Data.IndexOf(" ");
+
+                    result = (index != -1) ? item.Data.Substring(0, index) : item.Data;
+                }
+                
+                string data = result.Replace('/', '-');
+                string[] parts = data.Split('-');
+
+                string newDate = $"{parts[1]}-{parts[0]}-{parts[2]}";
+                if (DateTime.TryParse(newDate, out DateTime parsedDate))
+                {
+                    if (parsedDate > DateTime.Now)
+                    {
+                        MessageBox.Show($"Nu poti sa salvezi rezultatul inca", "Ups...Ceva nu a mers bine", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
                 try
                 {
                     var saveDialog = new Microsoft.Win32.SaveFileDialog
@@ -249,6 +298,7 @@ namespace Project.ViewModel
                         }
                         if (item.Tip == "Consultatie")
                         {
+
                             var consultatie = new ConsultatieModel().GetConsultatieByID(item.IdItem);
                             string id_medic = consultatie.IdDoctor.ToString();
                             int im = int.Parse(id_medic);

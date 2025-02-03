@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.View"
         mc:Ignorable="d"
-        Title="SolicitaProgramareDepartamentSiMedicWindow" Height="450" Width="800">
+        Title="SolicitaProgramareDepartamentSiMedicWindow" Height="450" Width="800"
+        Icon="/Images/icon.ico">
     <Grid>
         <TextBlock HorizontalAlignment="Left"   Margin="223,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="521"  Text="{Binding NumeClinica}" FontSize="24" FontWeight="Bold" RenderTransformOrigin="0.498,0.549" />
         <Image HorizontalAlignment="Left"  Source="/Images/Departament.png" Height="445" VerticalAlignment="Center" Width="434" RenderTransformOrigin="0.5,0.5" Margin="-5,0,0,0" />

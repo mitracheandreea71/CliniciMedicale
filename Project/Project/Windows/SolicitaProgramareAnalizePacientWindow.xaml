@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.View"
         mc:Ignorable="d"
-        Title="SolicitaProgramareAnalizePacientWindow" Height="450" Width="800">
+        Title="SolicitaProgramareAnalizePacientWindow" Height="450" Width="800"
+        Icon="/Images/icon.ico">
     <Grid>
         <Button x:Name="BttnTrimite" FontSize="16" FontFamily="Arial Rounded MT Bold" Command="{Binding TrimiteProgramareCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"  Foreground="White" Background="DarkRed" BorderBrush="Black" Content="Trimite" HorizontalAlignment="Left" Margin="614,337,0,0" VerticalAlignment="Top" Height="47" Width="122"/>
         <DatePicker x:Name="DatePicker" SelectedDate="{Binding DataProgramare}" DisplayDateStart="{x:Null}" 
