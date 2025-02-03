@@ -1,2 +1,2 @@
 ﻿select *
-from Angajat
+from Clinica

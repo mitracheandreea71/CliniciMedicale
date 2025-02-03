@@ -9,8 +9,105 @@
         Title="Clinici Medicale" Height="700" Width="1200"
         Icon="/Images/icon.ico">
 
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>    
+    
+    <Window.Resources>
+        <Style x:Key="MainButtonSyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        TextElement.FontSize="16" 
+                        TextElement.FontWeight="Bold"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SecondaryButtonSyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        TextElement.FontSize="14"
+                        TextElement.FontWeight="Normal"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
     <Grid Background="#FFE4E4E4">
-        <ContentControl x:Name="MainContent" Content="{Binding CurrentView}"/>
+        <Rectangle Height="89" Margin="24,38,26,0" Stroke="#FF4E0606" VerticalAlignment="Top" Fill="#FF73060D" OpacityMask="#FF4E0606" RadiusX="15" RadiusY="15"/>
+        <Button x:Name="MediciBttn" Content="Medici"  Command="{Binding ShowMediciMoreView}" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="186,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black" FontWeight="Bold">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="CliniciBttn" Content="Clinici" Command="{Binding ShowCliniciMoreView}" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="431,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black" FontWeight="Bold">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="AnalizeBttn" Content="Pachete Analize" Command="{Binding ShowAnalizeMoreView}" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="691,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Image x:Name="logo" HorizontalAlignment="Left" Height="89" Margin="24,38,0,0" VerticalAlignment="Top" Width="91" Source="/Images/logo.png" Stretch="Fill"/>
+        <Button x:Name="PaginaPrincipalaBttn" Content=""  Command="{Binding ShowPaginaPrincipalaView}" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="24,38,0,0" VerticalAlignment="Top" Background="#00000000" Width="91" Height="89" FontSize="16" FontFamily="Arial Black" FontWeight="Bold">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="IstoricMedBttn" Content="Istoric Medical"  Command="{Binding ShowIstoricMoreView}" Style="{StaticResource MainButtonSyle}" HorizontalAlignment="Left" Margin="949,67,0,0" VerticalAlignment="Top" Background="#00000000" Width="150" Height="30" FontSize="16" FontFamily="Arial Black">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="120,111,0,0" VerticalAlignment="Top" Width="1022" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="120,51,0,0" VerticalAlignment="Top" Width="1022"/>
+        <Button x:Name="ProgramareBttn" Content="Solicita o programare" Style="{StaticResource SecondaryButtonSyle}" HorizontalAlignment="Left" Margin="908,3,0,0" VerticalAlignment="Top" Background="#00000000" Width="134" Height="30" FontSize="14" FontFamily="Arial" FontWeight="Bold" Click="ProgramareBttn_Click">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="LogareBttn" Content="Intra in cont" Style="{StaticResource SecondaryButtonSyle}" HorizontalAlignment="Left" Margin="1080,3,0,0" VerticalAlignment="Top" Background="#00000000" Width="80" Height="30" FontSize="14" FontFamily="Arial" FontWeight="Bold" Click="LogareBttn_Click">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="ViewAnalizeBttn" Content="Vizualizeaza Analize" Command="{Binding ShowRezultateAnalize}" Style="{StaticResource SecondaryButtonSyle}" HorizontalAlignment="Left" Margin="732,3,0,0" VerticalAlignment="Top" Background="#00000000" Width="127" Height="30" FontSize="14" FontFamily="Arial" FontWeight="Bold">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="24" Margin="716,6,0,0" VerticalAlignment="Top" Width="11" Source="/Images/analize.png"/>
+        <Image HorizontalAlignment="Left" Height="20" Margin="884,8,0,0" VerticalAlignment="Top" Width="20" Source="/Images/programare.png"/>
+        <Image HorizontalAlignment="Left" Height="20" Margin="1060,8,0,0" VerticalAlignment="Top" Width="21" Source="/Images/logare.png"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="24,132,0,0">
+            <ContentControl x:Name="MainContent" Content="{Binding CurrentView}" Margin="0,0,10,0"/>
+        </ScrollViewer>
     </Grid>
 </Window>

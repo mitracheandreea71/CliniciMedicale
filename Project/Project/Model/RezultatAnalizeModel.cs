@@ -21,6 +21,8 @@ namespace Project.Model
 
         public string _valoriRezultate { get; set; }
 
+        public string Activ { set; get; }
+
         public CliniciEntities _context;
 
         public RezultatAnalizeModel()

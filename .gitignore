@@ -57,4 +57,3 @@ packages/
 appsettings.Development.json
 *.json
 DocumentLayout.json
-.vs

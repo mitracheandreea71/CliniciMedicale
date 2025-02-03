@@ -1,5 +1,4 @@
 ﻿using Project.ViewModel;
-using Project.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +40,7 @@ namespace Project.View
             {
                 if (viewModel.LoginSucceeded)
                 {
-
+                   
                     Window loginWindow = Window.GetWindow(this);
                     Window newWindow = null;
 
@@ -55,9 +54,6 @@ namespace Project.View
                             break;
                         case "Administrator":
                             newWindow = new AdminWindow();
-                            break;
-                        case "Pacient":
-                            newWindow = new HomePageWindow(viewModel.Pacient);
                             break;
                         default:
                             MessageBox.Show("Rol necunoscut. Contactați administratorul.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -74,18 +70,26 @@ namespace Project.View
         }
         private void TogglePasswordVisibility_Click(object sender, RoutedEventArgs e)
         {
-
+            
             if (PasswordBox.Visibility == Visibility.Visible)
             {
                 PasswordBox.Visibility = Visibility.Collapsed;
                 PasswordTextBox.Visibility = Visibility.Visible;
-                PasswordTextBox.Text = PasswordBox.Password;
+                PasswordTextBox.Text = PasswordBox.Password; 
             }
             else
             {
                 PasswordBox.Visibility = Visibility.Visible;
                 PasswordTextBox.Visibility = Visibility.Collapsed;
             }
+        }
+        private void MainWindowBttn_Click(object sender, RoutedEventArgs e)
+        {
+            var loginWindow = Window.GetWindow(this);
+            MainWindow mainWindow = new MainWindow();
+            loginWindow.Close();
+            mainWindow.Show();
+          
         }
         private void LogareBttn_Click(object sender, RoutedEventArgs e)
         {
@@ -94,14 +98,6 @@ namespace Project.View
             {
                 viewModel.LoginCommand.Execute(null);
             }
-        }
-
-        private void InregistrareContBttn_Click(object sender, RoutedEventArgs e)
-        {
-            Window registerWindow = new InregistrareWindow();
-            registerWindow.Show();
-            Window loginWindow = Window.GetWindow(this);
-            loginWindow.Close();
         }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)

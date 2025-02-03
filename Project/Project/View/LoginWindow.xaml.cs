@@ -1,5 +1,4 @@
-﻿using Project.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Project.ViewModel;
 
 namespace Project.View
 {
     /// <summary>
-    /// Interaction logic for IstoricMoreView.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class IstoricMoreView : UserControl
+    public partial class LoginWindow : Window
     {
-        public IstoricMoreView()
+        public LoginWindow()
         {
             InitializeComponent();
-            DataContext = new IstoricMoreViewModel();
+            
         }
-
-        
     }
 }
