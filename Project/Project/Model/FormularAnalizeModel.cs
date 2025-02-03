@@ -22,18 +22,18 @@ namespace Project.Model
         public string CaleImagine {  get; set; }
         public ObservableCollection<AnalizeModel> ListaAnalize { get; set; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public FormularAnalizeModel()
         { 
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
 
         public ObservableCollection<FormularAnalizeModel> GetAllFormulare()
         {
             ObservableCollection<FormularAnalizeModel> formulare = new ObservableCollection<FormularAnalizeModel>();
 
-            foreach (var formular in _context.Formular_Analizes)
+            foreach (var formular in _context.Formular_Analize)
             {
                 formulare.Add(
                     new FormularAnalizeModel
@@ -60,8 +60,8 @@ namespace Project.Model
         {
             FormularAnalizeModel formular = new FormularAnalizeModel();
 
-            var f = (from form in _context.Formular_Analizes
-                     join buletin in _context.Buletin_Analizes on form.id_formular equals buletin.id_formular_analize
+            var f = (from form in _context.Formular_Analize
+                     join buletin in _context.Buletin_Analize on form.id_formular equals buletin.id_formular_analize
                      select form).First();
             formular.IDFormular = f.id_formular;
             formular.TipAnalize = f.tip_analize;
@@ -76,7 +76,7 @@ namespace Project.Model
 
         public int GetIdByName(string name)
         {
-            var formular = _context.Formular_Analizes.FirstOrDefault(f => f.nume_formular == name);
+            var formular = _context.Formular_Analize.FirstOrDefault(f => f.nume_formular == name);
             return formular?.id_formular ?? -1;
         }
     }

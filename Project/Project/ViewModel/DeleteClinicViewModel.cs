@@ -15,11 +15,11 @@ namespace Project.ViewModel
 
         public ICommand DeleteClinicCommand { get; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public DeleteClinicViewModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             DeleteClinicCommand = new BaseCommand(DeleteClinic);
         }
 
@@ -44,29 +44,29 @@ namespace Project.ViewModel
 
                 foreach (var department in departmentsToDelete)
                 {
-                    var employeeAssignments = _context.Incadrare_Departaments.Where(i => i.id_departament == department.id_departament).ToList();
+                    var employeeAssignments = _context.Incadrare_Departament.Where(i => i.id_departament == department.id_departament).ToList();
 
                     foreach (var assignment in employeeAssignments)
                     {
                         var employeeFunction = _context.Functies.FirstOrDefault(f => f.id_angajat == assignment.id_angajat);
                         if (employeeFunction != null)
                         {
-                            _context.Functies.DeleteOnSubmit(employeeFunction);
+                            _context.Functies.Remove(employeeFunction);
                         }
 
                         var employee = _context.Angajats.FirstOrDefault(a => a.id_angajat == assignment.id_angajat);
                         if (employee != null)
                         {
-                            _context.Angajats.DeleteOnSubmit(employee);
+                            _context.Angajats.Remove(employee);
                         }
 
-                        _context.Incadrare_Departaments.DeleteOnSubmit(assignment);
+                        _context.Incadrare_Departament.Remove(assignment);
                     }
 
-                    _context.Departaments.DeleteOnSubmit(department);
+                    _context.Departaments.Remove(department);
                 }
-                _context.Clinicas.DeleteOnSubmit(clinicToDelete);
-                _context.SubmitChanges();
+                _context.Clinicas.Remove(clinicToDelete);
+                _context.SaveChanges();
 
                 MessageBox.Show("Clinica și toate datele asociate au fost șterse cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
             }

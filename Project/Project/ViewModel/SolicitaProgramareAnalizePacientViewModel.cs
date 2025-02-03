@@ -25,7 +25,7 @@ namespace Project.ViewModel
         private string _judet;
         private string _adresa;
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
         private readonly ClinicaModel _clinicaModel;
         private readonly FormularAnalizeModel _formularModel;
         public ICommand TrimiteProgramareCommand { get; }
@@ -34,7 +34,7 @@ namespace Project.ViewModel
             NumeFormular = numeFormular;
             NumeClinica = numeClinica;
             _clinicaModel = new ClinicaModel();
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             _formularModel = new FormularAnalizeModel();
             TrimiteProgramareCommand = new BaseCommand(ExecuteTrimiteProgramare, CanExecuteTrimiteProgramare);
         }
@@ -126,8 +126,8 @@ namespace Project.ViewModel
                         adresa = Adresa
                     };
 
-                    _context.Pacients.InsertOnSubmit(pacientNou);
-                    _context.SubmitChanges();
+                    _context.Pacients.Add(pacientNou);
+                    _context.SaveChanges();
 
                     pacientID = pacientNou.id_pacient;
                 }
@@ -153,8 +153,8 @@ namespace Project.ViewModel
                     id_seflab=idSefLab
                 };
 
-                _context.Buletin_Analizes.InsertOnSubmit(buletinAnalizeNou);
-                _context.SubmitChanges();
+                _context.Buletin_Analize.Add(buletinAnalizeNou);
+                _context.SaveChanges();
 
                 if (parameter is Window window)
                 {

@@ -28,11 +28,11 @@ namespace Project.Model
 
         public List<string> ListaSpecializari { get; set; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public ClinicaModel()
         { 
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
         public ClinicaModel GetClinicaByMedicId(int medicId)
         { 
@@ -147,8 +147,8 @@ namespace Project.Model
                 Banca = clinic.Banca
             };
 
-            _context.Clinicas.InsertOnSubmit(newClinic);
-            _context.SubmitChanges();
+            _context.Clinicas.Add(newClinic);
+            _context.SaveChanges();
         }
     }
 }

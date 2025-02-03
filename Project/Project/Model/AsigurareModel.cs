@@ -14,11 +14,11 @@ namespace Project.Model
         public DateTime? DataExpirare { get; set; }
         int IdPacient { get; set; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public AsigurareModel()
         { 
-            _context= new CliniciDataContext();
+            _context= new CliniciEntities();
         }
 
         public bool isPacientInsured(int idPacient)

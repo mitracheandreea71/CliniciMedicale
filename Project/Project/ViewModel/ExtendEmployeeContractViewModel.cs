@@ -36,11 +36,11 @@ namespace Project.ViewModel
 
         public ICommand ExtendContractCommand { get; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public ExtendEmployeeContractViewModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             ExtendContractCommand = new BaseCommand(ExecuteExtendContract);
         }
 
@@ -89,7 +89,7 @@ namespace Project.ViewModel
 
 
                 functie.data_expirare_contract = NewExpiryDate;
-                _context.SubmitChanges();
+                _context.SaveChanges();
 
                 MessageBox.Show($"Contract extended successfully for '{EmployeeName}' until {NewExpiryDate:yyyy-MM-dd}.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 

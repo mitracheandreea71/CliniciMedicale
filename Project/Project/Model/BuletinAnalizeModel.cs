@@ -16,11 +16,11 @@ namespace Project.Model
         public FormularAnalizeModel FormularAnalize { get; set; }
         public string NumeSefLab { get; set; }
 
-        private CliniciDataContext _context;
+        private CliniciEntities _context;
 
         public BuletinAnalizeModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
 
         public string Data
@@ -45,7 +45,7 @@ namespace Project.Model
 
             foreach (var id in id_sefilab)
             {
-                var buletine = _context.Buletin_Analizes.Where(ba => ba.id_seflab == id);
+                var buletine = _context.Buletin_Analize.Where(ba => ba.id_seflab == id);
                 foreach (var buletin in buletine)
                 {
                     BuletinAnalizeModel buletinNou = new BuletinAnalizeModel
@@ -70,7 +70,7 @@ namespace Project.Model
         { 
             BuletinAnalizeModel buletinAnalize = new BuletinAnalizeModel ();
 
-            var buletine= _context.Buletin_Analizes.Where(ba => ba.id_buletin == idBuletin && ba.id_pacient == idpacient);
+            var buletine= _context.Buletin_Analize.Where(ba => ba.id_buletin == idBuletin && ba.id_pacient == idpacient);
 
             if (!buletine.Any())
                 return null;
@@ -89,7 +89,7 @@ namespace Project.Model
 
         public ObservableCollection<BuletinAnalizeModel> GetBuletineByMedicID(int medicId)
         {
-            var buletine = _context.Buletin_Analizes
+            var buletine = _context.Buletin_Analize
                 .Where(ba => ba.id_seflab == medicId)
                 .ToList();
 
@@ -120,7 +120,7 @@ namespace Project.Model
 
         public List<BuletinAnalizeModel> GetBuletineByPacientID(int idPacient)
         {
-            var buletine = _context.Buletin_Analizes
+            var buletine = _context.Buletin_Analize
                 .Where(ba => ba.id_pacient == idPacient)
                 .ToList();
 

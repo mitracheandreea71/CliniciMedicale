@@ -35,11 +35,11 @@ namespace Project.Model
         public int? IdClinica { get; set; }
 
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public MediciModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
 
         public MediciModel GetMedicByCaleImagine(string caleImagine)
@@ -50,7 +50,7 @@ namespace Project.Model
 
             if (medic != null)
             {
-                var programTure = _context.Incadrare_Departaments
+                var programTure = _context.Incadrare_Departament
                     .Where(i => i.id_angajat == medic.id_angajat)
                     .Select(i => new
                     {
@@ -94,7 +94,7 @@ namespace Project.Model
 
             foreach (var functie in functiiMedici)
             {
-                var programTure = _context.Incadrare_Departaments.Where(i => i.id_angajat == functie.Angajat.id_angajat)
+                var programTure = _context.Incadrare_Departament.Where(i => i.id_angajat == functie.Angajat.id_angajat)
                                                                  .Select(i => new
                                                                  {
                                                                      Intrare = i.intrare_tura,
@@ -134,7 +134,7 @@ namespace Project.Model
 
             foreach (var functie in functiiMedici)
             {
-                var programTure = _context.Incadrare_Departaments
+                var programTure = _context.Incadrare_Departament
                     .Where(i => i.id_angajat == functie.Angajat.id_angajat)
                     .Select(i => new
                     {
@@ -173,7 +173,7 @@ namespace Project.Model
         {
             var medici = from angajat in _context.Angajats
                          join functie in _context.Functies on angajat.id_angajat equals functie.id_angajat
-                         join incadrare in _context.Incadrare_Departaments on angajat.id_angajat equals incadrare.id_angajat
+                         join incadrare in _context.Incadrare_Departament on angajat.id_angajat equals incadrare.id_angajat
                          join specialitate in _context.Departaments on incadrare.id_departament equals specialitate.id_departament
                          where (functie.nume_functie == "Medic" || functie.nume_functie == "Sef Lab") && specialitate.denumire == departament
                          select angajat;
@@ -181,7 +181,7 @@ namespace Project.Model
             ObservableCollection<MediciModel> mediciRet = new ObservableCollection<MediciModel>();
            foreach (var medic in medici)
             {
-                var programTure = _context.Incadrare_Departaments.Where(i => i.id_angajat == medic.id_angajat)
+                var programTure = _context.Incadrare_Departament.Where(i => i.id_angajat == medic.id_angajat)
                                                                  .Select(i => new
                                                                  {
                                                                      Intrare = i.intrare_tura,
@@ -226,7 +226,7 @@ namespace Project.Model
             ObservableCollection<MediciModel> mediciRet = new ObservableCollection<MediciModel>();
             foreach (var medic in medici)
             {
-                var programTure = _context.Incadrare_Departaments.Where(i => i.id_angajat == medic.id_angajat)
+                var programTure = _context.Incadrare_Departament.Where(i => i.id_angajat == medic.id_angajat)
                                                                  .Select(i => new
                                                                  {
                                                                      Intrare = i.intrare_tura,
@@ -270,7 +270,7 @@ namespace Project.Model
             ObservableCollection<MediciModel> mediciRet = new ObservableCollection<MediciModel>();
             foreach (var medic in medici)
             {
-                var programTure = _context.Incadrare_Departaments.Where(i => i.id_angajat == medic.id_angajat)
+                var programTure = _context.Incadrare_Departament.Where(i => i.id_angajat == medic.id_angajat)
                                                                  .Select(i => new
                                                                  {
                                                                      Intrare = i.intrare_tura,
@@ -349,14 +349,14 @@ namespace Project.Model
         }
         public string getMedicDepartament(int medicId)
         {
-            var incadrare_departament = _context.Incadrare_Departaments.Where(d => d.id_angajat == medicId).ToList().First();
+            var incadrare_departament = _context.Incadrare_Departament.Where(d => d.id_angajat == medicId).ToList().First();
             var department = _context.Departaments.Where(d => d.id_departament == incadrare_departament.id_departament).ToList().First();
             return department.denumire;
         }
 
         public string getMedicClinic(int medicId)
         {
-            var incadrare_departament = _context.Incadrare_Departaments.Where(d => d.id_angajat == medicId).ToList().First();
+            var incadrare_departament = _context.Incadrare_Departament.Where(d => d.id_angajat == medicId).ToList().First();
             var department = _context.Departaments.Where(d => d.id_departament == incadrare_departament.id_departament).ToList().First();
             return department.Clinica.nume_clinica;
         }
@@ -368,7 +368,7 @@ namespace Project.Model
 
             if (medic != null)
             {
-                var programTure = _context.Incadrare_Departaments
+                var programTure = _context.Incadrare_Departament
                     .Where(i => i.id_angajat == medic.id_angajat)
                     .Select(i => new
                     {

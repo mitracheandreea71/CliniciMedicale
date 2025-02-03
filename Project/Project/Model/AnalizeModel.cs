@@ -18,21 +18,20 @@ namespace Project.Model
         public string ValoriReferinta {  set; get; }
         public string UnitateMasura { set; get; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
 
         public AnalizeModel()
         { 
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
 
         public ObservableCollection<AnalizeModel> GetAllAnalizeForFormular(int formularID)
         {
             ObservableCollection<AnalizeModel> analizeRet = new ObservableCollection<AnalizeModel>();
 
-            var analizeT = from analize in _context.Analizes
-                           join ap_formular in _context.Apartenenta_Formulars on analize.id_analiza equals ap_formular.id_analiza
-                           where ap_formular.id_formular == formularID
-                           select analize;
+            var formular = _context.Formular_Analize.Where(t => t.id_formular == formularID).ToList().First();
+
+            var analizeT = formular.Analizes;
 
             foreach (var iterator in analizeT)
             {
@@ -51,7 +50,7 @@ namespace Project.Model
         }
         public ObservableCollection<string> GetAllAnalizeType() 
         {
-            var tipuriAnalize = _context.Formular_Analizes.Select(formular => formular.tip_analize)
+            var tipuriAnalize = _context.Formular_Analize.Select(formular => formular.tip_analize)
                                           .Distinct()
                                           .ToList();
             return new ObservableCollection<string>(tipuriAnalize);

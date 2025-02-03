@@ -22,11 +22,11 @@ namespace Project.ViewModel
         private readonly ClinicaModel _clinicaModel;
         public ICommand MaiDeparteCommand { get; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
         public SolicitaProgramareDepartamentSiMedicViewModel(string numeClinica)
         {
             _numeClinica = numeClinica;
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
             _clinicaModel = new ClinicaModel();
             Departamente = new ObservableCollection<string>();
             Medici = new ObservableCollection<string>();

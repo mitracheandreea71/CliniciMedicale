@@ -27,10 +27,10 @@ namespace Project.Model
         public string Departament { get; set; }
         public int? IdClinica { get; set; }
 
-        private readonly CliniciDataContext _context;
+        private readonly CliniciEntities _context;
         public AsistentiModel()
         {
-            _context = new CliniciDataContext();
+            _context = new CliniciEntities();
         }
         public int? GetAsistentIdByFullName(string fullName)
         {
@@ -53,7 +53,7 @@ namespace Project.Model
 
             if (asistent != null)
             {
-                var programTure = _context.Incadrare_Departaments
+                var programTure = _context.Incadrare_Departament
                     .Where(i => i.id_angajat == asistent.id_angajat)
                     .Select(i => new
                     {
@@ -92,7 +92,7 @@ namespace Project.Model
         {
             var asistenti = from angajat in _context.Angajats
                          join functie in _context.Functies on angajat.id_angajat equals functie.id_angajat
-                         join incadrare in _context.Incadrare_Departaments on angajat.id_angajat equals incadrare.id_angajat
+                         join incadrare in _context.Incadrare_Departament on angajat.id_angajat equals incadrare.id_angajat
                          join specialitate in _context.Departaments on incadrare.id_departament equals specialitate.id_departament
                          where functie.nume_functie == "Asistent" && specialitate.denumire == departament
                          select angajat;
@@ -100,7 +100,7 @@ namespace Project.Model
             ObservableCollection<AsistentiModel> asistRet = new ObservableCollection<AsistentiModel>();
             foreach (var medic in asistenti)
             {
-                var programTure = _context.Incadrare_Departaments.Where(i => i.id_angajat == medic.id_angajat)
+                var programTure = _context.Incadrare_Departament.Where(i => i.id_angajat == medic.id_angajat)
                                                                  .Select(i => new
                                                                  {
                                                                      Intrare = i.intrare_tura,
