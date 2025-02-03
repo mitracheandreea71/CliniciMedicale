@@ -1,8 +1,14 @@
-﻿using Project.Commands;
-using Project.Model;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using PdfSharp.Charting;
+using Project.Commands;
+using Project.Model;
+
 
 namespace Project.ViewModel
 {
@@ -12,31 +18,26 @@ namespace Project.ViewModel
         public string NumeClinica { get; }
 
         private DateTime? _dataProgramare;
+
         private string _cnp;
         private string _nume;
         private string _prenume;
         private string _judet;
         private string _adresa;
 
+        private readonly CliniciEntities _context;
         private readonly ClinicaModel _clinicaModel;
         private readonly FormularAnalizeModel _formularModel;
-        private readonly PacientModel _pacientModel;
-        private readonly BuletinAnalizeModel _buletinAnalizeModel;
-
         public ICommand TrimiteProgramareCommand { get; }
-
         public SolicitaProgramareAnalizePacientViewModel(string numeFormular, string numeClinica)
         {
             NumeFormular = numeFormular;
             NumeClinica = numeClinica;
             _clinicaModel = new ClinicaModel();
+            _context = new CliniciEntities();
             _formularModel = new FormularAnalizeModel();
-            _pacientModel = new PacientModel();
-            _buletinAnalizeModel = new BuletinAnalizeModel();
-
             TrimiteProgramareCommand = new BaseCommand(ExecuteTrimiteProgramare, CanExecuteTrimiteProgramare);
         }
-
         public DateTime? DataProgramare
         {
             get => _dataProgramare;
@@ -76,7 +77,6 @@ namespace Project.ViewModel
                 OnPropertyChanged(nameof(Prenume));
             }
         }
-
         public string Judet
         {
             get => _judet;
@@ -86,7 +86,6 @@ namespace Project.ViewModel
                 OnPropertyChanged(nameof(Judet));
             }
         }
-
         public string Adresa
         {
             get => _adresa;
@@ -112,24 +111,50 @@ namespace Project.ViewModel
 
             try
             {
-                int pacientID = _pacientModel.GetOrCreatePacient(CNP, Nume, Prenume, Judet, Adresa);
-
-                int idFormular = _formularModel.GetIdByName(NumeFormular);
-                int idClinica = _clinicaModel.GetIdByName(NumeClinica);
-
-                int? idSefLab = _buletinAnalizeModel.GetSefLabByClinicaId(idClinica);
-                if (!idSefLab.HasValue)
+                //verifica existenta pacient daca nu exista este adaugat in tabela Pacient
+                
+                var pacientExistent = _context.Pacients.FirstOrDefault(p => p.id_pacient.ToString() == CNP);
+                int pacientID;
+                if (pacientExistent == null)
                 {
-                    MessageBox.Show("Nu s-a găsit un șef de laborator pentru această clinică.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
+                    var pacientNou = new Pacient
+                    {
+                        id_pacient = int.Parse(CNP),
+                        nume = Nume,
+                        prenume = Prenume,
+                        judet = Judet,
+                        adresa = Adresa
+                    };
+
+                    _context.Pacients.Add(pacientNou);
+                    _context.SaveChanges();
+
+                    pacientID = pacientNou.id_pacient;
+                }
+                else
+                {
+                    pacientID = pacientExistent.id_pacient;
                 }
 
+                int idFormular = _formularModel.GetIdByName(NumeFormular);
+                int idClinica= _clinicaModel.GetIdByName(NumeClinica);
+                var sefLab = _context.Functies.FirstOrDefault(s => s.nume_functie == "Sef Lab" && s.id_clinica == idClinica);
+
+                int idSefLab = (int)sefLab.id_angajat;
+
                 TimeSpan hour = new TimeSpan(7, 0, 0);
-                DateTime dataRecoltare = DataProgramare.Value.Date + hour;
+                DataProgramare = DataProgramare + hour;
 
-                _buletinAnalizeModel.AddBuletinAnalize(idFormular, pacientID, dataRecoltare, idSefLab.Value);
+                var buletinAnalizeNou = new Buletin_Analize
+                {
+                    id_formular_analize =idFormular,
+                    id_pacient= int.Parse(CNP),
+                    data_recoltare=DataProgramare,
+                    id_seflab=idSefLab
+                };
 
-                MessageBox.Show("Programarea a fost trimisă cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+                _context.Buletin_Analize.Add(buletinAnalizeNou);
+                _context.SaveChanges();
 
                 if (parameter is Window window)
                 {
@@ -146,5 +171,7 @@ namespace Project.ViewModel
         {
             return true;
         }
+
+
     }
 }

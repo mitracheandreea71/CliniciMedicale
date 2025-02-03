@@ -15,8 +15,6 @@ namespace Project.Model
         public string intrare_tura { get; set; }
         public string iesire_tura { get; set; }
 
-        public string Activ { set; get; }
-
         private readonly CliniciEntities _context;
 
         public IncadrareDepartamentModel()
@@ -90,7 +88,6 @@ namespace Project.Model
                 id_angajat = this.id_angajat,
                 intrare_tura = this.intrare_tura,
                 iesire_tura = this.iesire_tura
-                // Setează alte proprietăți dacă este necesar
             };
 
             _context.Incadrare_Departament.Add(entity);

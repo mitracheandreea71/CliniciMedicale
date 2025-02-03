@@ -18,8 +18,6 @@ namespace Project.Model
         public string ValoriReferinta {  set; get; }
         public string UnitateMasura { set; get; }
 
-        public string Activ { set; get; }
-
         private readonly CliniciEntities _context;
 
         public AnalizeModel()

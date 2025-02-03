@@ -33,9 +33,7 @@ namespace Project.Model
         public string Functie { get; set; }
         public string DataIncadrare { get; set; }
         public int? IdClinica { get; set; }
-
         public string Activ { get; set; }
-
 
         private readonly CliniciEntities _context;
 
@@ -81,7 +79,8 @@ namespace Project.Model
                     Program = ProgramMedic,
                     Functie = FunctieMedic.nume_functie,
                     DataIncadrare = FunctieMedic.data_incadrare.ToString(),
-                    IdClinica = FunctieMedic.id_clinica
+                    IdClinica = FunctieMedic.id_clinica,
+                    Activ =  medic.activ
                 };
             }
 
@@ -120,7 +119,8 @@ namespace Project.Model
                         Program = ProgramMedic,
                         Functie = functie.nume_functie,
                         DataIncadrare = functie.data_incadrare.ToString(),
-                        IdClinica = functie.id_clinica
+                        IdClinica = functie.id_clinica,
+                        Activ = functie.Angajat.activ
                     }
                     );
             }
@@ -128,25 +128,6 @@ namespace Project.Model
             return medici;
         }
 
-        public bool DeleteEmployeesByDepartment(string departmentName)
-        {
-            var employees = _context.Angajats.Where(e => e.specialitate == departmentName).ToList();
-            if (!employees.Any()) return false;
-
-            foreach (var employee in employees)
-            {
-                var functions = _context.Functies.Where(f => f.id_angajat == employee.id_angajat).ToList();
-                _context.Functies.RemoveRange(functions);
-
-                var incadrari = _context.Incadrare_Departament.Where(i => i.id_angajat == employee.id_angajat).ToList();
-                _context.Incadrare_Departament.RemoveRange(incadrari);
-
-                _context.Angajats.Remove(employee);
-            }
-
-            _context.SaveChanges();
-            return true;
-        }
         public ObservableCollection<MediciModel> GetAllAngajati()
         {
             ObservableCollection<MediciModel> angajati = new ObservableCollection<MediciModel>();
@@ -182,72 +163,14 @@ namespace Project.Model
                     Program = ProgramMedic,
                     Functie = functie.nume_functie ?? string.Empty,
                     DataIncadrare = functie.data_incadrare?.ToString() ?? string.Empty,
-                    IdClinica = functie.id_clinica
+                    IdClinica = functie.id_clinica,
+                    Activ = functie.Angajat.activ
                 });
             }
 
             return angajati;
         }
 
-        public bool AddEmployee(
-            string titulatura, string nume, string prenume, string username, string parola,
-            string email, string telefon, string functie, string sectie, int? idClinica,
-            DateTime? dataIncadrare, DateTime? dataExpirare, string intrareTura, string iesireTura)
-        {
-            try
-            {
-                var newAngajat = new Angajat
-                {
-                    titulatura = titulatura,
-                    nume = nume,
-                    prenume = prenume,
-                    username = username,
-                    parola = parola,
-                    email = email,
-                    telefon = telefon,
-                    specialitate = sectie,
-                    imagine_cale = null,
-                    rating = titulatura == "Admin" ? (decimal?)null : 0
-                };
-
-                _context.Angajats.Add(newAngajat);
-                _context.SaveChanges();
-
-                int newEmployeeId = newAngajat.id_angajat;
-
-                _context.Functies.Add(new Functie
-                {
-                    id_angajat = newEmployeeId,
-                    id_clinica = idClinica,
-                    nume_functie = functie,
-                    data_incadrare = dataIncadrare,
-                    data_expirare_contract = dataExpirare
-                });
-                _context.SaveChanges();
-
-                if (functie != "Admin" && functie != "Sef Lab" && idClinica.HasValue)
-                {
-                    var departament = _context.Departaments.FirstOrDefault(d => d.denumire == sectie);
-                    if (departament != null)
-                    {
-                        _context.Incadrare_Departament.Add(new Incadrare_Departament
-                        {
-                            id_departament = departament.id_departament,
-                            id_angajat = newEmployeeId,
-                            intrare_tura = intrareTura,
-                            iesire_tura = iesireTura
-                        });
-                        _context.SaveChanges();
-                    }
-                }
-
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
 
         public ObservableCollection<MediciModel> GetAllMediciPentruDepartament(string departament)
         {
@@ -287,7 +210,8 @@ namespace Project.Model
                         Program = ProgramMedic,
                         Functie = FunctieMedic.nume_functie,
                         DataIncadrare = FunctieMedic.data_incadrare.ToString(),
-                        IdClinica = FunctieMedic.id_clinica
+                        IdClinica = FunctieMedic.id_clinica,
+                        Activ = FunctieMedic.activ,
                     }
                     );
             }
@@ -331,7 +255,8 @@ namespace Project.Model
                         Program = ProgramMedic,
                         Functie = FunctieMedic.nume_functie,
                         DataIncadrare = FunctieMedic.data_incadrare.ToString(),
-                        IdClinica = FunctieMedic.id_clinica
+                        IdClinica = FunctieMedic.id_clinica,
+                        Activ = FunctieMedic.activ
                     }
                     );
             }
@@ -376,7 +301,8 @@ namespace Project.Model
                         Program = ProgramMedic,
                         Functie = FunctieMedic.nume_functie,
                         DataIncadrare = FunctieMedic.data_incadrare.ToString(),
-                        IdClinica = FunctieMedic.id_clinica
+                        IdClinica = FunctieMedic.id_clinica,
+                        Activ = FunctieMedic.activ
                     }
                     );
             }
@@ -485,47 +411,6 @@ namespace Project.Model
             return null;
         }
 
-        public List<string> GetMediciByDepartamentAndClinica(string departament, string clinica)
-        {
-            int idClinica = _context.Clinicas.FirstOrDefault(c => c.nume_clinica == clinica)?.id_clinica ?? 0;
 
-            return (from angajat in _context.Angajats
-                    join functie in _context.Functies on angajat.id_angajat equals functie.id_angajat
-                    where angajat.specialitate == departament
-                          && angajat.titulatura.Contains("Dr")
-                          && functie.id_clinica == idClinica
-                    select angajat.titulatura + " " + angajat.nume + " " + angajat.prenume)
-                .ToList();
-        }
-
-        public bool DeleteEmployeeById(int idAngajat)
-        {
-            try
-            {
-                var functie = _context.Functies.FirstOrDefault(f => f.id_angajat == idAngajat);
-                if (functie != null)
-                {
-                    _context.Functies.Remove(functie);
-                }
-
-                var incadrari = _context.Incadrare_Departament.Where(i => i.id_angajat == idAngajat).ToList();
-                if (incadrari.Any())
-                {
-                    _context.Incadrare_Departament.RemoveRange(incadrari);
-                }
-
-                var angajat = _context.Angajats.FirstOrDefault(a => a.id_angajat == idAngajat);
-                if (angajat == null)
-                    return false;
-
-                _context.Angajats.Remove(angajat);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
     }
 }

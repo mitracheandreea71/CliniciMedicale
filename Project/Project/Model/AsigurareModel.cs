@@ -14,8 +14,6 @@ namespace Project.Model
         public DateTime? DataExpirare { get; set; }
         int IdPacient { get; set; }
 
-        public string Activ { set; get; }
-
         private readonly CliniciEntities _context;
 
         public AsigurareModel()

@@ -15,14 +15,15 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Introduceti CNP-ul:" 
+            <TextBlock Text="Id-ul Pacientului:" 
                        VerticalAlignment="Center" 
                        Margin="5,0,340,0"
                        FontSize="20"
                        Grid.Column="0" Grid.ColumnSpan="2" />
 
             <TextBox Name="CnpTextBox" 
-                     Text="{Binding Cnp, UpdateSourceTrigger=PropertyChanged}" 
+                     Text="{Binding Cnp, UpdateSourceTrigger=PropertyChanged}"
+                     IsReadOnly="True"
                      Width="304" 
                      Height="38" 
                      HorizontalAlignment="Right" 

@@ -21,7 +21,7 @@
                Stretch="Uniform" />
 
 
-        <Button x:Name="MainWindowBttn" HorizontalAlignment="Left" Margin="47,26,0,0" VerticalAlignment="Top" Background="Transparent" Width="91" Height="89" Click="MainWindowBttn_Click" Focusable="True">
+        <Button x:Name="MainWindowBttn" HorizontalAlignment="Left" Margin="47,26,0,0" VerticalAlignment="Top" Background="Transparent" Width="91" Height="89" Focusable="True">
             <Button.Content>
                 <Image x:Name="MainWindowImg" Source="/Images/logo.png" Stretch="Fill"/>
             </Button.Content>
@@ -187,7 +187,7 @@
                 Background="DarkRed"
                 BorderBrush="Black"
                 BorderThickness="1"
-                Margin="34,384,34,0"
+                Margin="34,353,34,0"
                  Click="LogareBttn_Click"
                 VerticalAlignment="Top">
                     <Button.Style>
@@ -201,6 +201,35 @@
                                         CornerRadius="10">
                                             <ContentPresenter HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="InregistrareCont_Bttn" Content="Inregistrare cont"
+                    Height="55"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Background="DarkRed"
+                    BorderBrush="Black"
+                    BorderThickness="1"
+                    Margin="34,438,34,0"
+                    Click="InregistrareContBttn_Click"
+                    VerticalAlignment="Top">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="10">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"/>
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>

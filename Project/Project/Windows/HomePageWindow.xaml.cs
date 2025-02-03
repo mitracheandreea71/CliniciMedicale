@@ -1,4 +1,5 @@
-﻿using Project.View;
+﻿using Project.Model;
+using Project.View;
 using Project.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project
+namespace Project.Windows
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Interaction logic for HomePageWindow.xaml
+    /// </summary>
+    public partial class HomePageWindow : Window
     {
-        public MainWindow()
+        public HomePageWindow(PacientModel pacient)
         {
-            DataContext = new MainWindowViewModel();
+            DataContext = new HomePageWindowViewModel(pacient);
             InitializeComponent();
+        }
+
+        private void ProgramareBttn_Click(object sender, RoutedEventArgs e)
+        {
+            SolicitaProgramareClinicaWindow wd = new SolicitaProgramareClinicaWindow();
+            wd.Show();
         }
     }
 }

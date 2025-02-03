@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using Project.Commands;
@@ -21,11 +22,11 @@ namespace Project.ViewModel
 
         public ICommand DeleteEmployeeCommand { get; }
 
-        private readonly MediciModel _mediciModel;
+        private readonly CliniciEntities _context;
 
         public DeleteEmployeeViewModel()
         {
-            _mediciModel = new MediciModel();
+            _context = new CliniciEntities();
             DeleteEmployeeCommand = new BaseCommand(ExecuteDeleteEmployee);
         }
 
@@ -39,21 +40,31 @@ namespace Project.ViewModel
 
             try
             {
-                int? idAngajat = _mediciModel.GetMedicIdByNumeCompletFaraTitulatura(EmployeeName);
+                var mediciModel = new MediciModel();
+                int? idAngajat =  mediciModel.GetMedicIdByNumeCompletFaraTitulatura(EmployeeName);
                 if (idAngajat == null)
                 {
                     MessageBox.Show($"Error: Employee '{EmployeeName}' not found.", "Not Found", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-
-                bool isDeleted = _mediciModel.DeleteEmployeeById(idAngajat.Value);
-                if (!isDeleted)
+                var functie = _context.Functies.FirstOrDefault(f => f.id_angajat == idAngajat);
+                if (functie != null)
                 {
-                    MessageBox.Show("Error: Unable to delete employee.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
+                    _context.Functies.Remove(functie);
                 }
 
+                var incadrari = _context.Incadrare_Departament.Where(i => i.id_angajat == idAngajat).ToList();
+                if (incadrari.Any())
+                {
+                    _context.Incadrare_Departament.RemoveRange(incadrari);
+                }
+                var angajat = _context.Angajats.FirstOrDefault(a => a.id_angajat == idAngajat);
+                _context.Angajats.Remove(angajat);
+
+                _context.SaveChanges();
+
                 MessageBox.Show($"Employee '{EmployeeName}' deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 EmployeeName = string.Empty;
             }
             catch (Exception ex)

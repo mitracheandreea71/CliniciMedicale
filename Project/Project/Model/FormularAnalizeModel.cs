@@ -20,8 +20,6 @@ namespace Project.Model
         public string Decontabile { get; set; }
         public string NumeFormular { get; set; }
         public string CaleImagine {  get; set; }
-
-        public string Activ { set; get; }
         public ObservableCollection<AnalizeModel> ListaAnalize { get; set; }
 
         private readonly CliniciEntities _context;
